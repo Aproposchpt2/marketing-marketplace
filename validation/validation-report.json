@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "branch": "seo-marketing-marketplace-production-v1",
+  "production_modified": false,
+  "pages_validated": 15,
+  "page_results": [
+    {
+      "page": "404.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 0,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/analyze-fit/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/business-readiness/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/community-economic-development/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/concierge-contract-service/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/federal-contract-intelligence/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/institutional-partnerships/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/proposal-development/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "campaigns/state-local-contract-opportunities/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 15,
+      "images": 0
+    },
+    {
+      "page": "concierge-contract-service/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 14,
+      "images": 0
+    },
+    {
+      "page": "contract-proposal-development/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 14,
+      "images": 0
+    },
+    {
+      "page": "events/las-vegas-business-expo-2026/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 20,
+      "images": 1
+    },
+    {
+      "page": "index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 0,
+      "links": 41,
+      "images": 0
+    },
+    {
+      "page": "partners/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 1,
+      "links": 14,
+      "images": 0
+    },
+    {
+      "page": "thank-you/index.html",
+      "metadata": true,
+      "h1_count": 1,
+      "jsonld_blocks": 1,
+      "forms": 0,
+      "links": 15,
+      "images": 0
+    }
+  ],
+  "metadata_validation": "PASS",
+  "schema_validation": "PASS",
+  "link_validation": {
+    "internal": "PASS",
+    "broken_internal": [],
+    "external_platform_checks": [
+      {
+        "url": "https://ngcc.aproposgroupllc.com",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "url": "https://natcorp.aproposgroupllc.com",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "url": "https://nebc.aproposgroupllc.com",
+        "status": 200,
+        "ok": true
+      }
+    ],
+    "note": "External HEAD failures are warnings because some production sites may reject automated HEAD requests."
+  },
+  "form_validation": "PASS",
+  "analytics_event_validation": "PASS",
+  "image_validation": "PASS",
+  "critical_failures": {
+    "metadata": [],
+    "schema": [],
+    "headings": [],
+    "internal_links": [],
+    "forms": [],
+    "images": [],
+    "required_homepage_content": [],
+    "analytics": [],
+    "required_files": []
+  }
+}
