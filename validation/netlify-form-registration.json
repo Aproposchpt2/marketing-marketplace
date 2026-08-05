@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "site_id": "08e66b8c-7b7b-48eb-948a-f087d80f552e",
+  "site_name": "marketing-marketplace",
+  "forms_enabled": true,
+  "deploy_context": "deploy-preview",
+  "deploy_preview": "https://deploy-preview-1--marketing-marketplace.netlify.app",
+  "forms_registered": 12,
+  "test_submissions_created": 0,
+  "honeypot_enabled_for_all": true,
+  "registered_forms": [
+    "institutional-partnership-inquiry",
+    "las-vegas-business-expo-2026-follow-up",
+    "proposal-development-review",
+    "concierge-contract-service-inquiry",
+    "campaign-state-local-contract-opportunities",
+    "campaign-proposal-development",
+    "campaign-institutional-partnerships",
+    "campaign-federal-contract-intelligence",
+    "campaign-concierge-contract-service",
+    "campaign-community-economic-development",
+    "campaign-business-readiness",
+    "campaign-analyze-fit"
+  ],
+  "note": "Netlify registered the forms from the review-only deploy preview. No production content deployment or validation lead submission was performed."
+}
