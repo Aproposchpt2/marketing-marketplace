@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "title": [
+    "APROPOS Marketing Marketplace | Programs, Services and Opportunity"
+  ],
+  "description": "Explore APROPOS business-development programs, government contract intelligence, Analyze Fit services, free trials, proposal support, and partnership opportunities.",
+  "canonical": "https://marketplace.aproposgroupllc.com/",
+  "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+  "jsonld_blocks": 1,
+  "jsonld_types": [
+    "ItemList",
+    "ListItem",
+    "Offer",
+    "Organization",
+    "Service",
+    "WebSite"
+  ],
+  "offer_prices": [
+    {
+      "path": "$[0].@graph[3].offers",
+      "name": "NGCC Monthly Subscription",
+      "price": "99.00"
+    },
+    {
+      "path": "$[0].@graph[4].offers",
+      "name": "NAT-CORP Monthly Subscription",
+      "price": "119.00"
+    },
+    {
+      "path": "$[0].@graph[5].offers",
+      "name": "NEBC Monthly Subscription",
+      "price": "39.00"
+    },
+    {
+      "path": "$[0].@graph[6].offers",
+      "name": "Additional Analyze Fit Report",
+      "price": "15.00"
+    }
+  ],
+  "concierge_price_absent": true,
+  "social_image": {
+    "exists": true,
+    "width": 1200,
+    "height": 630,
+    "format": "JPEG"
+  },
+  "product_link_tests": [
+    {
+      "url": "https://ngcc.aproposgroupllc.com/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://natcorp.aproposgroupllc.com/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://nebc.aproposgroupllc.com/",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "trial_ctas": [
+    {
+      "class": "btn-gold",
+      "data-trial-cta": "ngcc",
+      "href": "https://ngcc.aproposgroupllc.com/",
+      "text": "Start 14-Day Free Trial"
+    },
+    {
+      "class": "btn-gold",
+      "data-trial-cta": "natcorp",
+      "href": "https://natcorp.aproposgroupllc.com/",
+      "text": "Start 14-Day Free Trial"
+    },
+    {
+      "class": "btn-gold",
+      "data-trial-cta": "nebc",
+      "href": "https://nebc.aproposgroupllc.com/",
+      "text": "Start 14-Day Free Trial"
+    }
+  ],
+  "forms_preserved": {
+    "status": "PASS",
+    "before": {
+      "forms": 0,
+      "links": 26,
+      "images": 0,
+      "bytes": 341755
+    },
+    "after": {
+      "forms": 0,
+      "links": 29,
+      "images": 0,
+      "bytes": 351284
+    }
+  },
+  "robots_txt": true,
+  "sitemap_xml": true,
+  "production_indexable": true,
+  "failures": []
+}

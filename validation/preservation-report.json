@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "before": {
+    "forms": 0,
+    "links": 26,
+    "images": 0,
+    "bytes": 341755
+  },
+  "after": {
+    "forms": 0,
+    "links": 29,
+    "images": 0,
+    "bytes": 351284
+  }
+}
