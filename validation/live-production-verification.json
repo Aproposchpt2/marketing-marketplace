@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "production_url": "https://marketplace.aproposgroupllc.com/",
+  "homepage_http_status": 200,
+  "deployed_title": [
+    "APROPOS Marketing Marketplace | Programs, Services and Opportunity"
+  ],
+  "deployed_description": [
+    "Explore APROPOS business-development programs, government contract intelligence, Analyze Fit services, free trials, proposal support, and partnership opportunities."
+  ],
+  "canonical": [
+    "https://marketplace.aproposgroupllc.com/"
+  ],
+  "robots_meta": [
+    "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+  ],
+  "jsonld_blocks": 1,
+  "jsonld_types": [
+    "ItemList",
+    "ListItem",
+    "Offer",
+    "Organization",
+    "Service",
+    "WebSite"
+  ],
+  "offer_prices": [
+    {
+      "name": "NGCC Monthly Subscription",
+      "price": "99.00"
+    },
+    {
+      "name": "NAT-CORP Monthly Subscription",
+      "price": "119.00"
+    },
+    {
+      "name": "NEBC Monthly Subscription",
+      "price": "39.00"
+    },
+    {
+      "name": "Additional Analyze Fit Report",
+      "price": "15.00"
+    }
+  ],
+  "concierge_price_absent": true,
+  "social_image": {
+    "status": 200,
+    "width": 1200,
+    "height": 630,
+    "format": "JPEG",
+    "content_type": "image/jpeg"
+  },
+  "product_links": [
+    {
+      "url": "https://ngcc.aproposgroupllc.com/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://natcorp.aproposgroupllc.com/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://nebc.aproposgroupllc.com/",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "robots_txt": {
+    "status": 200,
+    "indexable": true
+  },
+  "sitemap_xml": {
+    "status": 200,
+    "homepage_present": true
+  },
+  "form_test": {
+    "live_homepage_form_count": 0,
+    "result": "N/A \u2014 the production homepage contains no forms; source preservation verified zero before and zero after."
+  },
+  "response_headers": {
+    "Content-Type": "text/html; charset=UTF-8",
+    "Cache-Control": "public,max-age=0,must-revalidate"
+  },
+  "failures": []
+}
