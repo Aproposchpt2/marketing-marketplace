@@ -1,0 +1,92 @@
+name: APROPOS Marketplace Hero Branding Correction
+
+on:
+  push:
+    branches:
+      - seo-marketplace-landing-pages-v1
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-corrections:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: seo-marketplace-landing-pages-v1
+          fetch-depth: 0
+
+      - name: Apply approved hero and branding corrections
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+
+          replacements = {
+              '<title>APROPOS Marketing Marketplace | Programs, Services and Opportunity</title>': '<title>Government Contract Marketplace &amp; Business Opportunities | APROPOS</title>',
+              '<meta name="description" content="Explore APROPOS business-development programs, government contract intelligence, Analyze Fit services, free trials, proposal support, and partnership opportunities.">': '<meta name="description" content="Discover APROPOS government contract programs, federal and state opportunity pathways, contractor participation resources, proposal development services, and business readiness solutions.">',
+              '<meta property="og:title" content="APROPOS Marketing Marketplace | Programs, Services and Opportunity">': '<meta property="og:title" content="Government Contract Marketplace &amp; Business Opportunities | APROPOS">',
+              '<meta property="og:description" content="Explore APROPOS programs, government contract intelligence, business-development services, free trials, Analyze Fit, and partnership pathways.">': '<meta property="og:description" content="Discover APROPOS government contract services, federal opportunities, state procurement pathways, proposal development, and business readiness resources.">',
+              '<meta name="twitter:title" content="APROPOS Marketing Marketplace | Programs, Services and Opportunity">': '<meta name="twitter:title" content="Government Contract Marketplace &amp; Business Opportunities | APROPOS">',
+              '<meta name="twitter:description" content="Explore APROPOS products, free trials, Analyze Fit, proposal support, campaigns, and partnership opportunities.">': '<meta name="twitter:description" content="Discover APROPOS government contract services, federal opportunities, state procurement pathways, proposal development, and business readiness resources.">',
+              '<span class="cca-mark">NBCC</span>': '<span class="cca-mark">AMM</span>',
+              '<span class="cca-name">APROPOS Marketing Marketplace<small>THE MARKETPLACE FOR OPPORTUNITY</small></span>': '<span class="cca-name">APROPOS Marketing Marketplace<small>GOVERNMENT CONTRACT MARKETPLACE</small></span>',
+              '<div class="hero-eyebrow">Apropos Group LLC &middot; Government Contract Marketplace</div>': '<div class="hero-eyebrow">APROPOS GROUP LLC &middot; APROPOS MARKETING MARKETPLACE</div>',
+              '<h1 class="hero-title">The Marketplace<br>for Opportunity</h1>': '<h1 class="hero-title">The Government Contract Marketplace<br>for Business Opportunity</h1>',
+              '<p class="marketplace-positioning-correction">Explore APROPOS programs, services, campaigns, and opportunity pathways.</p>': '<p class="marketplace-positioning-correction">Discover APROPOS government contract services, federal and state opportunity pathways, business readiness resources, contractor participation, proposal development services, and business growth solutions through the APROPOS Marketing Marketplace.</p>',
+              '<span class="cca-name">National Business<br>Contract Center</span>': '<span class="cca-name">APROPOS Marketing<br>Marketplace</span>',
+          }
+
+          missing = []
+          for old, new in replacements.items():
+              if old not in text:
+                  missing.append(old)
+              text = text.replace(old, new)
+
+          if missing:
+              raise SystemExit("Expected source text not found:\n" + "\n---\n".join(missing))
+
+          if "NBCC" in text:
+              raise SystemExit("NBCC branding remains in index.html")
+
+          if text.count('<h1 class="hero-title">') != 1:
+              raise SystemExit("Expected exactly one primary hero H1")
+
+          path.write_text(text, encoding="utf-8")
+
+      - name: Validate approved changes
+        shell: python
+        run: |
+          from pathlib import Path
+          text = Path("index.html").read_text(encoding="utf-8")
+          checks = [
+              "The Government Contract Marketplace<br>for Business Opportunity",
+              "APROPOS GROUP LLC &middot; APROPOS MARKETING MARKETPLACE",
+              "Government Contract Marketplace &amp; Business Opportunities | APROPOS",
+              "Discover APROPOS government contract programs, federal and state opportunity pathways",
+              '<span class="cca-mark">AMM</span>',
+              "APROPOS Marketing<br>Marketplace",
+          ]
+          missing = [item for item in checks if item not in text]
+          if missing:
+              raise SystemExit("Validation failed: " + repr(missing))
+          if "NBCC" in text:
+              raise SystemExit("Validation failed: NBCC remains")
+          print("Hero, branding, and metadata validation passed.")
+
+      - name: Commit validated corrections
+        run: |
+          git config user.name "APROPOS Marketplace SEO Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Correct Marketplace hero H1 and branding"
+            git push origin HEAD:seo-marketplace-landing-pages-v1
+          fi
