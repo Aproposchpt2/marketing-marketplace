@@ -1,0 +1,131 @@
+name: Marketplace Commercial Drift Remediation
+
+on:
+  push:
+    branches:
+      - agent/marketplace-commercial-drift-fix
+
+permissions:
+  contents: write
+
+jobs:
+  remediate-validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out controlled branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/marketplace-commercial-drift-fix
+          fetch-depth: 0
+
+      - name: Verify authorized base ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor 555ddd3a27726884b3d21d5c03c7facd9879602c HEAD
+          echo "Authorized base is an ancestor of the controlled branch."
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Apply commercial-copy correction and source validation
+        run: python scripts/remediate_marketplace_commercial_drift.py
+
+      - name: Confirm source-only scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "--- Working tree after remediation ---"
+          git status --short
+          changed="$(git diff --name-only)"
+          test "$changed" = "index.html"
+          echo "Only index.html is modified by the remediation."
+          echo "--- Focused diff ---"
+          git diff -- index.html
+
+      - name: Validate desktop and mobile rendering
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/marketplace-validation
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/marketplace-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 2
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+
+          expected_h1 = "The Government Contract Marketplace for Business Opportunity"
+          out = Path('/tmp/marketplace-validation')
+          results = []
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              for name, width, height in [
+                  ('desktop', 1440, 1000),
+                  ('mobile', 390, 844),
+              ]:
+                  page = browser.new_page(viewport={'width': width, 'height': height})
+                  page_errors = []
+                  page.on('pageerror', lambda exc, bag=page_errors: bag.append(str(exc)))
+                  response = page.goto('http://127.0.0.1:8765/', wait_until='networkidle')
+                  h1 = ' '.join(page.locator('h1').first.inner_text().split())
+                  overflow = page.evaluate('document.documentElement.scrollWidth - window.innerWidth')
+                  screenshot = out / f'{name}-homepage.png'
+                  page.screenshot(path=str(screenshot), full_page=True)
+                  result = {
+                      'viewport': name,
+                      'http_status': response.status if response else None,
+                      'h1': h1,
+                      'horizontal_overflow_px': overflow,
+                      'page_errors': page_errors,
+                      'screenshot': screenshot.name,
+                  }
+                  results.append(result)
+                  assert response and response.ok, result
+                  assert h1 == expected_h1, result
+                  assert overflow <= 4, result
+                  assert not page_errors, result
+                  page.close()
+              browser.close()
+
+          (out / 'layout-validation.json').write_text(json.dumps({'status':'PASS','results':results}, indent=2))
+          print(json.dumps({'status':'PASS','results':results}, indent=2))
+          PY
+
+      - name: Upload validation checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketplace-commercial-drift-validation
+          path: |
+            /tmp/commercial-drift-validation.json
+            /tmp/marketplace-validation/layout-validation.json
+            /tmp/marketplace-validation/desktop-homepage.png
+            /tmp/marketplace-validation/mobile-homepage.png
+          if-no-files-found: error
+
+      - name: Commit only the validated production candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f scripts/remediate_marketplace_commercial_drift.py
+          rm -f .github/workflows/commercial-drift-remediation.yml
+          git config user.name "APROPOS Marketplace Remediation Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          echo "--- Final PR tree delta ---"
+          git diff --cached --name-status 555ddd3a27726884b3d21d5c03c7facd9879602c
+          test "$(git diff --cached --name-only 555ddd3a27726884b3d21d5c03c7facd9879602c)" = "index.html"
+          git commit -m "Correct Marketplace commercial offer drift"
+          git push origin HEAD:agent/marketplace-commercial-drift-fix
