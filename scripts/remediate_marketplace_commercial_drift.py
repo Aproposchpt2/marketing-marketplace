@@ -111,20 +111,21 @@ for old, new, key in REPLACEMENTS:
         raise SystemExit(f"Required deployed drift phrase not found: {key}")
     replacement_counts[key] = count
 
-# Correct only a paid-product Join Free CTA. Prefer an NGCC-linked anchor; if
-# the deployed source contains only one Join Free occurrence, Issue #5 identifies
-# it as the subscription CTA, but the post-change href check still must prove NGCC.
+# Correct only the paid NGCC CTA while preserving its existing onboarding route
+# and visual arrow treatment.
 cta_pattern = re.compile(
-    r"(<a\b(?=[^>]*href=[\"'][^\"']*ngcc[^\"']*[\"'])[^>]*>)\s*Join Free\s*(</a>)",
+    r"(<a\b(?=[^>]*href=[\"'][^\"']*ngcc[^\"']*[\"'])[^>]*>)\s*Join Free(?:\s*&rarr;|\s*→)?\s*(</a>)",
     re.IGNORECASE,
 )
-source, cta_count = cta_pattern.subn(r"\1Start Your 14-Day Free Trial\2", source)
+source, cta_count = cta_pattern.subn(
+    r"\1Start Your 14-Day Free Trial &rarr;\2", source
+)
 if cta_count == 0:
     all_join_free = len(re.findall(r"\bJoin Free\b", source, flags=re.IGNORECASE))
     if all_join_free == 1:
         source, cta_count = re.subn(
-            r"\bJoin Free\b",
-            "Start Your 14-Day Free Trial",
+            r"\bJoin Free\b(?:\s*&rarr;|\s*→)?",
+            "Start Your 14-Day Free Trial &rarr;",
             source,
             count=1,
             flags=re.IGNORECASE,
@@ -159,7 +160,7 @@ for phrase in PROHIBITED:
     if phrase.lower() in source.lower():
         failures.append(f"Prohibited commercial drift remains: {phrase}")
 
-# Detect paid-product free-public claims using a bounded context around product names.
+# Detect paid-product free-public claims using bounded product context.
 for product in ("NGCC", "NAT-CORP", "NEBC"):
     for m in re.finditer(re.escape(product), page_text, flags=re.IGNORECASE):
         context = page_text[max(0, m.start() - 180): m.end() + 220].lower()
@@ -175,10 +176,23 @@ if "subscription services through the 14-day free trial" not in page_text:
 trial_ctas = []
 for a in soup.find_all("a", href=True):
     text = normalize(a.get_text(" ", strip=True))
-    if text in {"Start Your 14-Day Free Trial", "Start Your 14 Day Free Trial"}:
+    if text.startswith("Start Your 14-Day Free Trial") or text.startswith("Start Your 14 Day Free Trial"):
         trial_ctas.append({"text": text, "href": a["href"]})
-if not any("ngcc.aproposgroupllc.com" in c["href"].lower() for c in trial_ctas):
-    failures.append("Corrected trial CTA does not resolve to the NGCC onboarding/trial route")
+ngcc_trial_ctas = [c for c in trial_ctas if "ngcc.aproposgroupllc.com" in c["href"].lower()]
+if not ngcc_trial_ctas:
+    failures.append("Corrected trial CTA does not preserve the NGCC onboarding/trial route")
+
+cta_link_tests = []
+for cta in ngcc_trial_ctas:
+    try:
+        status, final_url = http_get_status(cta["href"])
+        ok = 200 <= status < 400
+        cta_link_tests.append({"url": cta["href"], "status": status, "final_url": final_url, "ok": ok})
+        if not ok:
+            failures.append(f"NGCC trial CTA returned HTTP {status}: {cta['href']}")
+    except Exception as exc:
+        cta_link_tests.append({"url": cta["href"], "status": None, "ok": False, "error": str(exc)})
+        failures.append(f"NGCC trial CTA failed: {exc}")
 
 # Canonical and robots preservation.
 canonicals = [tag.get("href") for tag in soup.find_all("link", rel=lambda v: v and "canonical" in v)]
@@ -194,7 +208,7 @@ if not ROBOTS.exists():
     failures.append("robots.txt missing")
 else:
     robots_txt = ROBOTS.read_text(encoding="utf-8").lower()
-    if "disallow: /" in robots_txt and "disallow: /\n" in robots_txt:
+    if "disallow: /\n" in robots_txt:
         failures.append("robots.txt appears to block crawling")
 if not SITEMAP.exists():
     failures.append("sitemap.xml missing")
@@ -275,6 +289,7 @@ report = {
         for d in all_dicts
     ),
     "trial_ctas": trial_ctas,
+    "cta_link_tests": cta_link_tests,
     "product_link_tests": link_results,
     "failures": failures,
 }
