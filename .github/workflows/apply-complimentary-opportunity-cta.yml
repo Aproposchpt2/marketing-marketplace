@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Move Marketplace claim CTA to landing section
+      - name: Place Marketplace claim CTA inside landing hero
         shell: bash
         run: |
           python - <<'PY'
@@ -23,32 +23,21 @@ jobs:
           p = Path('index.html')
           s = p.read_text()
 
-          block = '''<section class="membership-call" id="complimentary-opportunity">
-            <div class="section-inner">
-              <div class="eyebrow">Complimentary Contract Opportunity</div>
-              <h2>Have an APROPOS Opportunity Reference?</h2>
-              <p>If APROPOS sent your business a complimentary contract opportunity, use the Opportunity Reference from your introduction to securely claim the verified contract package prepared for you.</p>
-              <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-                <a class="btn-gold" href="/claim-opportunity.html">CLAIM YOUR COMPLIMENTARY CONTRACT OPPORTUNITY &rarr;</a>
-              </div>
-            </div>
-          </section>
-
-          '''
-
-          # Remove the existing lower-page block, if present.
+          # Remove any previously-added complimentary CTA block outside the hero.
           s = re.sub(r'<section class="membership-call" id="complimentary-opportunity">.*?</section>\s*', '', s, count=1, flags=re.S)
+          s = re.sub(r'<div id="hero-complimentary-claim".*?</div>\s*', '', s, count=1, flags=re.S)
 
-          # Place the CTA immediately after the landing/hero section so it is visible without searching the page.
           hero_start = s.find('<section class="hero"')
           if hero_start < 0:
               raise SystemExit('Hero section not found')
           hero_end = s.find('</section>', hero_start)
           if hero_end < 0:
               raise SystemExit('Hero section closing tag not found')
-          hero_end += len('</section>')
-          s = s[:hero_end] + '\n\n' + block + s[hero_end:]
 
+          cta = '''\n    <div id="hero-complimentary-claim" style="margin-top:1.25rem">\n      <a class="btn-gold" href="/claim-opportunity.html">CLAIM YOUR COMPLIMENTARY CONTRACT OPPORTUNITY &rarr;</a>\n    </div>\n'''
+
+          # Put the CTA directly inside the first-view landing/hero section.
+          s = s[:hero_end] + cta + s[hero_end:]
           p.write_text(s)
           PY
       - name: Commit homepage CTA placement
@@ -61,5 +50,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Move complimentary opportunity CTA to landing section"
+          git commit -m "Place complimentary claim CTA in landing hero"
           git push
