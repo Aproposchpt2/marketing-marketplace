@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><title>Get Your Complimentary Contract Offer | APROPOS Marketplace</title><meta name="description" content="Tell us about your business and APROPOS will run a complimentary government contract search on your behalf — no purchase required."><style>:root{--navy:#0E1D36;--gold:#C8A84B;--paper:#f6f8fb;--ink:#182238;--muted:#647087}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--paper);color:var(--ink)}header{background:var(--navy);color:#fff;padding:24px;border-bottom:4px solid var(--gold)}header div,main{max-width:920px;margin:auto}.brand{font-weight:800;letter-spacing:.1em}.sub{color:#cfd8e5;font-size:13px;margin-top:5px}main{padding:54px 20px}.card{background:#fff;border:1px solid #dce3eb;border-radius:18px;padding:34px;box-shadow:0 18px 50px rgba(14,29,54,.08)}.eyebrow{color:#8a6c18;font-weight:800;letter-spacing:.1em;font-size:12px}h1{font-family:Georgia,serif;color:var(--navy);font-size:42px;margin:10px 0 12px}.lead{color:var(--muted);line-height:1.7;max-width:720px}.trust{background:#f8f5ea;border-left:4px solid var(--gold);padding:16px 18px;margin:24px 0;line-height:1.6}label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}input{width:100%;padding:13px;border:1px solid #bcc6d3;border-radius:8px;font-size:16px;margin-bottom:18px}button{margin-top:4px;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:15px 22px;font-weight:800;cursor:pointer}button:disabled{opacity:.6;cursor:wait}.status{margin-top:18px;padding:13px;border-radius:8px;display:none}.status.error{display:block;background:#fff0f0;color:#8b1e1e}.status.good{display:block;background:#eef7ef;color:#1e6b3a}.fine{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.6}@media(max-width:650px){h1{font-size:34px}}</style></head><body>
+<header><div><div class="brand">APROPOS GROUP LLC</div><div class="sub">Government Contract Marketplace</div></div></header>
+<main><section class="card">
+<div class="eyebrow">COMPLIMENTARY CONTRACT SEARCH</div>
+<h1>Get Your Complimentary Contract Offer</h1>
+<p class="lead">Tell us a little about your business and APROPOS will run a complimentary government contract search on your behalf. If we find a real opportunity that matches your business, we'll email it directly to you.</p>
+<div class="trust"><strong>No purchase is required to request this search.</strong><br>This is a one-time complimentary search. Ongoing contract search and monitoring is available through APROPOS subscription services.</div>
+<form id="offer" name="free-contract-offer" method="POST" data-netlify="true" netlify-honeypot="company_website">
+  <input type="hidden" name="form-name" value="free-contract-offer">
+  <p style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this field empty<input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+  <label for="name">Your Name</label><input id="name" name="name" autocomplete="name" required>
+  <label for="business">Business Name</label><input id="business" name="business_name" autocomplete="organization" required>
+  <label for="email">Business Email</label><input id="email" name="email" type="email" autocomplete="email" required>
+  <button type="submit">GET MY COMPLIMENTARY CONTRACT OFFER</button>
+  <div id="status" class="status"></div>
+  <p class="fine">By submitting, you agree APROPOS Group LLC may contact you at the email address provided about this complimentary search and related services. We do not guarantee a matching opportunity will be found.</p>
+</form>
+</section></main>
+<script>
+const f=document.getElementById('offer'),s=document.getElementById('status');
+f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  s.className='status'; s.textContent='';
+  const btn=f.querySelector('button');
+  btn.disabled=true; btn.textContent='SUBMITTING…';
+  try{
+    const body=new URLSearchParams(new FormData(f)).toString();
+    const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    if(!r.ok) throw new Error('Submission could not be completed. Please try again.');
+    f.style.display='none';
+    s.textContent="Thank you — we're running your complimentary contract search now. If we find a matching opportunity, you'll receive it by email at the address you provided.";
+    s.className='status good';
+  }catch(err){
+    s.textContent=err.message;
+    s.className='status error';
+    btn.disabled=false; btn.textContent='GET MY COMPLIMENTARY CONTRACT OFFER';
+  }
+});
+</script>
+</body></html>
