@@ -54,9 +54,6 @@ async function notifyOperator(row) {
 }
 
 export default async (req) => {
-  if (new URL(req.url).searchParams.get('diag') === '1') {
-    return json(200, { has_url: Boolean(SUPABASE_URL), has_key: Boolean(SUPABASE_KEY), has_resend: Boolean(RESEND_KEY), url_len: (SUPABASE_URL || '').length, key_len: (SUPABASE_KEY || '').length });
-  }
   if (req.method !== 'POST') return json(405, { ok: false, error: 'POST only.' });
   if (!SUPABASE_URL || !SUPABASE_KEY) { console.error('[submit-lead] Supabase credentials not configured.'); return json(500, { ok: false, error: 'Something went wrong — please try again or email us directly at jmitchell@aproposgroupllc.com.' }); }
 
