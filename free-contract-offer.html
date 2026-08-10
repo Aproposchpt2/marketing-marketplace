@@ -1,40 +1,175 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><title>Get Your Complimentary Contract Offer | APROPOS Marketplace</title><meta name="description" content="Tell us about your business and APROPOS will run a complimentary government contract search on your behalf — no purchase required."><style>:root{--navy:#0E1D36;--gold:#C8A84B;--paper:#f6f8fb;--ink:#182238;--muted:#647087}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--paper);color:var(--ink)}header{background:var(--navy);color:#fff;padding:24px;border-bottom:4px solid var(--gold)}header div,main{max-width:920px;margin:auto}.brand{font-weight:800;letter-spacing:.1em}.sub{color:#cfd8e5;font-size:13px;margin-top:5px}main{padding:54px 20px}.card{background:#fff;border:1px solid #dce3eb;border-radius:18px;padding:34px;box-shadow:0 18px 50px rgba(14,29,54,.08)}.eyebrow{color:#8a6c18;font-weight:800;letter-spacing:.1em;font-size:12px}h1{font-family:Georgia,serif;color:var(--navy);font-size:42px;margin:10px 0 12px}.lead{color:var(--muted);line-height:1.7;max-width:720px}.trust{background:#f8f5ea;border-left:4px solid var(--gold);padding:16px 18px;margin:24px 0;line-height:1.6}label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}input{width:100%;padding:13px;border:1px solid #bcc6d3;border-radius:8px;font-size:16px;margin-bottom:18px}button{margin-top:4px;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:15px 22px;font-weight:800;cursor:pointer}button:disabled{opacity:.6;cursor:wait}.status{margin-top:18px;padding:13px;border-radius:8px;display:none}.status.error{display:block;background:#fff0f0;color:#8b1e1e}.status.good{display:block;background:#eef7ef;color:#1e6b3a}.fine{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.6}@media(max-width:650px){h1{font-size:34px}}</style></head><body>
-<header><div><div class="brand">APROPOS GROUP LLC</div><div class="sub">Government Contract Marketplace</div></div></header>
-<main><section class="card">
-<div class="eyebrow">COMPLIMENTARY CONTRACT SEARCH</div>
-<h1>Get Your Complimentary Contract Offer</h1>
-<p class="lead">Tell us a little about your business and APROPOS will run a complimentary government contract search on your behalf. If we find a real opportunity that matches your business, we'll email it directly to you.</p>
-<div class="trust"><strong>No purchase is required to request this search.</strong><br>This is a one-time complimentary search. Ongoing contract search and monitoring is available through APROPOS subscription services.</div>
-<form id="offer" name="free-contract-offer" method="POST" data-netlify="true" netlify-honeypot="company_website">
-  <input type="hidden" name="form-name" value="free-contract-offer">
-  <p style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this field empty<input name="company_website" tabindex="-1" autocomplete="off"></label></p>
-  <label for="name">Your Name</label><input id="name" name="name" autocomplete="name" required>
-  <label for="business">Business Name</label><input id="business" name="business_name" autocomplete="organization" required>
-  <label for="email">Business Email</label><input id="email" name="email" type="email" autocomplete="email" required>
-  <button type="submit">GET MY COMPLIMENTARY CONTRACT OFFER</button>
-  <div id="status" class="status"></div>
-  <p class="fine">By submitting, you agree APROPOS Group LLC may contact you at the email address provided about this complimentary search and related services. We do not guarantee a matching opportunity will be found.</p>
-</form>
-</section></main>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>FREE Contract Opportunity Intake Form | APROPOS Marketplace</title>
+<meta name="description" content="Tell us about your business and APROPOS will review it for a matching government contract opportunity — no cost, no obligation.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E1D36; --navy-2:#0B1830; --white:#FFFFFF; --silver:#D2D9E4; --muted:#9CA8BC;
+  --gold:#C8A84B; --gold-light:#E4C878; --line:rgba(200,168,75,0.18);
+  --disp:'Cormorant Garamond', serif; --mark:'Syncopate', sans-serif; --body:'DM Sans', sans-serif;
+  --red:#E88; --red-bg:rgba(220,90,90,.14);
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:var(--navy); color:var(--silver); font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased}
+a{color:inherit; text-decoration:none}
+.top{padding:1.4rem 2rem; border-bottom:1px solid var(--line)}
+.brand{display:inline-flex; align-items:center; gap:.7rem}
+.mark{font-family:var(--mark); font-size:.68rem; letter-spacing:.06em; color:var(--gold); border:1px solid var(--gold); padding:.35rem .5rem; border-radius:2px}
+.name{font-family:var(--disp); font-size:1rem; font-weight:600; color:var(--white); line-height:1.2}
+.name small{display:block; font-family:var(--mark); font-size:.56rem; letter-spacing:.1em; color:var(--muted); font-weight:400; margin-top:.1rem}
+main{max-width:640px; margin:0 auto; padding:3.5rem 1.4rem 5rem}
+.eyebrow{font-family:var(--mark); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.7rem}
+.gold-rule{width:40px; height:2px; background:var(--gold); margin-bottom:1.4rem}
+h1{font-family:var(--disp); font-weight:400; font-size:clamp(2rem,4.5vw,2.9rem); color:var(--white); line-height:1.08; margin-bottom:1rem}
+.lead{color:var(--silver); font-size:1.02rem; line-height:1.75; margin-bottom:2rem}
+form{display:flex; flex-direction:column; gap:1.15rem}
+label{display:block; font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem}
+label .req{color:var(--gold-light)}
+input, select, textarea{
+  width:100%; font-family:var(--body); font-size:.98rem; color:var(--white);
+  background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:5px;
+  padding:.85rem .9rem; transition:border-color .15s;
+}
+input::placeholder, textarea::placeholder{color:var(--muted); opacity:.75}
+input:focus, select:focus, textarea:focus{outline:none; border-color:var(--gold)}
+textarea{min-height:96px; resize:vertical}
+.hint{font-size:.76rem; color:var(--muted); margin-top:.4rem}
+button{
+  margin-top:.6rem; font-family:var(--mark); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase;
+  background:var(--gold); color:var(--navy); border:0; border-radius:3px; padding:1rem 1.5rem;
+  font-weight:700; cursor:pointer; transition:opacity .15s;
+}
+button:hover:not(:disabled){opacity:.88}
+button:disabled{opacity:.35; cursor:not-allowed}
+.status{margin-top:.5rem; padding:.9rem 1rem; border-radius:6px; font-size:.9rem; display:none; line-height:1.6}
+.status.on{display:block}
+.status.error{background:var(--red-bg); color:#ffb4b4}
+.status.good{background:rgba(200,168,75,.12); color:var(--gold-light)}
+.confirm{display:none}
+.confirm.on{display:block}
+.confirm h2{font-family:var(--disp); font-weight:400; font-size:1.9rem; color:var(--white); margin-bottom:.9rem}
+.confirm p{color:var(--silver); line-height:1.75}
+.fine{font-size:.76rem; color:var(--muted); margin-top:.5rem; line-height:1.65}
+@media(max-width:650px){ main{padding:2.4rem 1.2rem 3.5rem} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="/">
+    <span class="mark">AMM</span>
+    <span class="name">APROPOS Marketing Marketplace<small>GOVERNMENT CONTRACT MARKETPLACE</small></span>
+  </a>
+</header>
+
+<main>
+  <div class="eyebrow">FREE CONTRACT OPPORTUNITY INTAKE FORM</div>
+  <div class="gold-rule"></div>
+  <h1>Get Your Free Contract Match</h1>
+  <p class="lead">Tell us about your business and we'll review it for a matching government contract opportunity — no cost, no obligation. The more you tell us, the better the match.</p>
+
+  <form id="leadForm" novalidate>
+    <div>
+      <label for="business_name">Business Name <span class="req">*</span></label>
+      <input id="business_name" name="business_name" required autocomplete="organization">
+    </div>
+    <div>
+      <label for="contact_name">Contact Name <span class="req">*</span></label>
+      <input id="contact_name" name="contact_name" required autocomplete="name">
+    </div>
+    <div>
+      <label for="contact_email">Contact Email <span class="req">*</span></label>
+      <input id="contact_email" name="contact_email" type="email" required autocomplete="email">
+    </div>
+    <div>
+      <label for="contact_phone">Contact Phone</label>
+      <input id="contact_phone" name="contact_phone" type="tel" autocomplete="tel">
+    </div>
+    <div>
+      <label for="business_website">Business Website (optional — speeds up matching)</label>
+      <input id="business_website" name="business_website" type="url" placeholder="https://yourbusiness.com" autocomplete="url">
+    </div>
+    <div>
+      <label for="city">City</label>
+      <input id="city" name="city" autocomplete="address-level2">
+    </div>
+    <div>
+      <label for="state">State</label>
+      <input id="state" name="state" autocomplete="address-level1" placeholder="e.g. NV">
+    </div>
+    <div>
+      <label for="notes">What does your business do?</label>
+      <textarea id="notes" name="notes" placeholder="e.g. commercial janitorial services, IT staffing, construction subcontracting"></textarea>
+    </div>
+    <div>
+      <label for="naics_hint">NAICS code (if known)</label>
+      <input id="naics_hint" name="naics_hint" placeholder="e.g. 561720">
+    </div>
+
+    <button type="submit" id="submitBtn" disabled>Get My Free Contract Match &rarr;</button>
+    <div id="status" class="status"></div>
+    <p class="fine">By submitting, you agree APROPOS Group LLC may contact you at the email address provided about this complimentary search and related services. We do not guarantee a matching opportunity will be found.</p>
+  </form>
+
+  <div id="confirm" class="confirm">
+    <h2>Thanks — we're on it.</h2>
+    <p id="confirmMessage"></p>
+  </div>
+</main>
+
 <script>
-const f=document.getElementById('offer'),s=document.getElementById('status');
-f.addEventListener('submit',async e=>{
+'use strict';
+const $ = id => document.getElementById(id);
+const form = $('leadForm'), submitBtn = $('submitBtn'), status = $('status');
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const required = ['business_name', 'contact_name', 'contact_email'];
+
+function validState() {
+  const values = Object.fromEntries(required.map(name => [name, form.elements[name].value.trim()]));
+  return required.every(name => values[name]) && EMAIL_RE.test(values.contact_email);
+}
+function refreshButton() { submitBtn.disabled = !validState(); }
+form.addEventListener('input', refreshButton);
+refreshButton();
+
+form.addEventListener('submit', async e => {
   e.preventDefault();
-  s.className='status'; s.textContent='';
-  const btn=f.querySelector('button');
-  btn.disabled=true; btn.textContent='SUBMITTING…';
-  try{
-    const body=new URLSearchParams(new FormData(f)).toString();
-    const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
-    if(!r.ok) throw new Error('Submission could not be completed. Please try again.');
-    f.style.display='none';
-    s.textContent="Thank you — we're running your complimentary contract search now. If we find a matching opportunity, you'll receive it by email at the address you provided.";
-    s.className='status good';
-  }catch(err){
-    s.textContent=err.message;
-    s.className='status error';
-    btn.disabled=false; btn.textContent='GET MY COMPLIMENTARY CONTRACT OFFER';
+  if (!validState()) return;
+  status.className = 'status'; status.textContent = '';
+  submitBtn.disabled = true;
+  const originalLabel = submitBtn.textContent;
+  submitBtn.textContent = 'SUBMITTING…';
+
+  const payload = Object.fromEntries(new FormData(form));
+  const businessName = payload.business_name;
+
+  try {
+    const res = await fetch('/api/submit-lead', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) throw new Error(data.error || 'Something went wrong — please try again or email us directly at jmitchell@aproposgroupllc.com.');
+
+    form.hidden = true;
+    $('confirmMessage').textContent = `Thanks — we're reviewing ${businessName} now and will follow up with a matched contract opportunity.`;
+    $('confirm').classList.add('on');
+  } catch (error) {
+    status.textContent = error.message;
+    status.className = 'status on error';
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
   }
 });
 </script>
-</body></html>
+</body>
+</html>
