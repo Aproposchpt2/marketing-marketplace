@@ -93,6 +93,17 @@
   .cca-nav-cta:hover{opacity:.88;}
   @media(max-width:980px){ .cca-nav-links{display:none;} }
 
+  /* ---- promo row (below sticky nav, above hero) ---- */
+  .promo-row{
+    display:flex; align-items:center; justify-content:flex-end; gap:1rem;
+    padding:1.6rem 2.4rem; background:var(--navy-2); border-bottom:1px solid var(--line);
+  }
+  .promo-row a{white-space:nowrap;}
+  @media(max-width:980px){
+    .promo-row{flex-direction:column; align-items:stretch; padding:1.1rem 1.4rem; gap:.7rem;}
+    .promo-row a{justify-content:center; text-align:center;}
+  }
+
   /* ---- hero ---- */
   .hero{
     position:relative;
@@ -219,6 +230,11 @@
   </div>
 </nav>
 
+<div class="promo-row">
+  <a class="btn-gold" href="/claim-opportunity.html">CLAIM YOUR COMPLIMENTARY CONTRACT OPPORTUNITY &rarr;</a>
+  <a class="btn-outline" href="/free-contract-offer">GET YOUR COMPLIMENTARY CONTRACT OFFER &rarr;</a>
+</div>
+
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-content">
@@ -230,10 +246,6 @@
       <p class="hero-copy">Whether you're a startup with no contract history, a prime contractor short on vetted subs, or a business ready to compete for real — the Marketplace was built for the moment you're in right now.</p>
     </div>
   </div>
-
-    <div id="hero-complimentary-claim" style="margin-top:1.25rem">
-      <a class="btn-gold" href="/claim-opportunity.html">CLAIM YOUR COMPLIMENTARY CONTRACT OPPORTUNITY &rarr;</a>
-    </div>
 </section>
 
 <section class="section-band" id="why">
