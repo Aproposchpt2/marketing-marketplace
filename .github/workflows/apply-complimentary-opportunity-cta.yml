@@ -13,14 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add Marketplace homepage CTA
+      - name: Move Marketplace claim CTA to landing section
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
+
           p = Path('index.html')
           s = p.read_text()
-          marker = '<section class="membership-call">'
+
           block = '''<section class="membership-call" id="complimentary-opportunity">
             <div class="section-inner">
               <div class="eyebrow">Complimentary Contract Opportunity</div>
@@ -33,13 +35,23 @@ jobs:
           </section>
 
           '''
-          if 'id="complimentary-opportunity"' not in s:
-              if marker not in s:
-                  raise SystemExit('Homepage insertion marker not found')
-              s = s.replace(marker, block + marker, 1)
-              p.write_text(s)
+
+          # Remove the existing lower-page block, if present.
+          s = re.sub(r'<section class="membership-call" id="complimentary-opportunity">.*?</section>\s*', '', s, count=1, flags=re.S)
+
+          # Place the CTA immediately after the landing/hero section so it is visible without searching the page.
+          hero_start = s.find('<section class="hero"')
+          if hero_start < 0:
+              raise SystemExit('Hero section not found')
+          hero_end = s.find('</section>', hero_start)
+          if hero_end < 0:
+              raise SystemExit('Hero section closing tag not found')
+          hero_end += len('</section>')
+          s = s[:hero_end] + '\n\n' + block + s[hero_end:]
+
+          p.write_text(s)
           PY
-      - name: Commit homepage CTA
+      - name: Commit homepage CTA placement
         shell: bash
         run: |
           if git diff --quiet -- index.html; then
@@ -49,5 +61,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Add complimentary opportunity homepage CTA"
+          git commit -m "Move complimentary opportunity CTA to landing section"
           git push
