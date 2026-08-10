@@ -54,21 +54,6 @@ async function notifyOperator(row) {
 }
 
 export default async (req) => {
-  if (new URL(req.url).searchParams.get('diag') === '1') {
-    if (!RESEND_KEY) return json(200, { has_resend_key: false });
-    try {
-      const res = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { authorization: `Bearer ${RESEND_KEY}`, 'content-type': 'application/json' },
-        body: JSON.stringify({ from: RESEND_FROM, to: [RESEND_TO], subject: 'submit-lead diagnostic send', text: 'diagnostic' }),
-        signal: AbortSignal.timeout(20000),
-      });
-      const data = await res.json().catch(() => ({}));
-      return json(200, { has_resend_key: true, key_len: RESEND_KEY.length, from: RESEND_FROM, to: RESEND_TO, resend_status: res.status, resend_response: data });
-    } catch (error) {
-      return json(200, { has_resend_key: true, key_len: RESEND_KEY.length, from: RESEND_FROM, to: RESEND_TO, threw: error.message });
-    }
-  }
   if (req.method !== 'POST') return json(405, { ok: false, error: 'POST only.' });
   if (!SUPABASE_URL || !SUPABASE_KEY) { console.error('[submit-lead] Supabase credentials not configured.'); return json(500, { ok: false, error: 'Something went wrong — please try again or email us directly at jmitchell@aproposgroupllc.com.' }); }
 
