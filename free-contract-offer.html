@@ -33,105 +33,71 @@ h1{font-family:var(--disp); font-weight:400; font-size:clamp(2rem,4.5vw,2.9rem);
 form{display:flex; flex-direction:column; gap:1.15rem}
 label{display:block; font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem}
 label .req{color:var(--gold-light)}
-input, select, textarea{
-  width:100%; font-family:var(--body); font-size:.98rem; color:var(--white);
-  background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:5px;
-  padding:.85rem .9rem; transition:border-color .15s;
-}
+input, select, textarea{width:100%; font-family:var(--body); font-size:.98rem; color:var(--white); background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:5px; padding:.85rem .9rem; transition:border-color .15s}
 input::placeholder, textarea::placeholder{color:var(--muted); opacity:.75}
 input:focus, select:focus, textarea:focus{outline:none; border-color:var(--gold)}
 textarea{min-height:96px; resize:vertical}
 .hint{font-size:.76rem; color:var(--muted); margin-top:.4rem}
-button{
-  margin-top:.6rem; font-family:var(--mark); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase;
-  background:var(--gold); color:var(--navy); border:0; border-radius:3px; padding:1rem 1.5rem;
-  font-weight:700; cursor:pointer; transition:opacity .15s;
-}
+button{margin-top:.6rem; font-family:var(--mark); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; background:var(--gold); color:var(--navy); border:0; border-radius:3px; padding:1rem 1.5rem; font-weight:700; cursor:pointer; transition:opacity .15s}
 button:hover:not(:disabled){opacity:.88}
 button:disabled{opacity:.35; cursor:not-allowed}
 .status{margin-top:.5rem; padding:.9rem 1rem; border-radius:6px; font-size:.9rem; display:none; line-height:1.6}
 .status.on{display:block}
 .status.error{background:var(--red-bg); color:#ffb4b4}
 .status.good{background:rgba(200,168,75,.12); color:var(--gold-light)}
-.confirm{display:none}
+.confirm{display:none; margin-top:.5rem; padding:2.2rem 2rem; border:1px solid var(--line); border-radius:10px; background:rgba(255,255,255,.035); text-align:center}
 .confirm.on{display:block}
-.confirm h2{font-family:var(--disp); font-weight:400; font-size:1.9rem; color:var(--white); margin-bottom:.9rem}
-.confirm p{color:var(--silver); line-height:1.75}
+.confirm-badge{width:54px; height:54px; margin:0 auto 1.15rem; display:grid; place-items:center; border:1px solid var(--gold); border-radius:50%; color:var(--gold-light); font-size:1.65rem}
+.confirm .company{font-family:var(--mark); color:var(--gold); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.75rem}
+.confirm h2{font-family:var(--disp); font-weight:400; font-size:2rem; color:var(--white); margin-bottom:1rem; line-height:1.15}
+.confirm p{color:var(--silver); line-height:1.8; margin:.55rem 0}
+.confirm strong{color:var(--white)}
+.confirm .next{margin-top:1.2rem; padding-top:1.1rem; border-top:1px solid var(--line); color:var(--gold-light)}
 .fine{font-size:.76rem; color:var(--muted); margin-top:.5rem; line-height:1.65}
-@media(max-width:650px){ main{padding:2.4rem 1.2rem 3.5rem} }
+@media(max-width:650px){ main{padding:2.4rem 1.2rem 3.5rem} .confirm{padding:1.8rem 1.2rem} }
 </style>
 </head>
 <body>
-
 <header class="top">
   <a class="brand" href="/">
     <span class="mark">AMM</span>
     <span class="name">APROPOS Marketing Marketplace<small>GOVERNMENT CONTRACT MARKETPLACE</small></span>
   </a>
 </header>
-
 <main>
   <div class="eyebrow">FREE CONTRACT OPPORTUNITY INTAKE FORM</div>
   <div class="gold-rule"></div>
   <h1>Get Your Free Contract Match</h1>
   <p class="lead">Tell us about your business and we'll review it for a matching government contract opportunity — no cost, no obligation. The more you tell us, the better the match.</p>
-
   <form id="leadForm" novalidate>
-    <div>
-      <label for="business_name">Business Name <span class="req">*</span></label>
-      <input id="business_name" name="business_name" required autocomplete="organization">
-    </div>
-    <div>
-      <label for="contact_name">Contact Name <span class="req">*</span></label>
-      <input id="contact_name" name="contact_name" required autocomplete="name">
-    </div>
-    <div>
-      <label for="contact_email">Contact Email <span class="req">*</span></label>
-      <input id="contact_email" name="contact_email" type="email" required autocomplete="email">
-    </div>
-    <div>
-      <label for="contact_phone">Contact Phone</label>
-      <input id="contact_phone" name="contact_phone" type="tel" autocomplete="tel">
-    </div>
-    <div>
-      <label for="business_website">Business Website (optional — speeds up matching)</label>
-      <input id="business_website" name="business_website" type="url" placeholder="https://yourbusiness.com" autocomplete="url">
-    </div>
-    <div>
-      <label for="city">City</label>
-      <input id="city" name="city" autocomplete="address-level2">
-    </div>
-    <div>
-      <label for="state">State</label>
-      <input id="state" name="state" autocomplete="address-level1" placeholder="e.g. NV">
-    </div>
-    <div>
-      <label for="notes">What does your business do?</label>
-      <textarea id="notes" name="notes" placeholder="e.g. commercial janitorial services, IT staffing, construction subcontracting"></textarea>
-    </div>
-    <div>
-      <label for="naics_hint">NAICS code (if known)</label>
-      <input id="naics_hint" name="naics_hint" placeholder="e.g. 561720">
-    </div>
-
+    <div><label for="business_name">Business Name <span class="req">*</span></label><input id="business_name" name="business_name" required autocomplete="organization"></div>
+    <div><label for="contact_name">Contact Name <span class="req">*</span></label><input id="contact_name" name="contact_name" required autocomplete="name"></div>
+    <div><label for="contact_email">Contact Email <span class="req">*</span></label><input id="contact_email" name="contact_email" type="email" required autocomplete="email"></div>
+    <div><label for="contact_phone">Contact Phone</label><input id="contact_phone" name="contact_phone" type="tel" autocomplete="tel"></div>
+    <div><label for="business_website">Business Website (optional — speeds up matching)</label><input id="business_website" name="business_website" type="url" placeholder="https://yourbusiness.com" autocomplete="url"></div>
+    <div><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>
+    <div><label for="state">State</label><input id="state" name="state" autocomplete="address-level1" placeholder="e.g. NV"></div>
+    <div><label for="notes">What does your business do?</label><textarea id="notes" name="notes" placeholder="e.g. commercial janitorial services, IT staffing, construction subcontracting"></textarea></div>
+    <div><label for="naics_hint">NAICS code (if known)</label><input id="naics_hint" name="naics_hint" placeholder="e.g. 561720"></div>
     <button type="submit" id="submitBtn" disabled>Get My Free Contract Match &rarr;</button>
     <div id="status" class="status"></div>
     <p class="fine">By submitting, you agree APROPOS Group LLC may contact you at the email address provided about this complimentary search and related services. We do not guarantee a matching opportunity will be found.</p>
   </form>
-
-  <div id="confirm" class="confirm">
-    <h2>Thanks — we're on it.</h2>
-    <p id="confirmMessage"></p>
+  <div id="confirm" class="confirm" role="status" aria-live="polite">
+    <div class="confirm-badge" aria-hidden="true">✓</div>
+    <div class="company">APROPOS GROUP LLC</div>
+    <h2>Thank You — Your Contract Discovery Is Underway</h2>
+    <p>We've received your business information and will begin searching for a government contract opportunity that aligns with the capabilities of <strong id="confirmBusiness"></strong>.</p>
+    <p>When we identify a suitable opportunity, we'll email your <strong>complimentary contract opportunity</strong> directly to you.</p>
+    <p class="next">There's nothing else you need to do right now. We'll take it from here.</p>
   </div>
 </main>
-
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
 const form = $('leadForm'), submitBtn = $('submitBtn'), status = $('status');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const required = ['business_name', 'contact_name', 'contact_email'];
-
 function validState() {
   const values = Object.fromEntries(required.map(name => [name, form.elements[name].value.trim()]));
   return required.every(name => values[name]) && EMAIL_RE.test(values.contact_email);
@@ -139,7 +105,6 @@ function validState() {
 function refreshButton() { submitBtn.disabled = !validState(); }
 form.addEventListener('input', refreshButton);
 refreshButton();
-
 form.addEventListener('submit', async e => {
   e.preventDefault();
   if (!validState()) return;
@@ -147,10 +112,8 @@ form.addEventListener('submit', async e => {
   submitBtn.disabled = true;
   const originalLabel = submitBtn.textContent;
   submitBtn.textContent = 'SUBMITTING…';
-
   const payload = Object.fromEntries(new FormData(form));
   const businessName = payload.business_name;
-
   try {
     const res = await fetch('/api/submit-lead', {
       method: 'POST',
@@ -159,10 +122,10 @@ form.addEventListener('submit', async e => {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.ok) throw new Error(data.error || 'Something went wrong — please try again or email us directly at jmitchell@aproposgroupllc.com.');
-
     form.hidden = true;
-    $('confirmMessage').textContent = `Thanks — we're reviewing ${businessName} now and will follow up with a matched contract opportunity.`;
+    $('confirmBusiness').textContent = businessName;
     $('confirm').classList.add('on');
+    $('confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (error) {
     status.textContent = error.message;
     status.className = 'status on error';
