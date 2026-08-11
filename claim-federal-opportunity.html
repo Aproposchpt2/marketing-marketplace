@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Claim Your Complimentary Contract Opportunity | APROPOS Marketplace</title><style>:root{--navy:#0E1D36;--gold:#C8A84B;--paper:#f6f8fb;--ink:#182238;--muted:#647087}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--paper);color:var(--ink)}header{background:var(--navy);color:#fff;padding:24px;border-bottom:4px solid var(--gold)}header div,main{max-width:920px;margin:auto}.brand{font-weight:800;letter-spacing:.1em}.sub{color:#cfd8e5;font-size:13px;margin-top:5px}main{padding:54px 20px}.card{background:#fff;border:1px solid #dce3eb;border-radius:18px;padding:34px;box-shadow:0 18px 50px rgba(14,29,54,.08)}.eyebrow{color:#8a6c18;font-weight:800;letter-spacing:.1em;font-size:12px}h1{font-family:Georgia,serif;color:var(--navy);font-size:38px;margin:10px 0 12px}.lead{color:var(--muted);line-height:1.7;max-width:720px}.opp-summary{background:#f6f8fa;border-left:4px solid var(--gold);padding:16px 18px;margin:24px 0;line-height:1.6}.opp-summary strong{display:block;color:var(--navy);font-size:17px;margin-bottom:4px}.trust{background:#f8f5ea;border-left:4px solid var(--gold);padding:16px 18px;margin:24px 0;line-height:1.6}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}input{width:100%;padding:13px;border:1px solid #bcc6d3;border-radius:8px;font-size:16px}.full{grid-column:1/-1}button{margin-top:22px;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:15px 22px;font-weight:800;cursor:pointer}button:disabled{opacity:.6;cursor:wait}.status{margin-top:18px;padding:13px;border-radius:8px;display:none}.status.error{display:block;background:#fff0f0;color:#8b1e1e}.fine{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.6}@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:30px}}</style></head><body>
+<header><div><div class="brand">APROPOS GROUP LLC</div><div class="sub">Government Contract Marketplace</div></div></header>
+<main><section class="card">
+<div class="eyebrow">ONE-TIME COMPLIMENTARY OPPORTUNITY</div>
+<h1>Claim Your Complimentary Contract Opportunity</h1>
+<p class="lead">APROPOS identified a federal contract opportunity for your business. Confirm your information to claim it — you'll be taken straight to the official SAM.gov listing for full details.</p>
+<div class="opp-summary" id="oppSummary"><strong id="oppTitle">Federal contract opportunity</strong><span id="oppMeta"></span></div>
+<div class="trust"><strong>No purchase is required to claim this opportunity.</strong><br>This is a complimentary introduction. Future opportunity matching is available through APROPOS subscription services.</div>
+<form id="claim"><div class="grid"><div><label for="name">Your Name</label><input id="name" name="contact_name" autocomplete="name" required></div><div><label for="business">Business Name</label><input id="business" name="business_name" autocomplete="organization" required></div><div class="full"><label for="email">Business Email</label><input id="email" name="contact_email" type="email" autocomplete="email" required></div></div><button type="submit">CLAIM MY COMPLIMENTARY CONTRACT OPPORTUNITY</button><div id="status" class="status"></div><p class="fine">Claiming this opportunity redirects you to SAM.gov, the official U.S. government contract opportunity system. APROPOS Group LLC is not the issuing agency and does not guarantee eligibility, responsiveness, or award.</p></form>
+</section></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const qs=new URLSearchParams(location.search);
+const noticeId=(qs.get('notice_id')||'').trim();
+const samUrl=(qs.get('sam_url')||'').trim();
+const title=(qs.get('title')||'').trim();
+const agency=(qs.get('agency')||'').trim();
+if(title)$('oppTitle').textContent=title;
+if(agency||noticeId)$('oppMeta').textContent=[agency,noticeId?`Notice ${noticeId}`:''].filter(Boolean).join(' · ');
+if(!samUrl||!/^https:\/\/sam\.gov\//i.test(samUrl)){
+  $('claim').hidden=true;
+  $('status').className='status error';
+  $('status').textContent='This opportunity link is missing or invalid. Please use the link from your original email, or contact us at jmitchell@aproposgroupllc.com.';
+}
+const f=$('claim'),s=$('status');
+f&&f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  s.className='status';s.textContent='';
+  const btn=f.querySelector('button');
+  btn.disabled=true;btn.textContent='CLAIMING…';
+  const payload={...Object.fromEntries(new FormData(f)),source_reference:noticeId||null,redirect_url:samUrl};
+  try{
+    const r=await fetch('/api/claim-federal-lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});
+    const d=await r.json();
+    if(!r.ok||!d.ok)throw new Error(d.error||'Claim could not be completed.');
+    location.assign(d.redirect_url);
+  }catch(err){
+    s.textContent=err.message;
+    s.className='status error';
+    btn.disabled=false;btn.textContent='CLAIM MY COMPLIMENTARY CONTRACT OPPORTUNITY';
+  }
+});
+</script>
+</body></html>
