@@ -1,0 +1,24 @@
+name: Unified Complimentary Claim Routing Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "claim-opportunity.html"
+      - "tests/unified-claim-routing.test.cjs"
+      - ".github/workflows/unified-claim-routing-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Validate unified AP/NG claim routing
+        run: node tests/unified-claim-routing.test.cjs
