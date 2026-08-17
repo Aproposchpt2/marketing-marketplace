@@ -3,6 +3,7 @@ const fs = require('fs');
 const file = 'index.html';
 let html = fs.readFileSync(file, 'utf8');
 
+// This build-time pass deliberately starts after the existing homepage hero.
 const heroStart = html.indexOf('<section class="hero"');
 if (heroStart < 0) throw new Error('[marketplace-dark-sections] hero section not found');
 const heroEnd = html.indexOf('</section>', heroStart);
