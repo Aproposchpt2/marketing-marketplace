@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('fs');
+const html=fs.readFileSync('index.html','utf8');
+if(!html.includes('id="apropos-marketplace-dark-sections"')) throw new Error('[marketplace-dark-sections] theme style missing');
+const heroStart=html.indexOf('<section class="hero"');
+if(heroStart<0) throw new Error('[marketplace-dark-sections] hero section missing');
+const heroEnd=html.indexOf('</section>',heroStart);
+if(heroEnd<0) throw new Error('[marketplace-dark-sections] hero closing section missing');
+const firstDark=html.indexOf('<section class="apropos-dark-section',heroEnd);
+if(firstDark<0) throw new Error('[marketplace-dark-sections] no themed lower section found');
+if(firstDark<heroEnd) throw new Error('[marketplace-dark-sections] hero was incorrectly themed');
+const heroMarkup=html.slice(heroStart,heroEnd);
+if(heroMarkup.includes('apropos-dark-section')) throw new Error('[marketplace-dark-sections] hero class was modified');
+console.log('[marketplace-dark-sections] validation passed; hero excluded and lower sections themed');

@@ -1,0 +1,22 @@
+[build]
+  command = "node scripts/apply-marketplace-customer-experience.cjs && node scripts/apply-marketplace-homepage-cleanup.cjs && node scripts/apply-marketplace-dark-sections.cjs && node scripts/validate-marketplace-customer-experience.cjs && node scripts/validate-marketplace-homepage-cleanup.cjs && node scripts/validate-marketplace-dark-sections.cjs"
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/claim-opportunity.html"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
+
+[[headers]]
+  for = "/federal-opportunity-workspace.html"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
+
+[[headers]]
+  for = "/opportunity-thank-you.html"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
