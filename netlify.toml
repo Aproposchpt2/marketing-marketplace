@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/apply-marketplace-customer-experience.cjs && node scripts/validate-marketplace-customer-experience.cjs"
+  command = "node scripts/apply-marketplace-customer-experience.cjs && node scripts/apply-marketplace-homepage-cleanup.cjs && node scripts/validate-marketplace-customer-experience.cjs && node scripts/validate-marketplace-homepage-cleanup.cjs"
   publish = "."
   functions = "netlify/functions"
 
