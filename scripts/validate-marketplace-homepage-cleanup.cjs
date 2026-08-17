@@ -5,10 +5,10 @@ const required=[
   'We Find the Opportunity',
   'We Deliver the Contract',
   'You Decide Whether to Pursue',
-  'Government contract opportunity — without making your business do all the searching.',
+  'aria-label="How Apropos works"',
   '"name":"Analyze Fit Report","price":"49.99"',
-  '.apropos-proof-grid',
-  '.hero-title{font-size:clamp(',
+  '.apropos-proof-strip',
+  '.btn-gold,.btn-outline{display:inline-flex!important',
 ];
 for(const token of required) if(!s.includes(token)) throw new Error(`[marketplace-cleanup] validation missing: ${token}`);
 const retired=['proposal development services','proposal development,','proposal support','submitted, competitive proposal','"price":"15.00"'];
