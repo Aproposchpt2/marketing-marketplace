@@ -15,7 +15,7 @@ if(!html.includes('apropos-customer-experience-style')){
 }
 
 const anchor=`<p class="hero-copy">Whether you're a startup with no contract history, a prime contractor short on vetted subs, or a business ready to compete for real — the Marketplace was built for the moment you're in right now.</p>`;
-if(html.includes(anchor)&&!html.includes('apropos-proof-strip')){
+if(html.includes(anchor)&&!html.includes('aria-label="How Apropos works"')){
   const proof=`${anchor}\n      <div class="apropos-proof-strip" aria-label="How Apropos works">\n        <div class="apropos-proof"><strong>We Find the Opportunity</strong><span>Apropos identifies government contracts aligned with registered businesses.</span></div>\n        <div class="apropos-proof"><strong>We Deliver the Contract</strong><span>Selected businesses receive complimentary contract opportunities directly.</span></div>\n        <div class="apropos-proof"><strong>You Decide Whether to Pursue</strong><span>Review the contract, requirements and documents before deciding your next move.</span></div>\n      </div>`;
   html=html.replace(anchor,proof);
 }
