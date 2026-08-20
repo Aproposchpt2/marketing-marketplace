@@ -472,5 +472,21 @@
   </div>
 </footer>
 
+<script>
+  // Outreach measurement: every recipient gets the same email, same offer,
+  // so the number that actually matters is how many people who land here
+  // click through to claim it -- not which list they came from. transport
+  // type "beacon" makes sure the event ships before the browser navigates
+  // away to claim-opportunity.html.
+  (function(){
+    var cta = document.querySelector('a[href="/claim-opportunity.html"]');
+    if (cta && typeof gtag === 'function') {
+      cta.addEventListener('click', function(){
+        gtag('event', 'claim_cta_click', { transport_type: 'beacon' });
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>
