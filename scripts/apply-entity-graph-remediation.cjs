@@ -4,6 +4,10 @@ const fs = require('fs');
 const file = 'index.html';
 let html = fs.readFileSync(file, 'utf8');
 
+// Analyze Fit has one authoritative one-time price across APROPOS.
+// Normalize legacy and shorthand visible values before validating the final build.
+html = html.replace(/\$(?:15(?:\.00)?|49\.99|79)(?=\s*one-time)/gi, '$79.00');
+
 const match = html.match(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
 if (!match) throw new Error('Marketplace entity remediation: JSON-LD block not found.');
 
@@ -44,11 +48,11 @@ const replacement = `<script type="application/ld+json">${JSON.stringify(data)}<
 html = html.replace(match[0], replacement);
 
 const failures = [];
-if (!html.includes('"price":"79.00"')) failures.push('Analyze Fit $79 structured price missing');
-if (!html.includes('$79 one-time')) failures.push('Analyze Fit $79 visible price missing');
+if (!html.includes('"price":"79.00"')) failures.push('Analyze Fit $79.00 structured price missing');
+if (!html.includes('$79.00 one-time')) failures.push('Analyze Fit $79.00 visible price missing');
 if (!html.includes(marketplaceId) || !html.includes(corporateId)) failures.push('canonical entity IDs missing');
 if (html.includes('"price":"15.00"') || html.includes('"price":"49.99"')) failures.push('legacy Analyze Fit structured price remains');
-if (html.includes('$15 one-time') || html.includes('$49.99')) failures.push('legacy Analyze Fit visible price remains');
+if (/\$(?:15(?:\.00)?|49\.99|79)(?=\s*one-time)/i.test(html)) failures.push('legacy or shorthand Analyze Fit visible price remains');
 if (html.includes('https://ngcc.aproposgroupllc.com')) failures.push('former NGCC primary domain remains on Marketplace homepage');
 if (html.includes('National Government Contract Center')) failures.push('former federal portal primary name remains on Marketplace homepage');
 
@@ -59,4 +63,4 @@ if (failures.length) {
 }
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('[marketplace-entity-graph] PASS — Marketplace entity graph, portal identity, and final pricing are consistent.');
+console.log('[marketplace-entity-graph] PASS — Marketplace entity graph, portal identity, and Analyze Fit $79.00 pricing are consistent.');
