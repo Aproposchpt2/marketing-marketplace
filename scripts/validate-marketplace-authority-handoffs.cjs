@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('fs');const path=require('path');const root=process.cwd();const failures=[];
+const checks={
+'federal-contract-opportunities/index.html':['https://federalcontractorportal.aproposgroupllc.com/','https://federalcontractorportal.aproposgroupllc.com/guides/'],
+'state-local-contract-opportunities/index.html':['https://natcorp.aproposgroupllc.com/','https://natcorp.aproposgroupllc.com/guides/'],
+'business-contract-readiness/index.html':['https://nebc.aproposgroupllc.com/','https://nebc.aproposgroupllc.com/guides/'],
+'government-contract-intelligence/index.html':['https://federalcontractorportal.aproposgroupllc.com/guides/','https://natcorp.aproposgroupllc.com/guides/'],
+'contractor-opportunity-matching/index.html':['Federal opportunity matching continues through the Registered Federal Contractors Portal','https://federalcontractorportal.aproposgroupllc.com/','https://natcorp.aproposgroupllc.com/']};
+for(const [file,tokens] of Object.entries(checks)){const v=fs.readFileSync(path.join(root,file),'utf8');for(const token of tokens)if(!v.includes(token))failures.push(`${file} missing ${token}`);if(!v.includes('name="robots" content="index,follow'))failures.push(`${file} lost indexability`);if(!v.includes(`https://marketplace.aproposgroupllc.com/${file.replace('/index.html','/')}`))failures.push(`${file} lost Marketplace canonical`);}
+for(const file of Object.keys(checks)){const v=fs.readFileSync(path.join(root,file),'utf8');for(const retired of ['capgenmkt.aproposgroupllc.com','ngcc.aproposgroupllc.com','businesscontracts.aproposgroupllc.com','gcpdc.aproposgroupllc.com','cdc.aproposgroupllc.com','ai4-product-purchasing.ai4businesses.org'])if(v.includes(retired))failures.push(`${file} contains retired property ${retired}`);}
+if(failures.length){console.error('[marketplace-authority-handoffs] Validation failed:');failures.forEach(f=>console.error(`- ${f}`));process.exit(1);}console.log('[marketplace-authority-handoffs] PASS — Marketplace remains canonical router while topic depth hands off to RFCP, NAT-CORP and NEBC.');
