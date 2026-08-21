@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/apply-marketplace-customer-experience.cjs && node scripts/apply-marketplace-homepage-cleanup.cjs && node scripts/apply-marketplace-dark-sections.cjs && node scripts/validate-marketplace-customer-experience.cjs && node scripts/validate-marketplace-homepage-cleanup.cjs && node scripts/validate-marketplace-dark-sections.cjs && node scripts/apply-seo-production.cjs && node scripts/apply-entity-graph-remediation.cjs && node scripts/apply-live-property-allowlist.cjs"
+  command = "node scripts/apply-marketplace-customer-experience.cjs && node scripts/apply-marketplace-homepage-cleanup.cjs && node scripts/apply-marketplace-dark-sections.cjs && node scripts/validate-marketplace-customer-experience.cjs && node scripts/validate-marketplace-homepage-cleanup.cjs && node scripts/validate-marketplace-dark-sections.cjs && node scripts/apply-seo-production.cjs && node scripts/apply-entity-graph-remediation.cjs && node scripts/apply-live-property-allowlist.cjs && node scripts/apply-marketplace-authority-handoffs.cjs && node scripts/validate-marketplace-authority-handoffs.cjs"
   publish = "."
   functions = "netlify/functions"
 
