@@ -47,6 +47,28 @@ data['@graph'] = graph;
 const replacement = `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 html = html.replace(match[0], replacement);
 
+// Phase 2B performance: the hero was embedded as a base64 WebP in CSS, which
+// inflated the HTML and prevented independent image prioritization/caching.
+const beforeBytes = Buffer.byteLength(html, 'utf8');
+const embeddedHeroes = [...html.matchAll(/data:image\/webp;base64,([A-Za-z0-9+/=]+)/g)];
+if (embeddedHeroes.length !== 1) {
+  throw new Error(`Marketplace performance remediation: expected exactly one embedded WebP hero, found ${embeddedHeroes.length}.`);
+}
+const embeddedHero = embeddedHeroes[0];
+const heroBytes = Buffer.from(embeddedHero[1], 'base64');
+if (heroBytes.length < 50000) throw new Error('Marketplace performance remediation: embedded hero payload is unexpectedly small.');
+const heroFile = 'hero-marketplace.webp';
+const heroHref = `/${heroFile}`;
+fs.writeFileSync(heroFile, heroBytes);
+html = html.replace(embeddedHero[0], heroHref);
+
+const heroPreload = `<link rel="preload" as="image" href="${heroHref}" type="image/webp" fetchpriority="high">`;
+if (!html.includes(heroPreload)) {
+  if (!/<\/head>/i.test(html)) throw new Error('Marketplace performance remediation: closing head tag not found.');
+  html = html.replace(/<\/head>/i, `${heroPreload}\n</head>`);
+}
+
+const afterBytes = Buffer.byteLength(html, 'utf8');
 const failures = [];
 if (!html.includes('"price":"79.00"')) failures.push('Analyze Fit $79.00 structured price missing');
 if (!html.includes('$79.00 one-time')) failures.push('Analyze Fit $79.00 visible price missing');
@@ -55,6 +77,11 @@ if (html.includes('"price":"15.00"') || html.includes('"price":"49.99"')) failur
 if (/\$(?:15(?:\.00)?|49\.99|79)(?=\s*one-time)/i.test(html)) failures.push('legacy or shorthand Analyze Fit visible price remains');
 if (html.includes('https://ngcc.aproposgroupllc.com')) failures.push('former NGCC primary domain remains on Marketplace homepage');
 if (html.includes('National Government Contract Center')) failures.push('former federal portal primary name remains on Marketplace homepage');
+if (html.includes('data:image/webp;base64')) failures.push('embedded WebP hero remains in homepage HTML');
+if (!html.includes(heroPreload)) failures.push('hero preload missing');
+if (!fs.existsSync(heroFile) || fs.statSync(heroFile).size !== heroBytes.length) failures.push('external hero file missing or incomplete');
+if (afterBytes >= beforeBytes) failures.push('homepage HTML did not shrink after hero extraction');
+if (afterBytes > 180000) failures.push(`homepage HTML remains unexpectedly large after hero extraction (${afterBytes} bytes)`);
 
 if (failures.length) {
   console.error('[marketplace-entity-graph] Validation failed:');
@@ -63,4 +90,4 @@ if (failures.length) {
 }
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('[marketplace-entity-graph] PASS — Marketplace entity graph, portal identity, and Analyze Fit $79.00 pricing are consistent.');
+console.log(`[marketplace-entity-graph] PASS — entity graph, $79.00 pricing, and hero delivery optimized. HTML ${beforeBytes} -> ${afterBytes} bytes; hero ${heroBytes.length} bytes externalized.`);
