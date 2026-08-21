@@ -13,7 +13,7 @@ all('government contract intelligence, proposal support, campaigns, and institut
 all('government contract intelligence, Analyze Fit services, free trials, proposal support, and partnership opportunities','government contract intelligence, Analyze Fit services, free trials, contractor participation, and partnership opportunities','website schema');
 all('"name":"Additional Analyze Fit Report"','"name":"Analyze Fit Report"','Analyze Fit schema name');
 all('"description":"An additional one-time opportunity-fit analysis report."','"description":"A one-time plain-language contract analysis and opportunity-fit report."','Analyze Fit schema description');
-all('"name":"Analyze Fit Report","price":"15.00"','"name":"Analyze Fit Report","price":"49.99"','Analyze Fit schema price');
+all('"name":"Analyze Fit Report","price":"15.00"','"name":"Analyze Fit Report","price":"79.00"','Analyze Fit schema price');
 all('The Contract Development Center is what turns a match into a submitted, competitive proposal — and makes sure you never miss the next one. Every service here is paid, priced per use or by subscription, and available the moment a business is ready to actively compete rather than simply search.','Analyze Fit helps a business understand the contract before deciding whether to pursue it. The service translates solicitation requirements, deadlines, qualifications, risks, and key considerations into clear, practical language without changing the business’s control of the decision.','development intro');
 all('Use these focused guides to understand the opportunity, readiness, participation, analysis, or proposal pathway before continuing to the appropriate APROPOS operational service.','Use these focused guides to understand the opportunity, readiness, participation, or analysis pathway before continuing to the appropriate APROPOS operational service.','directory copy');
 
@@ -22,4 +22,4 @@ const css=`\n/* Final homepage presentation cleanup */\n.hero-inner{width:min(11
 if(!s.includes('</style>'))throw new Error('[marketplace-cleanup] style marker missing');
 s=s.replace('</style>',`${css}</style>`);
 fs.writeFileSync(file,s,'utf8');
-console.log('[marketplace-cleanup] product-language, Analyze Fit pricing, and responsive CTA cleanup applied');
+console.log('[marketplace-cleanup] product-language, Analyze Fit $79.00 pricing, and responsive CTA cleanup applied');
