@@ -43,8 +43,20 @@ data['@graph'] = graph;
 const replacement = `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 html = html.replace(match[0], replacement);
 
-if (!html.includes('"price":"79.00"')) throw new Error('Marketplace entity remediation: Analyze Fit $79 structured price missing.');
-if (!html.includes(marketplaceId) || !html.includes(corporateId)) throw new Error('Marketplace entity remediation: entity IDs missing.');
+const failures = [];
+if (!html.includes('"price":"79.00"')) failures.push('Analyze Fit $79 structured price missing');
+if (!html.includes('$79 one-time')) failures.push('Analyze Fit $79 visible price missing');
+if (!html.includes(marketplaceId) || !html.includes(corporateId)) failures.push('canonical entity IDs missing');
+if (html.includes('"price":"15.00"') || html.includes('"price":"49.99"')) failures.push('legacy Analyze Fit structured price remains');
+if (html.includes('$15 one-time') || html.includes('$49.99')) failures.push('legacy Analyze Fit visible price remains');
+if (html.includes('https://ngcc.aproposgroupllc.com')) failures.push('former NGCC primary domain remains on Marketplace homepage');
+if (html.includes('National Government Contract Center')) failures.push('former federal portal primary name remains on Marketplace homepage');
+
+if (failures.length) {
+  console.error('[marketplace-entity-graph] Validation failed:');
+  failures.forEach(failure => console.error(`- ${failure}`));
+  process.exit(1);
+}
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('[marketplace-entity-graph] PASS — Marketplace is linked to the corporate APROPOS entity.');
+console.log('[marketplace-entity-graph] PASS — Marketplace entity graph, portal identity, and final pricing are consistent.');
