@@ -91,3 +91,4 @@ if (failures.length) {
 
 fs.writeFileSync(file, html, 'utf8');
 console.log(`[marketplace-entity-graph] PASS — entity graph, $79.00 pricing, and hero delivery optimized. HTML ${beforeBytes} -> ${afterBytes} bytes; hero ${heroBytes.length} bytes externalized.`);
+require('./apply-nonblocking-fonts.cjs');
