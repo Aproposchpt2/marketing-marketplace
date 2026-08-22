@@ -20,7 +20,6 @@ const requiredIndexTokens = [
   'CollectionPage',
   'BreadcrumbList',
   'ItemList',
-  'APROPOS Marketing Marketplace Editorial Team',
   'article_cta_click',
   'article_related_click'
 ];
@@ -37,11 +36,11 @@ for (const route of landingPages) {
 }
 
 const generator = fs.readFileSync('scripts/generate-marketplace-articles.cjs','utf8');
-for (const token of ['Article','datePublished','dateModified','BreadcrumbList','canonical','data-article-cta','data-related-article']) {
+for (const token of ['Article','datePublished','dateModified','BreadcrumbList','canonical','data-article-cta','data-related-article','APROPOS Marketing Marketplace Editorial Team']) {
   if (!generator.includes(token)) throw new Error(`[articles] generator contract missing: ${token}`);
 }
 
 if (!homepage.includes('/hero-marketplace.webp')) throw new Error('[articles] locked homepage image artifact missing after article generation');
 if (!homepage.includes('rel="preload" as="image" href="/hero-marketplace.webp"')) throw new Error('[articles] locked homepage image preload missing after article generation');
 
-console.log('[articles] validation PASS — index, schema, sitemap, navigation, analytics, and locked-image protections are intact');
+console.log('[articles] validation PASS — index, schema, sitemap, navigation, analytics, publisher capability, and locked-image protections are intact');
