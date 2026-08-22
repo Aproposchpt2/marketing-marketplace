@@ -28,12 +28,14 @@ for(const command of commands){
   const r=spawnSync(command,{shell:true,encoding:'utf8',env:process.env,maxBuffer:10*1024*1024});
   const step={command,status:r.status,stdout:String(r.stdout||'').slice(-12000),stderr:String(r.stderr||'').slice(-12000)};
   report.steps.push(step);
-  if(r.status!==0){report.ok=false;report.failed_command=command;break;}
+  if(r.status!==0){report.ok=false;report.failed_command=command;report.failure_text=(step.stderr||step.stdout||'unknown failure').trim();break;}
 }
 report.finished_at=new Date().toISOString();
 fs.writeFileSync('build-diagnostics.json',JSON.stringify(report,null,2));
-const label=(report.failed_command||'ALL-STAGES-PASS').replace(/^node scripts\//,'').replace(/\.cjs$/,'').replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').toUpperCase();
-fs.writeFileSync(`00-DIAGNOSTIC-${report.ok?'PASS':'FAIL'}-${label}.html`,`<!doctype html><title>Build diagnostic</title><pre>${JSON.stringify(report,null,2).replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>`);
-console.log(`[e2e-build-diagnostics] ${report.ok?'PASS':'captured failure'}: ${report.failed_command||'all stages passed'}`);
-// Preview diagnostic mode deliberately exits 0 so the generated diagnostic artifact can be inspected.
+const slug=v=>String(v||'').replace(/^node scripts\//,'').replace(/\.cjs$/,'').replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').slice(0,120).toUpperCase();
+const commandLabel=slug(report.failed_command||'ALL-STAGES-PASS');
+const reasonLine=report.ok?'':String(report.failure_text||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean).reverse().find(x=>x.startsWith('- '))||String(report.failure_text||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean).pop()||'UNKNOWN';
+const reasonLabel=report.ok?'':`-${slug(reasonLine)}`;
+fs.writeFileSync(`00-DIAGNOSTIC-${report.ok?'PASS':'FAIL'}-${commandLabel}${reasonLabel}.html`,`<!doctype html><title>Build diagnostic</title><pre>${JSON.stringify(report,null,2).replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>`);
+console.log(`[e2e-build-diagnostics] ${report.ok?'PASS':'captured failure'}: ${report.failed_command||'all stages passed'} ${reasonLine}`);
 process.exit(0);
