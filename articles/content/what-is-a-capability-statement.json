@@ -1,0 +1,58 @@
+{
+  "slug": "what-is-a-capability-statement",
+  "title": "What Is a Capability Statement?",
+  "description": "Learn how a concise capability statement can help communicate what your business does, who it serves, and why a government buyer or prime contractor should keep you in mind.",
+  "category": "Contractor Readiness",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "A capability statement is a business-development document",
+      "paragraphs": [
+        "A capability statement is commonly used to summarize a company's relevant products or services, differentiators, experience, identifiers, and contact information for government buyers and prime contractors. It is best understood as a focused marketing and business-development document, not as a universal substitute for registrations, solicitation responses, or required proposal forms.",
+        "Its value comes from making the business easy to understand quickly. The content should be accurate, specific, and aligned with the markets the company is actually prepared to serve."
+      ]
+    },
+    {
+      "heading": "Lead with capabilities that match the buyer's needs",
+      "paragraphs": [
+        "A generic company history is less useful than a clear description of the work the business can perform. Organize the document around capabilities a contracting professional or prime contractor can connect to a requirement.",
+        "SBA guidance emphasizes accurate, descriptive information in federal contractor profiles so government officials can find and understand businesses. The same principle applies to a capability statement: use plain language, relevant industry terms, and evidence that supports the claims you make."
+      ],
+      "bullets": [
+        "Core capabilities and services.",
+        "Relevant differentiators or specialized expertise.",
+        "Selected past performance or representative experience when appropriate.",
+        "NAICS codes or other classifications relevant to the target market.",
+        "UEI, CAGE code, certifications, or other identifiers when applicable.",
+        "Primary contact information and website."
+      ]
+    },
+    {
+      "heading": "Keep the document credible and easy to scan",
+      "paragraphs": [
+        "Every credential, certification, client reference, performance claim, and identifier should be current and supportable. Avoid promising contract awards, implying government endorsement, or presenting aspirational capabilities as completed past performance.",
+        "A capability statement should also be maintained as the business changes. New experience, new certifications, expanded geographic coverage, and changes in contact information can all affect whether the document accurately represents the company."
+      ]
+    },
+    {
+      "heading": "Use it alongside your official contractor profiles",
+      "paragraphs": [
+        "For federal contracting, a capability statement does not replace SAM.gov registration or other required federal representations. SBA guidance identifies SAM registration, UEI, NAICS alignment, size standards, and accurate contractor-profile information as foundational elements of federal readiness.",
+        "Think of the capability statement as one communication tool within a larger contractor-readiness system."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "U.S. Small Business Administration — Get started with contracting", "url": "https://www.sba.gov/counseling/get-started/"},
+    {"label": "U.S. Small Business Administration — Office of Government Contracting", "url": "https://www.sba.gov/about-sba/sba-locations/headquarters/office-of-government-contracting/"}
+  ],
+  "pathway": {
+    "heading": "Strengthen the business behind the contracting profile",
+    "description": "If the company needs broader readiness, planning, or business-development support before pursuing opportunities, continue to the Nevada Enterprise Business Center pathway.",
+    "label": "Explore Business Readiness",
+    "url": "https://nebc.aproposgroupllc.com/",
+    "destination": "nebc"
+  },
+  "related": ["understanding-naics-codes", "preparing-your-business-for-government-contracting", "how-to-decide-whether-to-bid"]
+}

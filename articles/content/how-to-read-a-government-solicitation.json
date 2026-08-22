@@ -1,0 +1,65 @@
+{
+  "slug": "how-to-read-a-government-solicitation",
+  "title": "How to Read a Government Solicitation",
+  "description": "A plain-language framework for reading a government solicitation so you can identify the requirement, instructions, evaluation factors, deadlines, and contract terms that control your response.",
+  "category": "Solicitation Understanding",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "Read the solicitation as a set of instructions, not a brochure",
+      "paragraphs": [
+        "A government solicitation is designed to communicate a purchasing requirement and the rules for competing. The most important information may be spread across the main notice, attachments, clauses, amendments, exhibits, pricing schedules, statements of work, and proposal instructions.",
+        "For federal negotiated acquisitions, FAR 15.203 says a competitive request for proposals must describe the government's requirement, anticipated contract terms and conditions, the information required in the proposal, and the evaluation factors and their relative importance."
+      ]
+    },
+    {
+      "heading": "Identify the controlling dates and submission method",
+      "paragraphs": [
+        "Before studying the opportunity in depth, identify the response deadline, time zone, submission location or portal, question deadline, site-visit or conference requirements, and any amendment acknowledgments. A technically strong proposal can still fail if it is submitted late or does not follow mandatory delivery instructions.",
+        "Check for amendments each time you return to the opportunity. An amendment can change dates, requirements, quantities, forms, or answers to vendor questions."
+      ]
+    },
+    {
+      "heading": "Separate the requirement from the response instructions",
+      "paragraphs": [
+        "The scope tells you what the buyer needs. The proposal instructions tell you what evidence and format the buyer expects from you. Treat those as separate questions: Can we perform the requirement, and can we submit a compliant response by the deadline?"
+      ],
+      "bullets": [
+        "Scope or statement of work: what must be delivered or performed.",
+        "Qualifications: licenses, experience, personnel, certifications, clearances, or other prerequisites.",
+        "Proposal instructions: required volumes, forms, page limits, pricing formats, signatures, and attachments.",
+        "Evaluation factors: what the buyer says it will consider when comparing offers.",
+        "Contract terms: performance obligations, payment provisions, insurance, reporting, compliance, and other conditions.",
+        "Amendments: later changes that may modify the original solicitation."
+      ]
+    },
+    {
+      "heading": "Build a compliance checklist from the solicitation itself",
+      "paragraphs": [
+        "Do not rely on memory or a generic proposal template. Convert the solicitation into a checklist that traces each mandatory instruction to the part of the response that satisfies it.",
+        "FAR 15.304 requires factors affecting federal source-selection decisions and their relative importance to be stated clearly in the solicitation. That makes the evaluation section especially important when deciding what evidence and emphasis belong in a proposal."
+      ]
+    },
+    {
+      "heading": "Resolve uncertainty before committing to a response",
+      "paragraphs": [
+        "If a requirement is ambiguous, use the solicitation's stated question process or contracting contact rather than guessing. Record assumptions, unanswered questions, and dependencies before the bid decision.",
+        "The goal of solicitation review is not simply to understand the topic. It is to determine what the buyer requires, what your business must prove, and what a compliant response will demand."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "Acquisition.gov — FAR 15.203 Requests for proposals", "url": "https://www.acquisition.gov/far/15.203"},
+    {"label": "Acquisition.gov — FAR 15.304 Evaluation factors and significant subfactors", "url": "https://www.acquisition.gov/far/15.304"},
+    {"label": "SAM.gov — Contract Opportunities", "url": "https://sam.gov/opportunities"}
+  ],
+  "pathway": {
+    "heading": "Turn a complex solicitation into a clearer decision",
+    "description": "The Marketplace Contract Fit Analysis pathway introduces APROPOS Analyze Fit for plain-language review of requirements, deadlines, qualifications, risks, and key considerations.",
+    "label": "Explore Contract Fit Analysis",
+    "url": "https://marketplace.aproposgroupllc.com/contract-fit-analysis/",
+    "destination": "analyze_fit"
+  },
+  "related": ["how-to-decide-whether-to-bid", "how-to-find-government-contracts", "understanding-naics-codes"]
+}

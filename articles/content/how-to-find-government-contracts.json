@@ -1,0 +1,59 @@
+{
+  "slug": "how-to-find-government-contracts",
+  "title": "How to Find Government Contracts",
+  "description": "A practical introduction to finding federal, state, and local government contracting opportunities without confusing discovery with contract readiness.",
+  "category": "Government Contracting Basics",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "Start by separating federal from state and local markets",
+      "paragraphs": [
+        "Government contracting is not one centralized marketplace. Federal opportunities, state procurements, city and county solicitations, school and university purchases, and other public-sector opportunities can appear through different systems and follow different procedures.",
+        "A useful search process starts by deciding which market you are pursuing. Federal opportunity discovery should be treated separately from state and local discovery so that registration requirements, terminology, deadlines, and sources do not become mixed together."
+      ]
+    },
+    {
+      "heading": "Use SAM.gov for federal contract opportunity discovery",
+      "paragraphs": [
+        "SAM.gov describes Contract Opportunities as procurement notices from federal contracting offices and allows anyone to search without an account. An account adds features such as saved searches, followed opportunities, and interested-vendor lists.",
+        "Search broadly enough to find relevant work, then narrow using terms tied to your actual products, services, industry classifications, place of performance, agencies, and other opportunity details. Finding a notice is only the beginning; the solicitation documents determine what a business must submit and how the government will evaluate the response."
+      ],
+      "bullets": [
+        "Search by plain-language product or service terms.",
+        "Review NAICS classifications used on relevant opportunities.",
+        "Watch agencies that repeatedly buy what your business sells.",
+        "Save or follow promising federal opportunities when appropriate.",
+        "Read the complete solicitation and amendments before deciding to pursue."
+      ]
+    },
+    {
+      "heading": "Treat state and local procurement as a distributed market",
+      "paragraphs": [
+        "State and local public buyers include states, counties, cities, public schools, colleges, universities, authorities, and other eligible government entities. There is no single universal state-and-local solicitation portal, so businesses often need to identify the procurement systems used by the jurisdictions and institutions they want to serve.",
+        "NASPO publishes state procurement profiles, and individual public entities maintain their own vendor-registration and solicitation processes. Some eligible state and local governments can also purchase through specific GSA programs, but those programs do not replace each jurisdiction's broader procurement activity."
+      ]
+    },
+    {
+      "heading": "Search for fit, not just volume",
+      "paragraphs": [
+        "A long list of opportunities is not automatically valuable. A better search process filters for realistic alignment: scope, qualifications, delivery capacity, geography, schedule, certifications, financial demands, contract terms, and proposal effort.",
+        "The objective is to move from discovery to an informed pursue-or-pass decision. Businesses should verify every requirement against the issuing organization's current solicitation and amendments rather than relying on a listing summary alone."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "SAM.gov — Contract Opportunities", "url": "https://sam.gov/opportunities"},
+    {"label": "U.S. Small Business Administration — Get started with contracting", "url": "https://www.sba.gov/counseling/get-started/"},
+    {"label": "NASPO — Procurement by State", "url": "https://www.naspo.org/states/"},
+    {"label": "GSA — Programs for state and local governments", "url": "https://www.gsa.gov/buy-through-us/purchasing-programs/programs-for-state-and-local-governments"}
+  ],
+  "pathway": {
+    "heading": "Continue to the opportunity market that fits your business",
+    "description": "Use the Registered Federal Contractors Portal for federal opportunity pathways, or return to the Marketplace state and local pathway for NAT-CORP access.",
+    "label": "Explore federal contract opportunities",
+    "url": "https://federalcontractorportal.aproposgroupllc.com/",
+    "destination": "rfcp"
+  },
+  "related": ["federal-vs-state-local-government-contracts", "what-is-sled-contracting", "how-to-decide-whether-to-bid"]
+}

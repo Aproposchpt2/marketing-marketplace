@@ -1,0 +1,52 @@
+{
+  "slug": "understanding-naics-codes",
+  "title": "Understanding NAICS Codes for Government Contracting",
+  "description": "Learn what NAICS codes are, how they are used in federal contracting, and why businesses should match classifications to the products and services they actually provide.",
+  "category": "Contractor Readiness",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "NAICS is an industry classification system",
+      "paragraphs": [
+        "The North American Industry Classification System, or NAICS, is the standard used by U.S. federal statistical agencies to classify business establishments by economic activity. The U.S. Census Bureau maintains the official NAICS reference system and search tools.",
+        "In government contracting, NAICS codes also help categorize the type of work associated with a procurement and connect that work to small-business size standards."
+      ]
+    },
+    {
+      "heading": "A business can have more than one relevant NAICS code",
+      "paragraphs": [
+        "SBA guidance notes that a business generally has a primary NAICS code but may have multiple codes when it sells multiple products or services. The important principle is accuracy: classifications should reflect work the business actually performs or is prepared to provide.",
+        "Adding unrelated codes simply to widen searches can make a contractor profile less useful and can distract from the company's strongest capabilities."
+      ]
+    },
+    {
+      "heading": "The opportunity's NAICS code matters for small-business eligibility",
+      "paragraphs": [
+        "SBA assigns small-business size standards by NAICS code. Those standards can be based on employees, annual receipts, or other measures depending on the industry. For a contract reserved for small businesses, the applicable NAICS code and size standard can therefore affect whether a company qualifies as small for that procurement.",
+        "Do not assume that being small under one industry classification means the same result under every other classification. Review the code and size standard attached to the specific opportunity."
+      ]
+    },
+    {
+      "heading": "Use NAICS as one search signal, not the whole fit decision",
+      "paragraphs": [
+        "SAM.gov allows federal opportunities to be searched by NAICS categories, making classifications useful for discovery. But a matching code does not establish that an opportunity is a good business fit.",
+        "After a NAICS match, review the actual scope, qualifications, place of performance, schedule, set-aside conditions, proposal instructions, evaluation factors, and contract terms before deciding whether to pursue."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "U.S. Census Bureau — North American Industry Classification System", "url": "https://www.census.gov/naics/"},
+    {"label": "U.S. Small Business Administration — Get started with contracting", "url": "https://www.sba.gov/counseling/get-started/"},
+    {"label": "U.S. Small Business Administration — Size standards", "url": "https://www.sba.gov/counseling/size-standards/"},
+    {"label": "SAM.gov — Contract Opportunities", "url": "https://sam.gov/opportunities"}
+  ],
+  "pathway": {
+    "heading": "Use NAICS in the correct federal contracting context",
+    "description": "The Registered Federal Contractors Portal is the APROPOS destination for federal opportunity matching, SAM and NAICS context, and federal contracting pathways.",
+    "label": "Continue to the Federal Contractors Portal",
+    "url": "https://federalcontractorportal.aproposgroupllc.com/",
+    "destination": "rfcp"
+  },
+  "related": ["what-is-a-capability-statement", "how-to-find-government-contracts", "preparing-your-business-for-government-contracting"]
+}

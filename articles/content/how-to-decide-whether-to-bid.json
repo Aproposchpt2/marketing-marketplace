@@ -1,0 +1,57 @@
+{
+  "slug": "how-to-decide-whether-to-bid",
+  "title": "How to Decide Whether to Bid on a Government Contract",
+  "description": "Use a disciplined bid or no-bid review to compare opportunity requirements with your business capabilities, capacity, risk, and proposal effort.",
+  "category": "Bid Decisions",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "A relevant opportunity is not automatically a good bid",
+      "paragraphs": [
+        "Keyword or industry alignment can make a solicitation look attractive, but a pursue decision should be based on the complete requirement. A business may be technically capable of performing the work and still face disqualifying experience requirements, unrealistic delivery timing, unfavorable terms, insufficient staffing, or proposal demands that do not justify the expected value.",
+        "A bid or no-bid review creates a controlled decision point before substantial proposal time and cost are committed."
+      ]
+    },
+    {
+      "heading": "Read the instructions and evaluation factors first",
+      "paragraphs": [
+        "For federal negotiated acquisitions, FAR 15.203 states that a competitive request for proposals must describe the government's requirement, anticipated terms and conditions, information required in the proposal, and the evaluation factors and their relative importance.",
+        "FAR 15.304 also requires the factors affecting award and their relative importance to be stated in the solicitation. Those sections are central to a bid decision because they show both what must be submitted and what the government says it will value."
+      ]
+    },
+    {
+      "heading": "Evaluate the opportunity across several dimensions",
+      "paragraphs": [
+        "A disciplined review should go beyond whether your company can perform the basic scope. The strongest decision considers eligibility, compliance, operational capacity, commercial terms, competitive position, and proposal burden together."
+      ],
+      "bullets": [
+        "Eligibility: registrations, size or set-aside status, licenses, certifications, and mandatory qualifications.",
+        "Capability: technical fit, relevant experience, personnel, equipment, partners, and delivery model.",
+        "Capacity: schedule, staffing, cash flow, insurance, bonding, inventory, and competing commitments.",
+        "Evaluation fit: how well your strengths align with the stated evaluation factors.",
+        "Commercial risk: pricing pressure, payment terms, liability, performance obligations, and contract conditions.",
+        "Proposal effort: time, documents, writing, pricing, forms, representations, and approvals needed before the deadline."
+      ]
+    },
+    {
+      "heading": "Document why you are pursuing or passing",
+      "paragraphs": [
+        "A no-bid decision can be useful business intelligence. Record the reason you passed so repeated patterns become visible, such as missing past performance, limited geographic reach, insufficient working capital, or recurring certification requirements.",
+        "A bid decision should also record the strongest reasons to pursue, the major risks, open questions, and the next actions required. The objective is not to predict an award; it is to make a better-informed allocation of business-development resources."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "Acquisition.gov — FAR 15.203 Requests for proposals", "url": "https://www.acquisition.gov/far/15.203"},
+    {"label": "Acquisition.gov — FAR 15.304 Evaluation factors and significant subfactors", "url": "https://www.acquisition.gov/far/15.304"}
+  ],
+  "pathway": {
+    "heading": "Need a structured contract-fit review?",
+    "description": "APROPOS Analyze Fit is designed to translate solicitation requirements, deadlines, qualifications, risks, and key considerations into practical decision support without guaranteeing an outcome.",
+    "label": "Explore Contract Fit Analysis",
+    "url": "https://marketplace.aproposgroupllc.com/contract-fit-analysis/",
+    "destination": "analyze_fit"
+  },
+  "related": ["how-to-read-a-government-solicitation", "how-to-find-government-contracts", "preparing-your-business-for-government-contracting"]
+}

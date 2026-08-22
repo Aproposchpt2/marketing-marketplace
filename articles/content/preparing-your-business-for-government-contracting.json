@@ -1,0 +1,67 @@
+{
+  "slug": "preparing-your-business-for-government-contracting",
+  "title": "Preparing Your Business for Government Contracting",
+  "description": "A practical readiness checklist for businesses that want to pursue government contracts without treating registration alone as proof that the company is ready to perform.",
+  "category": "Contractor Readiness",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "Contract readiness is broader than registration",
+      "paragraphs": [
+        "Registration can make a business eligible to participate in a procurement system, but it does not by itself establish that the company can price, propose, finance, staff, manage, and perform a contract successfully.",
+        "SBA's federal contracting guidance begins with assessing the business, meeting basic requirements, understanding size standards, obtaining the proper registrations and identifiers, and researching whether government buyers actually purchase what the business sells."
+      ]
+    },
+    {
+      "heading": "Confirm that public buyers purchase what you sell",
+      "paragraphs": [
+        "Readiness starts with market fit. Research agencies and public entities that buy your products or services, the contract sizes they use, the procurement methods they favor, and the requirements that appear repeatedly.",
+        "A company that understands its target buyers can focus its registrations, NAICS classifications, capability messaging, partnerships, and opportunity monitoring instead of trying to pursue every public-sector notice."
+      ]
+    },
+    {
+      "heading": "Build the operational foundation behind the bid",
+      "paragraphs": [
+        "Government solicitations can expose weaknesses that are easy to overlook during ordinary sales activity. Before committing to major bids, evaluate whether the business can support the required performance period and administrative obligations."
+      ],
+      "bullets": [
+        "Current registrations, identifiers, licenses, certifications, and contractor profiles.",
+        "Clear capability descriptions and relevant industry classifications.",
+        "Documented past performance or representative commercial experience where applicable.",
+        "Staffing, subcontractor, equipment, facility, and delivery capacity.",
+        "Insurance, bonding, cybersecurity, safety, or other compliance capabilities when the target work requires them.",
+        "Pricing discipline, bookkeeping, cash-flow planning, and working-capital awareness.",
+        "A controlled process for reviewing solicitations, amendments, deadlines, and proposal requirements."
+      ]
+    },
+    {
+      "heading": "Understand small-business status in context",
+      "paragraphs": [
+        "SBA size standards vary by industry and are tied to NAICS classifications. A company pursuing set-aside opportunities should verify the size standard and eligibility conditions associated with the specific procurement rather than relying on a general description of itself as a small business.",
+        "Certifications can open access to certain contracting programs when a business legitimately qualifies, but no certification guarantees an award."
+      ]
+    },
+    {
+      "heading": "Improve readiness before increasing bid volume",
+      "paragraphs": [
+        "If repeated opportunities reveal the same gaps, treat those gaps as a business-development plan. The next best step may be strengthening financial preparation, documenting experience, improving a contractor profile, building partnerships, obtaining required insurance, or narrowing the target market.",
+        "A prepared business is better positioned to decide which contracts are worth pursuing and which should be passed until the company is stronger."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "U.S. Small Business Administration — Get started with contracting", "url": "https://www.sba.gov/counseling/get-started/"},
+    {"label": "U.S. Small Business Administration — Counseling and contracting guide", "url": "https://www.sba.gov/counseling/"},
+    {"label": "U.S. Small Business Administration — Certifications", "url": "https://www.sba.gov/certifications/"},
+    {"label": "U.S. Census Bureau — NAICS", "url": "https://www.census.gov/naics/"}
+  ],
+  "pathway": {
+    "heading": "Need broader business-readiness support?",
+    "description": "NEBC is the APROPOS destination for business assessment, planning, funding readiness, and Nevada-focused business-development support.",
+    "label": "Continue to NEBC",
+    "url": "https://nebc.aproposgroupllc.com/",
+    "destination": "nebc"
+  },
+  "related": ["what-is-a-capability-statement", "understanding-naics-codes", "how-to-decide-whether-to-bid"]
+}

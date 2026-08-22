@@ -1,0 +1,52 @@
+{
+  "slug": "federal-vs-state-local-government-contracts",
+  "title": "Federal vs. State and Local Government Contracts",
+  "description": "Understand the practical differences between federal contracting and state or local public procurement before choosing where to focus your business-development effort.",
+  "category": "Government Contracting Basics",
+  "publishedDate": "2026-08-21",
+  "updatedDate": "2026-08-21",
+  "sections": [
+    {
+      "heading": "The public-sector market is not one procurement system",
+      "paragraphs": [
+        "Federal contracting and state or local procurement share a common idea: public organizations buy goods and services from private businesses under defined rules. The systems, registration processes, solicitation formats, purchasing authorities, and opportunity sources can differ substantially.",
+        "That distinction matters because a business can be well prepared for one market and still need additional registrations, research, or process knowledge for another."
+      ]
+    },
+    {
+      "heading": "Federal contracting has a common national infrastructure",
+      "paragraphs": [
+        "SAM.gov provides the federal Contract Opportunities workspace and is a central source for federal procurement notices. SBA guidance also identifies SAM registration, the Unique Entity Identifier, NAICS alignment, size standards, and compliance requirements as important parts of federal contracting readiness.",
+        "Federal acquisitions are governed by the Federal Acquisition Regulation and, in some cases, agency supplements. The solicitation itself remains the controlling source for a specific opportunity's instructions, required proposal information, evaluation factors, and deadlines."
+      ]
+    },
+    {
+      "heading": "State and local procurement is more distributed",
+      "paragraphs": [
+        "State and local buyers can include state agencies, counties, cities, public schools, colleges, universities, authorities, and other public entities. Their solicitations may be published through statewide systems, agency sites, local portals, third-party procurement platforms, or institutional vendor systems.",
+        "NASPO maintains procurement profiles for individual states, which illustrates why state-by-state research matters. GSA also provides purchasing programs available to certain eligible state and local entities, but those programs represent only part of the wider state and local procurement landscape."
+      ]
+    },
+    {
+      "heading": "Choose a market based on business fit",
+      "paragraphs": [
+        "A business does not need to pursue every level of government at once. Consider where your past performance, geographic reach, pricing, staffing, licenses, certifications, delivery model, and customer experience create the strongest starting point.",
+        "The right strategy may be federal, state and local, or a deliberate combination. The important point is to keep the opportunity sources and compliance requirements clear enough that each solicitation can be evaluated on its own terms."
+      ]
+    }
+  ],
+  "sources": [
+    {"label": "SAM.gov — Contract Opportunities", "url": "https://sam.gov/opportunities"},
+    {"label": "U.S. Small Business Administration — Get started with contracting", "url": "https://www.sba.gov/counseling/get-started/"},
+    {"label": "NASPO — Procurement by State", "url": "https://www.naspo.org/states/"},
+    {"label": "GSA — Programs for state and local governments", "url": "https://www.gsa.gov/buy-through-us/purchasing-programs/programs-for-state-and-local-governments"}
+  ],
+  "pathway": {
+    "heading": "Choose the APROPOS market pathway that matches your target",
+    "description": "Federal contracting continues through the Registered Federal Contractors Portal. State, local, municipal, education, and related public-sector opportunity discovery continues through NAT-CORP.",
+    "label": "Explore state and local opportunities",
+    "url": "https://natcorp.aproposgroupllc.com/",
+    "destination": "natcorp"
+  },
+  "related": ["how-to-find-government-contracts", "what-is-sled-contracting", "preparing-your-business-for-government-contracting"]
+}
