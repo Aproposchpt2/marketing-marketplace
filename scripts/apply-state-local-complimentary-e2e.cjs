@@ -7,11 +7,7 @@ if(!html.includes('id="complimentaryClaimCta"')){
   if(!anchor.test(html))throw new Error('[state-local-e2e] homepage complimentary CTA marker not found');
   html=html.replace(anchor,(whole,attrs,label)=>`<a id="complimentaryClaimCta"${attrs}>${label}</a>`);
 }
-
-const handoff=`<script id="complimentaryReferenceHandoff">(()=>{const raw=(new URLSearchParams(location.search).get('ref')||'').trim().toUpperCase();if(!/^(?:AP|NG)-[A-Z0-9]{8}$/.test(raw))return;const cta=document.getElementById('complimentaryClaimCta');if(cta)cta.href='/claim-opportunity.html?ref='+encodeURIComponent(raw);})();</script>`;
-if(!html.includes('id="complimentaryReferenceHandoff"')){
-  if(!html.includes('</body>'))throw new Error('[state-local-e2e] homepage closing body marker not found');
-  html=html.replace('</body>',`${handoff}\n</body>`);
-}
+html=html.replace(/<script id="complimentaryReferenceHandoff">[\s\S]*?<\/script>\s*/g,'');
+html=html.replace(/(<a\b[^>]*id="complimentaryClaimCta"[^>]*href=["'])\/claim-opportunity\.html\?ref=[^"']*(["'])/i,'$1/claim-opportunity.html$2');
 fs.writeFileSync(file,html,'utf8');
-console.log('[state-local-e2e] Marketplace reference handoff applied');
+console.log('[state-local-e2e] Marketplace homepage CTA preserved without reference handoff');
