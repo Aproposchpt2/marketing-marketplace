@@ -20,6 +20,7 @@ function normalize(value) {
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/nebc[^"'\s<]*/gi, NEBC)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/analyze-fit[^"'\s<]*/gi, `${MARKETPLACE}/contract-fit-analysis/`)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/[A-Za-z0-9._~!$&()*+,;=:@%/?#-]*/gi, `${MARKETPLACE}/`)
+    .replaceAll('https://ai4-product-purchasing.ai4businesses.org', `${MARKETPLACE}/contract-fit-analysis/`)
     .replaceAll('National Government Contract Center', 'Registered Federal Contractors Portal');
 }
 
