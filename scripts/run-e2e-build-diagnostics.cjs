@@ -32,6 +32,8 @@ for(const command of commands){
 }
 report.finished_at=new Date().toISOString();
 fs.writeFileSync('build-diagnostics.json',JSON.stringify(report,null,2));
+const label=(report.failed_command||'ALL-STAGES-PASS').replace(/^node scripts\//,'').replace(/\.cjs$/,'').replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').toUpperCase();
+fs.writeFileSync(`00-DIAGNOSTIC-${report.ok?'PASS':'FAIL'}-${label}.html`,`<!doctype html><title>Build diagnostic</title><pre>${JSON.stringify(report,null,2).replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>`);
 console.log(`[e2e-build-diagnostics] ${report.ok?'PASS':'captured failure'}: ${report.failed_command||'all stages passed'}`);
 // Preview diagnostic mode deliberately exits 0 so the generated diagnostic artifact can be inspected.
 process.exit(0);
