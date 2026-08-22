@@ -1,8 +1,9 @@
-const BC=process.env.BUSINESSCONTRACTS_BASE_URL||'https://businesscontracts.aproposgroupllc.com';
+const BC=String(process.env.BUSINESSCONTRACTS_BASE_URL||'').replace(/\/+$/,'');
 const json=(status,data)=>new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff'}});
 
 export default async (req)=>{
   try{
+    if(!BC)return json(503,{ok:false,error:'The state/local opportunity fulfillment service is not configured.'});
     const url=new URL(req.url);
     const action=String(url.searchParams.get('action')||'').trim();
     if(action==='claim'&&req.method==='POST'){
