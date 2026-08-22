@@ -8,8 +8,8 @@ const thankYou=read('opportunity-thank-you.html');
 
 for(const token of ['id="complimentaryClaimCta"','id="complimentaryReferenceHandoff"',"/claim-opportunity.html?ref="])if(!home.includes(token))throw new Error(`[state-local-e2e] homepage missing ${token}`);
 for(const token of ['Contractor Name','Business Name','Opportunity Reference','emailField.hidden=isBusiness','aproposOpportunityToken','/api/complimentary-opportunity?action=claim'])if(!claim.includes(token))throw new Error(`[state-local-e2e] claim page missing ${token}`);
-for(const token of ["const BC=process.env.BUSINESSCONTRACTS_BASE_URL||'https://businesscontracts.aproposgroupllc.com'","action==='claim'","/api/marketplace-claim","action==='workspace'","action==='package'"])if(!proxy.includes(token))throw new Error(`[state-local-e2e] proxy missing ${token}`);
-if(proxy.includes('status:410')||proxy.includes('route has been retired'))throw new Error('[state-local-e2e] state/local proxy remains retired');
-for(const token of ['Contract & Addendums','Download Complete Package','Print','Purchase Analyze Fit Report','Explore Nat-Corp','/opportunity-thank-you.html','ai4-product-purchasing.ai4businesses.org'])if(!workspace.includes(token))throw new Error(`[state-local-e2e] workspace missing ${token}`);
+for(const token of ['BUSINESSCONTRACTS_BASE_URL',"action==='claim'",'/api/marketplace-claim',"action==='workspace'","action==='package'"])if(!proxy.includes(token))throw new Error(`[state-local-e2e] proxy missing ${token}`);
+if(proxy.includes('status:410')||proxy.includes('route has been retired')||proxy.includes('https://businesscontracts.aproposgroupllc.com'))throw new Error('[state-local-e2e] state/local proxy is retired or publicly hardcoded');
+for(const token of ['Contract & Addendums','Download Complete Package','Print','Purchase Analyze Fit Report','Explore Nat-Corp','/opportunity-thank-you.html','d.purchase_url'])if(!workspace.includes(token))throw new Error(`[state-local-e2e] workspace missing ${token}`);
 for(const token of ['Thank You — Good Luck!','aproposOpportunityClaim','Submit Comment','/api/opportunity-experience'])if(!thankYou.includes(token))throw new Error(`[state-local-e2e] thank-you page missing ${token}`);
 console.log('[state-local-e2e] Marketplace state/local complimentary E2E validation PASS');
