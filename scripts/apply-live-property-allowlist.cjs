@@ -61,11 +61,12 @@ for (const file of runtimeFiles) {
 const federal = fs.readFileSync(path.join(root, 'netlify/functions/federal-opportunity.mjs'), 'utf8');
 if (!federal.includes(RFCP)) failures.push('federal-opportunity does not use RFCP');
 const complimentary = fs.readFileSync(path.join(root, 'netlify/functions/complimentary-opportunity.mjs'), 'utf8');
-if (!complimentary.includes(NATCORP)) failures.push('legacy state/local claim route does not hand off to NAT-CORP');
+if (!complimentary.includes('BUSINESSCONTRACTS_BASE_URL')) failures.push('state/local claim route is not configured for the internal BusinessContracts fulfillment handoff');
+if (complimentary.includes('businesscontracts.aproposgroupllc.com')) failures.push('state/local claim proxy must use the server-side environment handoff rather than a public hardcoded BusinessContracts URL');
 
 if (failures.length) {
   console.error('[marketplace-live-property-allowlist] Validation failed:');
-  failures.forEach(f => console.error(`- ${f}`));
+  failures.forEach(f=>console.error(`- ${f}`));
   process.exit(1);
 }
-console.log('[marketplace-live-property-allowlist] PASS — public/runtime APROPOS references are limited to approved live properties.');
+console.log('[marketplace-live-property-allowlist] PASS — Marketplace public destinations remain allowlisted while state/local fulfillment uses a server-side BusinessContracts handoff.');
