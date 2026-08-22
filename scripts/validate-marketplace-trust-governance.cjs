@@ -11,7 +11,7 @@ const required = [
   'https://www.sba.gov/counseling/prime-and-subcontracting/',
   'Whether subcontract performance is accepted as relevant past performance',
   'We Deliver the Opportunity',
-  'Choose Your APROPOS Path',
+  'Choose Your Contracting Path',
   'https://aproposgroupllc.com/'
 ];
 for (const token of required) {
