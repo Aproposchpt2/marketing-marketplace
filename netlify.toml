@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/apply-marketplace-analytics.cjs && node scripts/apply-marketplace-production-suite.cjs && node scripts/apply-seo-production.cjs && node scripts/apply-live-property-allowlist.cjs && node scripts/validate-marketplace-production-suite.cjs"
+  command = "node scripts/apply-marketplace-analytics.cjs && node scripts/run-marketplace-production-suite.cjs && node scripts/apply-seo-production.cjs && node scripts/apply-live-property-allowlist.cjs && node scripts/validate-marketplace-production-suite.cjs"
   publish = "."
   functions = "netlify/functions"
 
