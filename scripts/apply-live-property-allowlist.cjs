@@ -7,6 +7,8 @@ const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
 const NATCORP = 'https://natcorp.aproposgroupllc.com';
 const NEBC = 'https://nebc.aproposgroupllc.com';
 const MARKETPLACE = 'https://marketplace.aproposgroupllc.com';
+const AI4WEBSITE = 'https://ai4websitedesign.com';
+const AI4WEBSITE_ES = 'https://espanola.ai4websitedesign.com';
 
 function normalize(value) {
   return value
@@ -14,7 +16,6 @@ function normalize(value) {
     .replaceAll('https://capgenmkt.aproposgroupllc.com', RFCP)
     .replaceAll('https://businesscontracts.aproposgroupllc.com', NATCORP)
     .replaceAll('https://gcpdc.aproposgroupllc.com', `${MARKETPLACE}/government-proposal-development`)
-    .replaceAll('https://ai4websitedesign.com', `${NEBC}/website-builder.html`)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/(?:ngcc|capgen)[^"'\s<]*/gi, RFCP)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/natcorp[^"'\s<]*/gi, NATCORP)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/nebc[^"'\s<]*/gi, NEBC)
@@ -49,7 +50,6 @@ const forbidden = [
   'capgenmkt.aproposgroupllc.com',
   'businesscontracts.aproposgroupllc.com',
   'gcpdc.aproposgroupllc.com',
-  'ai4websitedesign.com',
   'ai4-product-purchasing.ai4businesses.org',
 ];
 const failures = [];
@@ -63,9 +63,13 @@ if (!federal.includes(RFCP)) failures.push('federal-opportunity does not use RFC
 const complimentary = fs.readFileSync(path.join(root, 'netlify/functions/complimentary-opportunity.mjs'), 'utf8');
 if (!complimentary.includes(NATCORP)) failures.push('legacy state/local claim route does not hand off to NAT-CORP');
 
+const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+if (!homepage.includes(AI4WEBSITE)) failures.push('Marketplace homepage does not retain live AI4 Website Design destination');
+if (!homepage.includes(AI4WEBSITE_ES)) failures.push('Marketplace homepage does not retain live Spanish AI4 Website Design destination');
+
 if (failures.length) {
   console.error('[marketplace-live-property-allowlist] Validation failed:');
   failures.forEach(f => console.error(`- ${f}`));
   process.exit(1);
 }
-console.log('[marketplace-live-property-allowlist] PASS — public/runtime APROPOS references are limited to approved live properties.');
+console.log('[marketplace-live-property-allowlist] PASS — public/runtime APROPOS references are limited to approved live properties, including AI4 Website Design English and Spanish production sites.');
