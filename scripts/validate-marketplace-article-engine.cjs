@@ -97,8 +97,18 @@ for (const token of ['BlogPosting','datePublished','dateModified','BreadcrumbLis
   if (!generator.includes(token)) failures.push(`generator contract missing: ${token}`);
 }
 
-if (!homepage.includes('/hero-marketplace.webp')) failures.push('locked homepage image artifact missing after article generation');
-if (!homepage.includes('rel="preload" as="image" href="/hero-marketplace.webp"')) failures.push('locked homepage image preload missing after article generation');
+// The current homepage image and composition are protected by the production-suite,
+// APROPOS visual-standard, and hero-building-balance gates that run immediately
+// before this validator. Re-check the current markers here rather than reviving the
+// retired /hero-marketplace.webp assertion from Article Engine V1.
+for (const token of [
+  '<section class="hero" id="top">',
+  'The Government Contract Marketplace',
+  'APROPOS_VISUAL_STANDARD_MARKETPLACE_START',
+  'APROPOS_MARKETPLACE_HERO_BUILDING_BALANCE_START'
+]) {
+  if (!homepage.includes(token)) failures.push(`current Platinum homepage/hero marker missing after article generation: ${token}`);
+}
 
 if (failures.length) {
   console.error('[articles] Validation failed:');
