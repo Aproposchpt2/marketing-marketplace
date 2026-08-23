@@ -1,10 +1,390 @@
-<!doctype html><html lang="en"><head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FGJG583DTL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FGJG583DTL');
-</script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Thank You | Apropos Group LLC</title><style>:root{--navy:#0E1D36;--gold:#C8A84B;--paper:#f6f8fb;--ink:#182238;--muted:#647087}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--paper);color:var(--ink)}header{background:var(--navy);color:#fff;padding:24px;border-bottom:4px solid var(--gold)}header div,main{max-width:900px;margin:auto}.brand{font-weight:800;letter-spacing:.1em}.sub{color:#cfd8e5;font-size:13px;margin-top:5px}main{padding:56px 20px}.card{background:#fff;border:1px solid #dce3eb;border-radius:18px;padding:34px;margin-bottom:20px;box-shadow:0 18px 50px rgba(14,29,54,.07)}h1,h2{font-family:Georgia,serif;color:var(--navy)}h1{font-size:40px;margin:0 0 14px}h2{font-size:26px;margin:0 0 10px}.lead,.note{color:var(--muted);line-height:1.7}textarea,input{width:100%;padding:13px;border:1px solid #bcc6d3;border-radius:8px;font:inherit}textarea{min-height:140px;resize:vertical}.btn{display:inline-block;margin-top:16px;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:13px 18px;font-weight:800;cursor:pointer}.btn.secondary{background:#fff;color:var(--navy);border:1px solid #bcc6d3}.offer{border-left:4px solid var(--gold);background:#fbf8ee}.price{font-size:28px;font-weight:800;color:var(--navy);margin-top:8px}.status{margin-top:12px;color:#16794b}.muted{color:var(--muted)}@media(max-width:650px){h1{font-size:32px}.card{padding:24px}}</style></head><body><header><div><div class="brand">APROPOS GROUP LLC</div><div class="sub">Government Contract Marketplace</div></div></header><main><section class="card"><h1>Thank You for Visiting Apropos Group LLC</h1><p class="lead">We hope this opportunity provides value to your business.</p><p class="lead">If you would like to leave a comment about your experience, feel free to share it below.</p><form id="feedback"><label for="comment"><strong>Comment</strong></label><textarea id="comment" name="comment" placeholder="Share your experience or feedback…"></textarea><button class="btn" type="submit">Submit Comment</button><div id="feedbackStatus" class="status"></div></form></section><section class="card offer"><h2>Want Apropos to keep doing this for your business?</h2><p class="note">Apropos can continue identifying qualified government contract opportunities aligned with your business and deliver the complete opportunity directly to you.</p><div class="price">$149 per qualified opportunity delivered</div><p class="note">Market test: one qualified opportunity per month. You remain in control and can choose whether you want Apropos to continue.</p><button class="btn" id="continueService" type="button">Yes — Keep Looking for My Business</button><div id="serviceStatus" class="status"></div></section></main><script>'use strict';const claim=(()=>{try{return JSON.parse(sessionStorage.getItem('aproposOpportunityClaim')||sessionStorage.getItem('aproposFederalOpportunityClaim')||'{}')}catch{return{}}})();const data=()=>({business_name:claim.business_name||'',contact_name:claim.contact_name||'',contact_email:claim.contact_email||'',opportunity_reference:claim.opportunity_reference||'',notice_id:claim.notice_id||''});async function send(kind,comment=''){const payload={...data(),kind,comment};const r=await fetch('/api/opportunity-experience',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok)throw new Error(d.error||'Your response could not be saved.');return d}document.getElementById('feedback').addEventListener('submit',async e=>{e.preventDefault();const s=document.getElementById('feedbackStatus');try{await send('COMMENT',document.getElementById('comment').value.trim());s.textContent='Thank you. Your comment has been received.';document.getElementById('comment').value=''}catch(err){s.textContent=err.message}});document.getElementById('continueService').onclick=async()=>{const b=document.getElementById('continueService'),s=document.getElementById('serviceStatus');b.disabled=true;try{await send('QUALIFIED_OPPORTUNITY_DELIVERY_INTEREST');s.textContent='Thank you. Apropos has recorded your interest in continued qualified opportunity delivery.';b.textContent='Interest Recorded'}catch(err){s.textContent=err.message;b.disabled=false}};</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGJG583DTL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FGJG583DTL');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Thank You | Apropos Group LLC</title>
+  <style>
+    :root {
+      --apropos-navy: #071a3c;
+      --apropos-blue: #0f2a6a;
+      --apropos-gold: #d5ae55;
+      --apropos-gold-light: #e8cb87;
+      --apropos-text: #eef3ff;
+      --apropos-muted: rgba(255,255,255,.58);
+      --apropos-line: rgba(255,255,255,.13);
+      --apropos-panel: rgba(255,255,255,.055);
+      --apropos-success: #3ee391;
+      --apropos-danger: #ff7777;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-width: 320px; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: var(--apropos-text);
+      background:
+        radial-gradient(circle at 50% -20%, rgba(30,76,166,.46), transparent 46%),
+        linear-gradient(145deg, #04112b 0%, var(--apropos-navy) 46%, #0a2454 100%);
+    }
+
+    a { color: inherit; }
+
+    header {
+      background: rgba(4,17,43,.9);
+      border-bottom: 1px solid rgba(213,174,85,.52);
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+
+    .header-inner {
+      width: min(1480px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 20px 0 18px;
+    }
+
+    .brand {
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .sub {
+      margin-top: 5px;
+      color: var(--apropos-gold-light);
+      font-size: 13px;
+      letter-spacing: .025em;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(230px, .82fr) minmax(460px, 1.62fr) minmax(230px, .82fr);
+      grid-template-areas: "rfcp center natcorp";
+      align-items: start;
+      gap: 22px;
+      width: min(1480px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 38px 0 48px;
+    }
+
+    .thankyou-main {
+      grid-area: center;
+      display: grid;
+      gap: 20px;
+    }
+
+    .promo-rfcp { grid-area: rfcp; }
+    .promo-natcorp { grid-area: natcorp; }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--apropos-line);
+      border-radius: 16px;
+      background: linear-gradient(155deg, rgba(255,255,255,.08), var(--apropos-panel));
+      box-shadow: 0 20px 54px rgba(0,0,0,.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--apropos-gold), transparent);
+      content: "";
+    }
+
+    .card { padding: clamp(26px, 3.2vw, 42px); }
+
+    .promo-panel {
+      padding: 27px 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--apropos-gold-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      margin-top: 0;
+      color: #fff;
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 14px;
+      font-size: clamp(34px, 4.1vw, 54px);
+      line-height: 1.03;
+      letter-spacing: -.025em;
+    }
+
+    h2 {
+      margin-bottom: 11px;
+      font-size: clamp(24px, 2.1vw, 30px);
+      line-height: 1.12;
+    }
+
+    .promo-panel h2 {
+      font-size: clamp(24px, 2.1vw, 29px);
+    }
+
+    .lead,
+    .note,
+    .promo-description {
+      color: var(--apropos-muted);
+      line-height: 1.65;
+    }
+
+    .lead { margin: 7px 0; }
+    .note { margin: 9px 0; }
+    .promo-description { margin: 0; }
+
+    form { margin-top: 25px; }
+
+    label {
+      display: inline-block;
+      margin-bottom: 9px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 9px;
+      outline: 0;
+      background: rgba(2,12,31,.52);
+      color: #fff;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      padding: 14px;
+      resize: vertical;
+    }
+
+    textarea::placeholder { color: rgba(238,243,255,.43); }
+
+    textarea:focus,
+    input:focus {
+      border-color: var(--apropos-gold-light);
+      box-shadow: 0 0 0 3px rgba(213,174,85,.13);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      margin-top: 16px;
+      border: 1px solid var(--apropos-gold);
+      border-radius: 8px;
+      padding: 12px 18px;
+      background: var(--apropos-blue);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .btn:hover {
+      background: #173985;
+      box-shadow: 0 10px 24px rgba(0,0,0,.2);
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--apropos-gold-light);
+      outline-offset: 3px;
+    }
+
+    .btn:disabled {
+      cursor: wait;
+      opacity: .68;
+      transform: none;
+    }
+
+    .offer {
+      border-color: rgba(213,174,85,.34);
+      background:
+        linear-gradient(135deg, rgba(213,174,85,.11), transparent 55%),
+        var(--apropos-panel);
+    }
+
+    .price {
+      margin-top: 15px;
+      color: var(--apropos-gold-light);
+      font-size: clamp(25px, 3vw, 34px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .status {
+      min-height: 20px;
+      margin-top: 12px;
+      color: var(--apropos-success);
+      line-height: 1.45;
+    }
+
+    .promo-list {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0 4px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .promo-list li {
+      position: relative;
+      padding-left: 18px;
+      color: rgba(238,243,255,.82);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .promo-list li::before {
+      position: absolute;
+      top: .55em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--apropos-gold);
+      content: "";
+    }
+
+    .promo-panel .btn {
+      width: 100%;
+      margin-top: 23px;
+      background: rgba(15,42,106,.76);
+    }
+
+    @media (max-width: 1080px) {
+      main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+          "center center"
+          "rfcp natcorp";
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-inner,
+      main {
+        width: min(100% - 28px, 600px);
+      }
+
+      .header-inner { padding: 17px 0 15px; }
+
+      main {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+          "center"
+          "rfcp"
+          "natcorp";
+        gap: 16px;
+        padding: 22px 0 34px;
+      }
+
+      .thankyou-main { gap: 16px; }
+      .card,
+      .promo-panel { padding: 24px 20px; }
+      h1 { font-size: clamp(32px, 11vw, 42px); }
+      .btn { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">APROPOS GROUP LLC</div>
+      <div class="sub">Government Contract Marketplace</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="thankyou-main">
+      <section class="panel card" aria-labelledby="thank-you-heading">
+        <p class="eyebrow">Opportunity Experience</p>
+        <h1 id="thank-you-heading">Thank You for Visiting Apropos Group LLC</h1>
+        <p class="lead">We hope this opportunity provides value to your business.</p>
+        <p class="lead">If you would like to leave a comment about your experience, feel free to share it below.</p>
+        <form id="feedback">
+          <label for="comment"><strong>Comment</strong></label>
+          <textarea id="comment" name="comment" placeholder="Share your experience or feedback…"></textarea>
+          <button class="btn" type="submit">Submit Comment</button>
+          <div id="feedbackStatus" class="status" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="panel card offer" aria-labelledby="offer-heading">
+        <p class="eyebrow">Qualified Opportunity Delivery</p>
+        <h2 id="offer-heading">Want Apropos to keep doing this for your business?</h2>
+        <p class="note">Apropos can continue identifying qualified government contract opportunities aligned with your business and deliver the complete opportunity directly to you.</p>
+        <div class="price">$149 per qualified opportunity delivered</div>
+        <p class="note">Market test: one qualified opportunity per month. You remain in control and can choose whether you want Apropos to continue.</p>
+        <button class="btn" id="continueService" type="button">Yes — Keep Looking for My Business</button>
+        <div id="serviceStatus" class="status" role="status" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <section class="panel promo-panel promo-rfcp" aria-labelledby="rfcp-heading">
+      <p class="eyebrow">Apropos Service</p>
+      <h2 id="rfcp-heading">Registered Federal Contractors Portal</h2>
+      <p class="promo-description">A unified Federal and State public-sector contract access portal for registered federal contractors.</p>
+      <ul class="promo-list">
+        <li>Federal contractor-focused</li>
+        <li>Unified contract access</li>
+        <li>Public-sector opportunity support</li>
+      </ul>
+      <a class="btn" href="https://federalcontractorportal.aproposgroupllc.com">Explore RFCP</a>
+    </section>
+
+    <section class="panel promo-panel promo-natcorp" aria-labelledby="natcorp-heading">
+      <p class="eyebrow">Apropos Service</p>
+      <h2 id="natcorp-heading">National Corporate Contract Exchange</h2>
+      <p class="promo-description">Nat-Corp starts with your business and identifies public-sector contract opportunities aligned with what your business provides.</p>
+      <ul class="promo-list">
+        <li>Business-first matching</li>
+        <li>Contract opportunity intelligence</li>
+        <li>Capability-driven discovery</li>
+      </ul>
+      <a class="btn" href="https://natcorp.aproposgroupllc.com">Explore Nat-Corp</a>
+    </section>
+  </main>
+
+  <script>'use strict';const claim=(()=>{try{return JSON.parse(sessionStorage.getItem('aproposOpportunityClaim')||sessionStorage.getItem('aproposFederalOpportunityClaim')||'{}')}catch{return{}}})();const data=()=>({business_name:claim.business_name||'',contact_name:claim.contact_name||'',contact_email:claim.contact_email||'',opportunity_reference:claim.opportunity_reference||'',notice_id:claim.notice_id||''});async function send(kind,comment=''){const payload={...data(),kind,comment};const r=await fetch('/api/opportunity-experience',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok)throw new Error(d.error||'Your response could not be saved.');return d}document.getElementById('feedback').addEventListener('submit',async e=>{e.preventDefault();const s=document.getElementById('feedbackStatus');try{await send('COMMENT',document.getElementById('comment').value.trim());s.textContent='Thank you. Your comment has been received.';document.getElementById('comment').value=''}catch(err){s.textContent=err.message}});document.getElementById('continueService').onclick=async()=>{const b=document.getElementById('continueService'),s=document.getElementById('serviceStatus');b.disabled=true;try{await send('QUALIFIED_OPPORTUNITY_DELIVERY_INTEREST');s.textContent='Thank you. Apropos has recorded your interest in continued qualified opportunity delivery.';b.textContent='Interest Recorded'}catch(err){s.textContent=err.message;b.disabled=false}};</script>
+</body>
+</html>
