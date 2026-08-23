@@ -5,10 +5,10 @@ function businessContractsBase(){
   if(!configured) throw new Error('BUSINESSCONTRACTS_BASE_URL is not configured.');
   const url=new URL(configured);
   const allowed=url.protocol==='https:'&&(
-    url.hostname==='businesscontracts.aproposgroupllc.com'||
-    url.hostname.endsWith('--apropos-opportunity-fulfillment.netlify.app')
+    url.hostname.endsWith('.aproposgroupllc.com')||
+    url.hostname.endsWith('.netlify.app')
   );
-  if(!allowed) throw new Error('BUSINESSCONTRACTS_BASE_URL is not an approved BusinessContracts origin.');
+  if(!allowed) throw new Error('BUSINESSCONTRACTS_BASE_URL is not an approved APROPOS HTTPS origin.');
   return url.origin;
 }
 
