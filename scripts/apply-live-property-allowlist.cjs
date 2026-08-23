@@ -60,8 +60,27 @@ for (const file of runtimeFiles) {
 
 const federal = fs.readFileSync(path.join(root, 'netlify/functions/federal-opportunity.mjs'), 'utf8');
 if (!federal.includes(RFCP)) failures.push('federal-opportunity does not use RFCP');
+
+// State/local claim fulfillment remains server-side. Public Marketplace pages
+// must not expose BusinessContracts as a destination, but this gateway must
+// proxy the established AP claim/workspace/package actions using the Netlify
+// BUSINESSCONTRACTS_BASE_URL runtime configuration.
 const complimentary = fs.readFileSync(path.join(root, 'netlify/functions/complimentary-opportunity.mjs'), 'utf8');
-if (!complimentary.includes(NATCORP)) failures.push('legacy state/local claim route does not hand off to NAT-CORP');
+for (const marker of [
+  'BUSINESSCONTRACTS_BASE_URL',
+  '/api/marketplace-claim',
+  '/api/opportunity-workspace',
+  '/api/opportunity-package',
+]) {
+  if (!complimentary.includes(marker)) failures.push(`state/local Marketplace gateway is missing ${marker}`);
+}
+if (/legacy complimentary state\/local opportunity route has been retired|redirect_url\s*:\s*NATCORP/i.test(complimentary)) {
+  failures.push('state/local Marketplace gateway is still configured as a retired NAT-CORP handoff');
+}
+
+const claimPage = fs.readFileSync(path.join(root, 'claim-opportunity.html'), 'utf8');
+if (!claimPage.includes('/api/complimentary-opportunity?action=claim')) failures.push('Marketplace claim page does not use the state/local gateway');
+if (!claimPage.includes('/opportunity-workspace.html')) failures.push('Marketplace claim page does not preserve the state/local workspace handoff');
 
 const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 if (!homepage.includes(AI4WEBSITE)) failures.push('Marketplace homepage does not retain live AI4 Website Design destination');
@@ -72,4 +91,4 @@ if (failures.length) {
   failures.forEach(f => console.error(`- ${f}`));
   process.exit(1);
 }
-console.log('[marketplace-live-property-allowlist] PASS — public/runtime APROPOS references are limited to approved live properties, including AI4 Website Design English and Spanish production sites.');
+console.log('[marketplace-live-property-allowlist] PASS — public Marketplace destinations remain allowlisted and the state/local claim gateway is restored through server-side BusinessContracts configuration.');
