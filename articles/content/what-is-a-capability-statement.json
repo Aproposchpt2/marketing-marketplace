@@ -4,7 +4,7 @@
   "description": "Learn how a concise capability statement can help communicate what your business does, who it serves, and why a government buyer or prime contractor should keep you in mind.",
   "category": "Contractor Readiness",
   "publishedDate": "2026-08-21",
-  "updatedDate": "2026-08-21",
+  "updatedDate": "2026-08-24",
   "sections": [
     {
       "heading": "A capability statement is a business-development document",
@@ -38,7 +38,7 @@
     {
       "heading": "Use it alongside your official contractor profiles",
       "paragraphs": [
-        "For federal contracting, a capability statement does not replace SAM.gov registration or other required federal representations. SBA guidance identifies SAM registration, UEI, NAICS alignment, size standards, and accurate contractor-profile information as foundational elements of federal readiness.",
+        "For federal contracting, a capability statement does not replace required federal registration or other required federal representations. SBA guidance identifies registration, UEI, NAICS alignment, size standards, and accurate contractor-profile information as foundational elements of federal readiness.",
         "Think of the capability statement as one communication tool within a larger contractor-readiness system."
       ]
     }
@@ -49,9 +49,9 @@
   ],
   "pathway": {
     "heading": "Strengthen the business behind the contracting profile",
-    "description": "If the company needs broader readiness, planning, or business-development support before pursuing opportunities, continue to the Nevada Enterprise Business Center pathway.",
+    "description": "If the company needs broader readiness, planning, funding, or business-development support before pursuing opportunities, review the National Enterprise Business Center pathway in the Marketplace.",
     "label": "Explore Business Readiness",
-    "url": "https://nebc.aproposgroupllc.com/",
+    "url": "https://marketplace.aproposgroupllc.com/national-enterprise-business-center/",
     "destination": "nebc"
   },
   "related": ["understanding-naics-codes", "preparing-your-business-for-government-contracting", "how-to-decide-whether-to-bid"]
