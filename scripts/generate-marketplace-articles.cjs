@@ -10,6 +10,8 @@ const SITE = 'https://marketplace.aproposgroupllc.com';
 const MARKETPLACE_WEBSITE = `${SITE}/#website`;
 const CORPORATE_ORG = 'https://aproposgroupllc.com/#organization';
 const EDITORIAL_TEAM = `${SITE}/#editorial-team`;
+const ENGINE_MARKER = '<!-- APROPOS_MARKETPLACE_ARTICLE_ENGINE_OUTPUT -->';
+const MANIFEST_FILE = path.join(ARTICLES_DIR, '.generated-article-slugs.json');
 
 fs.mkdirSync(CONTENT_DIR, { recursive: true });
 
@@ -41,6 +43,35 @@ for (const article of articles) {
   if (article.updatedDate < article.publishedDate) throw new Error(`[articles] ${article.__file}: updatedDate precedes publishedDate`);
   if (seen.has(article.slug)) throw new Error(`[articles] duplicate slug: ${article.slug}`);
   seen.add(article.slug);
+}
+
+// Editorial output order is part of the publishing contract: newest updates first,
+// with slug as a stable tie-breaker for articles updated on the same date.
+articles.sort((a, b) => b.updatedDate.localeCompare(a.updatedDate) || a.slug.localeCompare(b.slug));
+
+function isEngineOwnedArticleDirectory(directory) {
+  const indexFile = path.join(directory, 'index.html');
+  if (!fs.existsSync(indexFile)) return false;
+  const page = fs.readFileSync(indexFile, 'utf8');
+  const slug = path.basename(directory);
+  const legacySignature = page.includes(`https://marketplace.aproposgroupllc.com/articles/${slug}/`) &&
+    page.includes('APROPOS Marketing Marketplace Editorial Team') &&
+    page.includes('article_cta_click');
+  return page.includes(ENGINE_MARKER) || legacySignature;
+}
+
+function reconcileGeneratedArticleDirectories() {
+  const publishedSlugs = new Set(articles.map((article) => article.slug));
+  const removed = [];
+  for (const entry of fs.readdirSync(ARTICLES_DIR, { withFileTypes: true })) {
+    if (!entry.isDirectory() || entry.name === 'content' || publishedSlugs.has(entry.name)) continue;
+    const directory = path.join(ARTICLES_DIR, entry.name);
+    if (!isEngineOwnedArticleDirectory(directory)) continue;
+    fs.rmSync(directory, { recursive: true, force: true });
+    removed.push(entry.name);
+  }
+  fs.writeFileSync(MANIFEST_FILE, `${JSON.stringify([...publishedSlugs], null, 2)}\n`, 'utf8');
+  return removed;
 }
 for (const article of articles) {
   for (const slug of article.related || []) if (!seen.has(slug)) throw new Error(`[articles] ${article.__file}: unknown related slug ${slug}`);
@@ -85,7 +116,7 @@ function renderIndex() {
     { '@type':'BreadcrumbList', itemListElement:[{'@type':'ListItem',position:1,name:'APROPOS Marketing Marketplace',item:`${SITE}/`},{'@type':'ListItem',position:2,name:'Articles',item:canonical}] },
     { '@type':'ItemList', name:'APROPOS Marketplace Articles', numberOfItems:itemList.length, itemListElement:itemList }
   ]};
-  const html = `<!doctype html><html lang="en"><head>${sharedHead('Government Contracting Articles | APROPOS Marketplace','Educational articles on federal, state and local government contracting, SLED procurement, readiness, solicitations, and bid decisions.',canonical,'website',`<script type="application/ld+json">${JSON.stringify(schema)}</script>${articleStyles}`)}</head><body><a class="skip" href="#main">Skip to main content</a>${nav()}<main id="main"><header class="hero"><div class="wrap"><div class="breadcrumbs"><a href="/">Marketplace</a> / Articles</div><div class="eyebrow">APROPOS GROUP LLC · PUBLIC EDUCATION</div><h1>Government Contracting Articles</h1><p class="lead">Plain-language education for businesses exploring federal, state, local, SLED, and public-sector contracting. Marketplace articles explain the landscape and route specialized operational needs to the correct APROPOS property.</p></div></header><section><div class="wrap"><div class="gold-rule"></div><div class="eyebrow">Learn before you pursue</div><h2>Explore the contracting landscape</h2><div class="article-grid">${cards}</div></div></section></main>${footer()}${analytics}</body></html>`;
+  const html = `<!doctype html>${ENGINE_MARKER}<html lang="en"><head>${sharedHead('Government Contracting Articles | APROPOS Marketplace','Educational articles on federal, state and local government contracting, SLED procurement, readiness, solicitations, and bid decisions.',canonical,'website',`<script type="application/ld+json">${JSON.stringify(schema)}</script>${articleStyles}`)}</head><body><a class="skip" href="#main">Skip to main content</a>${nav()}<main id="main"><header class="hero"><div class="wrap"><div class="breadcrumbs"><a href="/">Marketplace</a> / Articles</div><div class="eyebrow">APROPOS GROUP LLC · PUBLIC EDUCATION</div><h1>Government Contracting Articles</h1><p class="lead">Plain-language education for businesses exploring federal, state, local, SLED, and public-sector contracting. Marketplace articles explain the landscape and route specialized operational needs to the correct APROPOS property.</p></div></header><section><div class="wrap"><div class="gold-rule"></div><div class="eyebrow">Learn before you pursue</div><h2>Explore the contracting landscape</h2><div class="article-grid">${cards}</div></div></section></main>${footer()}${analytics}</body></html>`;
   fs.writeFileSync(path.join(ARTICLES_DIR,'index.html'), html, 'utf8');
 }
 
@@ -107,7 +138,7 @@ function renderArticle(article) {
     { '@type':'BreadcrumbList', itemListElement:[{'@type':'ListItem',position:1,name:'APROPOS Marketing Marketplace',item:`${SITE}/`},{'@type':'ListItem',position:2,name:'Articles',item:`${SITE}/articles/`},{'@type':'ListItem',position:3,name:article.title,item:canonical}] }
   ]};
   const extra = `<meta property="article:published_time" content="${esc(article.publishedDate)}"><meta property="article:modified_time" content="${esc(article.updatedDate)}"><meta property="article:section" content="${esc(article.category)}"><script type="application/ld+json">${JSON.stringify(schema)}</script>${articleStyles}`;
-  const html = `<!doctype html><html lang="en"><head>${sharedHead(`${article.title} | APROPOS Marketplace`,article.description,canonical,'article',extra)}</head><body><a class="skip" href="#main">Skip to main content</a>${nav()}<main id="main"><header class="hero"><div class="wrap"><div class="breadcrumbs"><a href="/">Marketplace</a> / <a href="/articles/">Articles</a> / ${esc(article.title)}</div><div class="eyebrow">${esc(article.category)} · APROPOS MARKETPLACE</div><h1>${esc(article.title)}</h1><p class="lead">${esc(article.description)}</p><div class="article-meta"><span>Published ${esc(article.publishedDate)}</span><span>Updated ${esc(article.updatedDate)}</span><span>By APROPOS Marketing Marketplace Editorial Team</span></div></div></header>${sections}${sources}${pathway}${relatedHtml}</main>${footer()}${analytics}</body></html>`;
+  const html = `<!doctype html>${ENGINE_MARKER}<html lang="en"><head>${sharedHead(`${article.title} | APROPOS Marketplace`,article.description,canonical,'article',extra)}</head><body><a class="skip" href="#main">Skip to main content</a>${nav()}<main id="main"><header class="hero"><div class="wrap"><div class="breadcrumbs"><a href="/">Marketplace</a> / <a href="/articles/">Articles</a> / ${esc(article.title)}</div><div class="eyebrow">${esc(article.category)} · APROPOS MARKETPLACE</div><h1>${esc(article.title)}</h1><p class="lead">${esc(article.description)}</p><div class="article-meta"><span>Published ${esc(article.publishedDate)}</span><span>Updated ${esc(article.updatedDate)}</span><span>By APROPOS Marketing Marketplace Editorial Team</span></div></div></header>${sections}${sources}${pathway}${relatedHtml}</main>${footer()}${analytics}</body></html>`;
   fs.writeFileSync(path.join(pageDir,'index.html'), html, 'utf8');
 }
 
@@ -159,9 +190,10 @@ function renderFeed() {
   fs.writeFileSync(path.join(ARTICLES_DIR,'feed.xml'), feed, 'utf8');
 }
 
+const removedStaleSlugs = reconcileGeneratedArticleDirectories();
 renderIndex();
 articles.forEach(renderArticle);
 renderFeed();
 patchNavigation();
 updateSitemap();
-console.log(`[articles] generated article index, RSS feed and ${articles.length} canonical article page(s); navigation and sitemap updated`);
+console.log(`[articles] generated article index, RSS feed and ${articles.length} canonical article page(s); removed ${removedStaleSlugs.length} stale engine-owned page(s); navigation and sitemap updated`);
