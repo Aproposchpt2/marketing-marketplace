@@ -4,7 +4,7 @@
   "description": "A practical readiness checklist for businesses that want to pursue government contracts without treating registration alone as proof that the company is ready to perform.",
   "category": "Contractor Readiness",
   "publishedDate": "2026-08-21",
-  "updatedDate": "2026-08-21",
+  "updatedDate": "2026-08-24",
   "sections": [
     {
       "heading": "Contract readiness is broader than registration",
@@ -58,9 +58,9 @@
   ],
   "pathway": {
     "heading": "Need broader business-readiness support?",
-    "description": "NEBC is the APROPOS destination for business assessment, planning, funding readiness, and Nevada-focused business-development support.",
-    "label": "Continue to NEBC",
-    "url": "https://nebc.aproposgroupllc.com/",
+    "description": "NEBC is the APROPOS destination for business assessment, planning, funding readiness, and business-development support. Review the National Enterprise Business Center pathway in the Marketplace before continuing to the production service.",
+    "label": "Explore NEBC",
+    "url": "https://marketplace.aproposgroupllc.com/national-enterprise-business-center/",
     "destination": "nebc"
   },
   "related": ["what-is-a-capability-statement", "understanding-naics-codes", "how-to-decide-whether-to-bid"]
