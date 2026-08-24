@@ -4,7 +4,7 @@
   "description": "Understand the practical differences between federal contracting and state or local public procurement before choosing where to focus your business-development effort.",
   "category": "Government Contracting Basics",
   "publishedDate": "2026-08-21",
-  "updatedDate": "2026-08-21",
+  "updatedDate": "2026-08-24",
   "sections": [
     {
       "heading": "The public-sector market is not one procurement system",
@@ -16,8 +16,8 @@
     {
       "heading": "Federal contracting has a common national infrastructure",
       "paragraphs": [
-        "SAM.gov provides the federal Contract Opportunities workspace and is a central source for federal procurement notices. SBA guidance also identifies SAM registration, the Unique Entity Identifier, NAICS alignment, size standards, and compliance requirements as important parts of federal contracting readiness.",
-        "Federal acquisitions are governed by the Federal Acquisition Regulation and, in some cases, agency supplements. The solicitation itself remains the controlling source for a specific opportunity's instructions, required proposal information, evaluation factors, and deadlines."
+        "Federal contracting offices publish procurement notices through official federal infrastructure, including the Contract Opportunities workspace on SAM.gov. SBA guidance also identifies federal registration, the Unique Entity Identifier, NAICS alignment, size standards, and compliance requirements as important parts of federal contracting readiness.",
+        "Official federal notice systems are separate from APROPOS contract discovery services. The Registered Federal Contractors Portal is an APROPOS service for registered federal contractors seeking relevant federal contract opportunities. Federal acquisitions are governed by the Federal Acquisition Regulation and, in some cases, agency supplements, while the solicitation itself remains the controlling source for a specific opportunity's instructions, required proposal information, evaluation factors, and deadlines."
       ]
     },
     {
@@ -43,9 +43,9 @@
   ],
   "pathway": {
     "heading": "Choose the APROPOS market pathway that matches your target",
-    "description": "Federal contracting continues through the Registered Federal Contractors Portal. State, local, municipal, education, and related public-sector opportunity discovery continues through NAT-CORP.",
+    "description": "Registered federal contractors can review the Marketplace guide to the Registered Federal Contractors Portal. Businesses pursuing state, local, municipal, education, and related public-sector opportunities can continue through the NAT-CORP Marketplace guide.",
     "label": "Explore state and local opportunities",
-    "url": "https://natcorp.aproposgroupllc.com/",
+    "url": "https://marketplace.aproposgroupllc.com/nat-corp-contract-exchange/",
     "destination": "natcorp"
   },
   "related": ["how-to-find-government-contracts", "what-is-sled-contracting", "preparing-your-business-for-government-contracting"]
