@@ -4,19 +4,19 @@
   "description": "Learn what SLED contracting means, which public buyers it can include, and why state, local, and education procurement should be approached as a distinct market.",
   "category": "State and Local Contracting",
   "publishedDate": "2026-08-21",
-  "updatedDate": "2026-08-21",
+  "updatedDate": "2026-08-24",
   "sections": [
     {
       "heading": "SLED is a practical market label",
       "paragraphs": [
         "SLED is commonly used as shorthand for state, local, and education public-sector markets. In practice, that can include state agencies, counties, cities, towns, school districts, public colleges and universities, authorities, and other eligible public institutions.",
-        "The term is useful for business development because these buyers often operate outside the federal opportunity system. A company interested only in SAM.gov can therefore miss a large category of public-sector purchasing activity."
+        "The term is useful for business development because these buyers often operate outside federal procurement notice systems. A company monitoring only federal opportunities can therefore miss a large category of public-sector purchasing activity."
       ]
     },
     {
       "heading": "SLED procurement is distributed across many buyers",
       "paragraphs": [
-        "Unlike federal Contract Opportunities on SAM.gov, there is no single universal portal covering every state, county, city, school, university, and authority. Businesses typically need to learn which procurement systems are used by the jurisdictions and institutions they want to serve.",
+        "There is no single universal portal covering every state, county, city, school, university, and authority. Businesses typically need to learn which procurement systems are used by the jurisdictions and institutions they want to serve.",
         "NASPO maintains procurement profiles for individual states. Those profiles are useful starting points for understanding state procurement organizations, while local governments and educational institutions may maintain separate systems and vendor-registration processes."
       ]
     },
@@ -42,9 +42,9 @@
   ],
   "pathway": {
     "heading": "Continue from SLED education to state and local opportunity discovery",
-    "description": "NAT-CORP is the APROPOS operational destination for state, local, municipal, education, institutional, and related public-sector opportunity pathways.",
-    "label": "Continue to NAT-CORP",
-    "url": "https://natcorp.aproposgroupllc.com/",
+    "description": "Review the Marketplace guide to NAT-CORP, APROPOS's business-first pathway for state, local, municipal, education, institutional, and related public-sector contract discovery.",
+    "label": "Explore NAT-CORP",
+    "url": "https://marketplace.aproposgroupllc.com/nat-corp-contract-exchange/",
     "destination": "natcorp"
   },
   "related": ["federal-vs-state-local-government-contracts", "how-to-find-government-contracts", "how-to-decide-whether-to-bid"]
