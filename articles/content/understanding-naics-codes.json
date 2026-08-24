@@ -4,7 +4,7 @@
   "description": "Learn what NAICS codes are, how they are used in federal contracting, and why businesses should match classifications to the products and services they actually provide.",
   "category": "Contractor Readiness",
   "publishedDate": "2026-08-21",
-  "updatedDate": "2026-08-21",
+  "updatedDate": "2026-08-24",
   "sections": [
     {
       "heading": "NAICS is an industry classification system",
@@ -30,7 +30,7 @@
     {
       "heading": "Use NAICS as one search signal, not the whole fit decision",
       "paragraphs": [
-        "SAM.gov allows federal opportunities to be searched by NAICS categories, making classifications useful for discovery. But a matching code does not establish that an opportunity is a good business fit.",
+        "Official federal procurement systems can use NAICS categories as a discovery and classification signal. APROPOS uses business capability information and procurement context to help registered federal contractors identify relevant federal contract opportunities, but a matching NAICS code alone does not establish that an opportunity is a good business fit.",
         "After a NAICS match, review the actual scope, qualifications, place of performance, schedule, set-aside conditions, proposal instructions, evaluation factors, and contract terms before deciding whether to pursue."
       ]
     }
@@ -43,9 +43,9 @@
   ],
   "pathway": {
     "heading": "Use NAICS in the correct federal contracting context",
-    "description": "The Registered Federal Contractors Portal is the APROPOS destination for federal opportunity matching, SAM and NAICS context, and federal contracting pathways.",
-    "label": "Continue to the Federal Contractors Portal",
-    "url": "https://federalcontractorportal.aproposgroupllc.com/",
+    "description": "Review the Marketplace guide to the Registered Federal Contractors Portal, the APROPOS pathway for registered federal contractors seeking relevant federal contract opportunities and business-centered matching context.",
+    "label": "Explore the Federal Contractors Portal",
+    "url": "https://marketplace.aproposgroupllc.com/registered-federal-contractors-portal/",
     "destination": "rfcp"
   },
   "related": ["what-is-a-capability-statement", "how-to-find-government-contracts", "preparing-your-business-for-government-contracting"]
