@@ -36,10 +36,15 @@ function renderUnlocked(d,o){
   const run=d.run;
   const a=run?.analysis||{};
   const li=(items)=>(items||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li>See official solicitation</li>';
+  // The AI is instructed to write "See official solicitation" for unknown
+  // dates but echoes real ones back as raw ISO timestamps -- reformat here
+  // rather than trust prompt-side date formatting. Guarded so free text
+  // (the fallback string) never hits new Date() and prints "Invalid Date".
+  const maybeDate=(v)=>{if(!v)return'See official solicitation';if(/^\d{4}-\d{2}-\d{2}/.test(v)){const d=new Date(v);if(!isNaN(d.getTime()))return d.toLocaleDateString('en-US',{dateStyle:'long'})}return v};
   const reportBlock=(report&&run?.analysis)?`<div class="report-card"><h3>Analyze Fit Report — Opportunity Prep Guide</h3>
     <p><strong>Why this business was selected:</strong> ${esc(a.why_selected||'—')}</p>
     <div class="meta"><div><small>Services Required</small>${esc(a.services_required||'See official solicitation')}</div><div><small>Location</small>${esc(a.location||'See official solicitation')}</div><div><small>Estimated Contract Value</small>${esc(a.estimated_contract_value||'See official solicitation')}</div><div><small>Set-Aside Status</small>${esc(a.set_aside_status||'See official solicitation')}</div></div>
-    <div class="meta"><div><small>Bid Due Date</small>${esc(a.bid_due_date||'See official solicitation')}</div><div><small>Question Deadline</small>${esc(a.question_deadline||'See official solicitation')}</div><div><small>Point of Contact</small>${esc(a.point_of_contact||'See official solicitation')}</div><div><small>Bonding / Insurance</small>${esc(a.bonding_insurance_requirements||'See official solicitation')}</div></div>
+    <div class="meta"><div><small>Bid Due Date</small>${esc(maybeDate(a.bid_due_date))}</div><div><small>Question Deadline</small>${esc(maybeDate(a.question_deadline))}</div><div><small>Point of Contact</small>${esc(a.point_of_contact||'See official solicitation')}</div><div><small>Bonding / Insurance</small>${esc(a.bonding_insurance_requirements||'See official solicitation')}</div></div>
     <p style="margin-top:14px"><strong>Certifications / Licenses Required</strong></p><ul class="docs">${li(a.certifications_licenses_required)}</ul>
     <p><strong>Pre-Bid Conference / Site Visit</strong></p><p>${esc(a.pre_bid_conference_requirements||'Not specified in available contract data')}</p>
     <p><strong>How the Bid Process Works</strong></p><p>${esc(a.bid_process_explanation||'—')}</p>
