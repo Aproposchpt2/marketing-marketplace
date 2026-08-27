@@ -1,4 +1,9 @@
-const RFCP='https://federalcontractorportal.aproposgroupllc.com';
+// Was federalcontractorportal.aproposgroupllc.com -- that domain resolves to
+// the RFCP-V2 site, which never had these ngcc-federal-* functions deployed
+// (they existed only in an undeployed sibling repo), so every claim here was
+// 404ing. OPS (federal-ops-command-center) owns this outreach data and now
+// hosts the claim/workspace/package endpoints itself.
+const RFCP='https://ops.aproposgroupllc.com';
 const json=(status,data)=>new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff'}});
 
 export default async (req)=>{
