@@ -68,6 +68,7 @@ requireText(page, 'Registered Federal Contractors:', 'registered federal contrac
 requireText(page, 'SAM.gov', 'federal source truth');
 requireText(page, 'Licensed Businesses:', 'licensed business pathway');
 requireText(page, 'validated public procurement sources', 'state/local source truth');
+requireText(page, 'does not imply a formal API partnership or publisher relationship', 'publisher-independence disclaimer');
 for (const sourceItem of ['Complete solicitation documents', 'Amendments', 'Vendor registration', 'Submission requirements', 'Official deadlines', 'Bid submission']) {
   requireText(page, sourceItem, `authoritative source item ${sourceItem}`);
 }
@@ -114,12 +115,11 @@ for (const claim of [
   forbidText(page, claim, `unvalidated future capability ${claim}`);
 }
 
-// Do not imply endorsement, publisher partnership, or guaranteed outcomes.
+// Do not publish affirmative endorsement or guaranteed-outcome claims.
 for (const claim of [
   'endorsed by Los Angeles County',
   'endorsed by SBDC',
   'approved by SBDC',
-  'formal API partnership',
   'guaranteed eligibility',
   'guaranteed responsiveness',
   'guaranteed contract award',
