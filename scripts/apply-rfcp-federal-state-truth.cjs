@@ -17,45 +17,23 @@ function patchFile(file, replacements) {
   return value;
 }
 
-function replaceMatchingSection(html) {
-  const pattern = /<section\b[^>]*\bid=["']matching["'][^>]*>[\s\S]*?<\/section>/i;
-  if (!pattern.test(html)) {
-    throw new Error('[rfcp-truth] Marketplace homepage is missing the #matching procurement section.');
-  }
-
-  const section = `<section class="section-band alt" id="matching">
-  <div class="section-inner">
-    <div class="gold-rule"></div>
-    <div class="eyebrow">Service One &middot; Contract Intelligence</div>
-    <h2 class="section-title">Government opportunities matched to the business before the business has to search every portal.</h2>
-    <p class="section-copy">Federal, state, and local procurement opportunities are distributed across different government systems, agencies, formats, and solicitation processes. APROPOS organizes that fragmented market around the business so contractors can focus on opportunities that align with their capabilities while preserving each issuing agency and official solicitation as the controlling authority.</p>
-    <p class="section-copy">Registered Federal Contractors use the Registered Federal Contractors Portal for personalized federal opportunities and released state opportunities matched to their contractor profile. Licensed businesses use NAT-CORP for state and local opportunity pathways. Federal and state opportunities remain distinct procurement markets with their own portals, solicitations, amendments, eligibility rules, deadlines, and submission requirements.</p>
-    <div class="help-grid">
-      <article class="help-card">
-        <h3 class="help-head">Registered Federal Contractors Portal</h3>
-        <p class="help-text">Personalized federal opportunities plus released state opportunities for registered federal contractors, organized around the contractor profile for guided review.</p>
-      </article>
-      <article class="help-card">
-        <h3 class="help-head">NAT-CORP Contract Exchange</h3>
-        <p class="help-text">State and local public-sector opportunity matching for licensed businesses, built around business capabilities and supported geographic coverage.</p>
-      </article>
-      <article class="help-card">
-        <h3 class="help-head">Analyze Fit</h3>
-        <p class="help-text">Decision support for a selected opportunity, helping a business review apparent alignment, requirements, gaps, and next-step questions before committing resources.</p>
-      </article>
-    </div>
-    <div class="service-cta-row">
-      <a class="btn-gold" href="${RFCP}">Visit Federal Contractors Portal &rarr;</a>
-      <a class="btn-outline" href="${NATCORP}">Explore NAT-CORP &rarr;</a>
-      <a class="btn-outline" href="/contract-fit-analysis/">Explore Analyze Fit &rarr;</a>
-    </div>
-  </div>
-</section>`;
-
-  return html.replace(pattern, section);
-}
-
-let homepage = patchFile(homepageFile, [
+const homepage = patchFile(homepageFile, [
+  [
+    'Personalized federal procurement intelligence for businesses registered to pursue federal contracting opportunities.',
+    'Personalized federal opportunities plus released state opportunities for registered federal contractors, organized around the contractor profile for guided review.'
+  ],
+  [
+    'APROPOS separates federal and state/local procurement into dedicated production pathways, while NEBC supports the business-readiness and development work that helps companies prepare for growth.',
+    'APROPOS provides contractor-specific procurement pathways: the Registered Federal Contractors Portal centers personalized federal opportunity discovery and can also surface released state opportunities matched to the contractor profile, while NAT-CORP serves licensed businesses pursuing state and local public-sector opportunities. Federal and state opportunities remain distinct procurement markets with their own official sources and submission rules.'
+  ],
+  [
+    'For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.',
+    'For registered federal contractors seeking personalized federal opportunities and released state opportunities matched to the same contractor profile, with each opportunity governed by its own issuing authority and official solicitation.'
+  ],
+  [
+    'Federal procurement intelligence for registered federal contractors.',
+    'Personalized federal opportunities plus released state opportunities for registered federal contractors.'
+  ],
   ['National Government Contract Center', 'Registered Federal Contractors Portal'],
   ['NGCC — 14-day free trial, then $99/month', 'Registered Federal Contractors Portal — 14-day free trial, then $99/month'],
   ['Government contract intelligence and opportunity access.', 'Personalized federal opportunities, released state opportunities, and guided opportunity review for registered federal contractors.'],
@@ -67,9 +45,6 @@ let homepage = patchFile(homepageFile, [
   ['>Nevada Procurement</a>', '>NAT-CORP Contract Exchange</a>'],
   ['>California Procurement</a>', '>Analyze Fit</a>']
 ]);
-
-homepage = replaceMatchingSection(homepage);
-fs.writeFileSync(homepageFile, homepage, 'utf8');
 
 const oldDescription = 'Learn how the Registered Federal Contractors Portal helps registered federal contractors use personalized opportunity matching, intelligent rankings, guided review, and Analyze Fit support.';
 const newDescription = 'Learn how the Registered Federal Contractors Portal helps registered federal contractors review personalized federal opportunities and released state opportunities, use intelligent rankings, guided review, and Analyze Fit support.';
@@ -112,7 +87,9 @@ const rfcp = patchFile(rfcpFile, [
 ]);
 
 const failures = [];
-const matchingSection = homepage.match(/<section\b[^>]*\bid=["']matching["'][^>]*>[\s\S]*?<\/section>/i)?.[0] || '';
+const procurementSection = homepage.match(/<section\b[^>]*\bid=["']procurement["'][^>]*>[\s\S]*?<\/section>/i)?.[0] || '';
+
+if (!procurementSection) failures.push('homepage is missing the current #procurement section');
 
 for (const token of ['NGCC', 'nevadastategen.aproposgroupllc.com', 'calstategen.aproposgroupllc.com']) {
   if (homepage.includes(token)) failures.push(`homepage still contains retired public product token: ${token}`);
@@ -125,18 +102,17 @@ for (const marker of [
   'NAT-CORP Contract Exchange',
   RFCP,
   NATCORP,
-  '/contract-fit-analysis/'
+  'Federal and state opportunities remain distinct procurement markets'
 ]) {
-  if (!matchingSection.includes(marker)) failures.push(`homepage #matching section missing current product-truth marker: ${marker}`);
+  if (!procurementSection.includes(marker)) failures.push(`homepage #procurement section missing current product-truth marker: ${marker}`);
 }
 
 for (const stale of [
-  'Registered Federal Contractors see federal solicitations',
-  '>Nevada Procurement<',
-  '>California Procurement<',
-  'Explore NGCC'
+  'APROPOS separates federal and state/local procurement into dedicated production pathways',
+  'For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.',
+  'Federal procurement intelligence for registered federal contractors.'
 ]) {
-  if (matchingSection.includes(stale)) failures.push(`homepage #matching section still contains stale product wording: ${stale}`);
+  if (homepage.includes(stale)) failures.push(`homepage still contains stale federal-only RFCP wording: ${stale}`);
 }
 
 for (const marker of [newDescription, 'Federal + State Procurement Intelligence', 'personalized federal opportunities, released state opportunities']) {
@@ -152,4 +128,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('[rfcp-truth] PASS — Marketplace homepage and RFCP deep-dive express the current Federal + State product model with deterministic section-level validation.');
+console.log('[rfcp-truth] PASS — current #procurement section and RFCP deep-dive express the Federal + released-State product model without changing protected workflows.');
