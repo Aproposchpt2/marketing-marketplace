@@ -12,6 +12,7 @@ const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
 const FEDERAL_CLAIM_BACKEND = 'https://ops.aproposgroupllc.com';
 const NATCORP = 'https://natcorp.aproposgroupllc.com';
 const NEBC = 'https://nebc.aproposgroupllc.com';
+const GCP = 'https://acb.aproposgroupllc.com';
 const MARKETPLACE = 'https://marketplace.aproposgroupllc.com';
 const AI4WEBSITE = 'https://ai4websitedesign.com';
 const AI4WEBSITE_ES = 'https://espanola.ai4websitedesign.com';
@@ -92,10 +93,19 @@ if (!claimPage.includes('/opportunity-workspace.html')) failures.push('Marketpla
 const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 if (!homepage.includes(AI4WEBSITE)) failures.push('Marketplace homepage does not retain live AI4 Website Design destination');
 if (!homepage.includes(AI4WEBSITE_ES)) failures.push('Marketplace homepage does not retain live Spanish AI4 Website Design destination');
+if (!homepage.includes(`${GCP}/`)) failures.push('Marketplace homepage does not retain the Government Contract Portal production destination');
+
+const gcpPage = path.join(root, 'government-contract-portal', 'index.html');
+if (!fs.existsSync(gcpPage)) failures.push('Government Contract Portal Marketplace deep-dive page is missing');
+else {
+  const gcp = fs.readFileSync(gcpPage, 'utf8');
+  if (!gcp.includes(`${GCP}/`)) failures.push('Government Contract Portal deep-dive does not route to the approved production destination');
+  if (!gcp.includes(`${GCP}/agency-login.html`)) failures.push('Government Contract Portal deep-dive does not route Agency Evaluation to the approved agency access page');
+}
 
 if (failures.length) {
   console.error('[marketplace-live-property-allowlist] Validation failed:');
   failures.forEach(f => console.error(`- ${f}`));
   process.exit(1);
 }
-console.log('[marketplace-live-property-allowlist] PASS — public Marketplace destinations remain allowlisted and the state/local claim gateway is restored through server-side BusinessContracts configuration.');
+console.log('[marketplace-live-property-allowlist] PASS — current Marketplace production destinations include Government Contract Portal and protected opportunity-routing gateways remain unchanged.');
