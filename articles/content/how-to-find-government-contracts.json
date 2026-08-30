@@ -4,7 +4,7 @@
   "description": "A practical introduction to finding federal, state, and local government contracting opportunities without confusing discovery with contract readiness.",
   "category": "Government Contracting Basics",
   "publishedDate": "2026-08-21",
-  "updatedDate": "2026-08-24",
+  "updatedDate": "2026-08-29",
   "sections": [
     {
       "heading": "Start by separating federal from state and local markets",
@@ -17,7 +17,7 @@
       "heading": "Understand official federal procurement notice infrastructure",
       "paragraphs": [
         "Federal procurement agencies publish notices through official federal systems. SAM.gov describes Contract Opportunities as procurement notices from federal contracting offices and allows anyone to search without an account. An account adds features such as saved searches, followed opportunities, and interested-vendor lists.",
-        "That official federal infrastructure is separate from APROPOS contract discovery services. The Registered Federal Contractors Portal is an APROPOS service built for registered federal contractors to find relevant federal contract opportunities and work from a business-centered opportunity experience. The issuing agency's solicitation documents remain the controlling authority for what a contractor must submit and how the procurement will be evaluated."
+        "That official federal infrastructure is separate from APROPOS contract discovery services. The Registered Federal Contractors Portal is an APROPOS service built for registered federal contractors. Its current experience centers personalized federal opportunity discovery and can also surface released state opportunities matched to the same contractor profile. Federal and state opportunities still follow their own issuing-agency, portal, solicitation, amendment, and submission rules, and those official sources remain controlling."
       ],
       "bullets": [
         "Search by plain-language product or service terms.",
@@ -50,7 +50,7 @@
   ],
   "pathway": {
     "heading": "Continue to the opportunity market that fits your business",
-    "description": "For registered federal contractors, review the Marketplace guide to the Registered Federal Contractors Portal. For state and local opportunity discovery, use the NAT-CORP Marketplace pathway.",
+    "description": "Registered federal contractors can use the Registered Federal Contractors Portal for personalized federal opportunities and released state opportunities matched to their profile. Licensed businesses pursuing state and local opportunity discovery can continue through the NAT-CORP Marketplace pathway.",
     "label": "Explore the Federal Contractors Portal",
     "url": "https://marketplace.aproposgroupllc.com/registered-federal-contractors-portal/",
     "destination": "rfcp"
