@@ -36,3 +36,5 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: 08e66b8c-7b7b-48eb-948a-f087d80f552e
         run: npx --yes netlify-cli@latest deploy --build --prod --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
+
+# One-shot production publish authorized 2026-08-29.
