@@ -1,0 +1,9 @@
+PASS CRITERIA
+
+1. Marketplace homepage contains no visible NGCC, Nevada Procurement, or California Procurement public product labels.
+2. Marketplace homepage identifies the Registered Federal Contractors Portal as supporting personalized federal opportunities plus released state opportunities for registered federal contractors.
+3. RFCP Marketplace deep-dive uses Federal + State procurement intelligence language.
+4. NAT-CORP remains the state/local path for licensed businesses.
+5. Official federal/state issuing systems and solicitations remain controlling authorities.
+6. Build fails if retired public product tokens or stale federal-only RFCP descriptions remain.
+7. No protected claim/workspace/payment/auth/function behavior is changed.
