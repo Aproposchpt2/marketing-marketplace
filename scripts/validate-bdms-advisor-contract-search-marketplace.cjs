@@ -19,7 +19,7 @@ if (page) {
   requireIn(page, '1,000+ active Los Angeles County opportunities', 'Los Angeles County inventory statement');
   requireIn(page, 'Nationwide Federal Government opportunities', 'Federal opportunity statement');
   requireIn(page, '$149 per month', 'Professional Agency License price');
-  requireIn(page, 'up to five licensed users', 'five-user license scope');
+  requireIn(page, 'Up to 5 licensed Agency users', 'five-user license scope');
   requireIn(page, 'https://bdms.aproposgroupllc.com/', 'live BDMS destination');
   requireIn(page, 'Less time searching. More time advising.', 'advisor value proposition');
   requireIn(page, 'not affiliated with or endorsed by any government agency', 'government affiliation disclaimer');
