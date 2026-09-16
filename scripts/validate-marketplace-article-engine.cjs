@@ -166,7 +166,7 @@ for (const token of ['BlogPosting','datePublished','dateModified','BreadcrumbLis
 // retired /hero-marketplace.webp assertion from Article Engine V1.
 for (const token of [
   '<section class="hero" id="top">',
-  'The Government Contract Marketplace',
+  'APROPOS BUSINESS INTELLIGENCE MARKETPLACE',
   'APROPOS_VISUAL_STANDARD_MARKETPLACE_START',
   'APROPOS_MARKETPLACE_HERO_BUILDING_BALANCE_START'
 ]) {
