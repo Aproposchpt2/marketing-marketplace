@@ -35,12 +35,14 @@ replaceRequired(/<div class="hero-subtitle">[\s\S]*?<\/div>/, `<div class="hero-
 replaceRequired(/<p class="hero-copy">[\s\S]*?<\/p>/, '<p class="hero-copy">Our current flagship platforms are the Business Development Management System (BDMS), including the Advisor Contract Search Portal, and AI4 Contact Center. We also develop custom business intelligence systems around real operational needs.</p>', 'hero copy');
 
 // Make the first product section reflect what APROPOS is actively marketing now.
+// Preserve Government Contract Portal so the later rebrand does not erase the
+// institutional property inserted earlier in the build pipeline.
 const primarySection = `
 <section class="amm-band amm-band-soft" id="ecosystem">
   <div class="amm-shell">
     <div class="amm-kicker">APROPOS Business Intelligence Systems</div>
     <h2 class="amm-title">Purpose-built systems for <em>real business operations.</em></h2>
-    <p class="amm-lead">APROPOS Group LLC designs and operates focused technology platforms that solve specific business-development, communications, and workflow problems without forcing organizations to replace the systems they already rely on.</p>
+    <p class="amm-lead">APROPOS Group LLC designs and operates focused technology platforms that solve specific business-development, communications, procurement-intelligence, and workflow problems without forcing organizations to replace the systems they already rely on.</p>
     <div class="amm-grid">
       <article class="amm-card amm-card-featured">
         <div class="amm-card-tag">Business Development Management</div>
@@ -62,6 +64,14 @@ const primarySection = `
         <p>Custom software, workflow, communications, and intelligence systems designed around a defined operational problem, with disciplined architecture and practical implementation.</p>
         <div class="amm-card-meta">Custom software &amp; systems engineering</div>
         <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://aproposgroupllc.com/">Explore APROPOS Group LLC</a></div>
+      </article>
+      <article class="amm-card amm-card-featured" data-property="government-contract-portal">
+        <div class="amm-card-tag">Agency Procurement Intelligence</div>
+        <h3>Government Contract Portal</h3>
+        <p>A contract-opportunity intelligence platform developed for Business Development Agencies and the Advisors who serve their business communities.</p>
+        <p>Help Advisors identify opportunities aligned with a client’s business capabilities and bring those opportunities directly into the advisory relationship — without spending valuable time searching fragmented procurement sources.</p>
+        <div class="amm-card-meta">30-DAY AGENCY EVALUATION</div>
+        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://acb.aproposgroupllc.com/">Explore Government Contract Portal</a><a class="amm-btn amm-btn-outline" href="/government-contract-portal/">Learn More</a></div>
       </article>
     </div>
   </div>
@@ -100,6 +110,9 @@ const required = [
   'Business Development Management System',
   'AI4 Contact Center',
   'Business Intelligence System Development',
+  'data-property="government-contract-portal"',
+  '<h3>Government Contract Portal</h3>',
+  '30-DAY AGENCY EVALUATION',
   'https://bdms.aproposgroupllc.com/',
   'https://ai4contactcenter.aproposgroupllc.com/',
   socialUrl
@@ -108,4 +121,4 @@ for (const token of required) if (!html.includes(token)) throw new Error(`[busin
 if (html.includes('The Government Contract Marketplace')) throw new Error('[business-intelligence-rebrand] retired homepage headline remains');
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('[business-intelligence-rebrand] PASS — homepage repositioned as APROPOS Business Intelligence Marketplace');
+console.log('[business-intelligence-rebrand] PASS — homepage repositioned as APROPOS Business Intelligence Marketplace while preserving Government Contract Portal');
