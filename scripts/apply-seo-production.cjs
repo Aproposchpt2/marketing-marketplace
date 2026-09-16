@@ -5,10 +5,12 @@ const root = process.cwd();
 const origin = 'https://marketplace.aproposgroupllc.com';
 const corporateOrigin = 'https://aproposgroupllc.com';
 const homepage = path.join(root, 'index.html');
+const BRAND = 'APROPOS Business Intelligence Marketplace';
+const META_DESCRIPTION = 'Explore APROPOS business intelligence systems, including the Business Development Management System, AI4 Contact Center, and custom business intelligence system development.';
 
 const HOME = {
-  title: 'Government Contract Marketplace | APROPOS Group LLC',
-  description: 'Discover government contract opportunities, federal and state procurement intelligence, contractor matching, contract fit analysis, proposal development, business growth, automation, and website services from APROPOS Group LLC.',
+  title: `${BRAND} | APROPOS Group LLC`,
+  description: META_DESCRIPTION,
   canonical: `${origin}/`
 };
 
@@ -34,7 +36,7 @@ const ROUTES = [
 ];
 
 const robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
-const image = `${origin}/og-marketplace.jpg`;
+const image = `${origin}/business-intelligence-marketplace.svg`;
 
 function replaceOrInsert(html, pattern, tag) {
   if (pattern.test(html)) return html.replace(pattern, tag);
@@ -49,7 +51,7 @@ function setPageMetadata(filePath, meta, structuredData) {
   html = replaceOrInsert(html, /<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${meta.canonical}">`);
   html = replaceOrInsert(html, /<meta\s+name=["']robots["'][^>]*>/i, `<meta name="robots" content="${robots}">`);
   html = replaceOrInsert(html, /<meta\s+property=["']og:type["'][^>]*>/i, '<meta property="og:type" content="website">');
-  html = replaceOrInsert(html, /<meta\s+property=["']og:site_name["'][^>]*>/i, '<meta property="og:site_name" content="APROPOS Marketing Marketplace">');
+  html = replaceOrInsert(html, /<meta\s+property=["']og:site_name["'][^>]*>/i, `<meta property="og:site_name" content="${BRAND}">`);
   html = replaceOrInsert(html, /<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${meta.title}">`);
   html = replaceOrInsert(html, /<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${meta.description}">`);
   html = replaceOrInsert(html, /<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${meta.canonical}">`);
@@ -91,8 +93,7 @@ function homepageSchema() {
         '@type': 'WebSite',
         '@id': websiteId,
         url: `${origin}/`,
-        name: 'APROPOS Marketing Marketplace',
-        alternateName: 'APROPOS Government Contract Marketplace',
+        name: BRAND,
         description: HOME.description,
         publisher: { '@id': orgId }
       },
@@ -104,15 +105,15 @@ function homepageSchema() {
         description: HOME.description,
         isPartOf: { '@id': websiteId },
         about: [
-          { '@type': 'Thing', name: 'Government Contract Opportunities' },
-          { '@type': 'Thing', name: 'Government Procurement' },
-          { '@type': 'Thing', name: 'Business Development' },
-          { '@type': 'Thing', name: 'Business Automation' }
+          { '@type': 'Thing', name: 'Business Development Management Systems' },
+          { '@type': 'Thing', name: 'AI-Powered Communications' },
+          { '@type': 'Thing', name: 'Business Intelligence System Development' },
+          { '@type': 'Thing', name: 'Government Contract Intelligence' }
         ]
       },
       {
         '@type': 'ItemList',
-        name: 'APROPOS Marketplace Services and Production Properties',
+        name: 'APROPOS Business Intelligence Marketplace Services and Production Properties',
         numberOfItems: ROUTES.length,
         itemListElement: ROUTES.map((route, index) => ({
           '@type': 'ListItem',
@@ -145,7 +146,7 @@ function landingSchema(meta) {
     { '@type': 'Organization', '@id': orgId, name: 'APROPOS Group LLC', url: `${corporateOrigin}/` },
     { '@type': 'WebPage', '@id': `${meta.canonical}#webpage`, url: meta.canonical, name: meta.title, description: meta.description, inLanguage: meta.lang || 'en-US', publisher: { '@id': orgId } },
     { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'APROPOS Marketing Marketplace', item: `${origin}/` },
+      { '@type': 'ListItem', position: 1, name: BRAND, item: `${origin}/` },
       { '@type': 'ListItem', position: 2, name: meta.title.replace(/ \| APROPOS.*$/, ''), item: meta.canonical }
     ] }
   ];
@@ -176,9 +177,11 @@ function writeCrawlFiles() {
 
 function validate() {
   const home = fs.readFileSync(homepage, 'utf8');
-  const required = [HOME.title, HOME.description, `${corporateOrigin}/#organization`, `${origin}/#website`, '"price":"79.00"'];
+  const required = [HOME.title, HOME.description, BRAND, `${corporateOrigin}/#organization`, `${origin}/#website`, '"price":"79.00"'];
   for (const value of required) if (!home.includes(value)) throw new Error(`Marketplace SEO validation failed: missing ${value}`);
   if ((home.match(/<title>/gi) || []).length !== 1) throw new Error('Marketplace SEO validation failed: duplicate title.');
+  if (home.includes('Government Contract Marketplace | APROPOS Group LLC')) throw new Error('Marketplace SEO validation failed: retired homepage title remains.');
+  if (home.includes('APROPOS Marketing Marketplace')) throw new Error('Marketplace SEO validation failed: retired homepage site identity remains.');
   for (const route of ROUTES) {
     const file = path.join(root, route.dir, 'index.html');
     if (!fs.existsSync(file)) continue;
@@ -205,7 +208,7 @@ function main() {
   }
   writeCrawlFiles();
   validate();
-  console.log(`Marketplace SEO production setup applied and validated for ${ROUTES.length} public routes.`);
+  console.log(`Marketplace SEO production setup applied and validated for ${ROUTES.length} public routes without rewriting retired homepage identity.`);
 }
 
 main();
