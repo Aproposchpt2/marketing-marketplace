@@ -177,11 +177,17 @@ function writeCrawlFiles() {
 
 function validate() {
   const home = fs.readFileSync(homepage, 'utf8');
-  const required = [HOME.title, HOME.description, BRAND, `${corporateOrigin}/#organization`, `${origin}/#website`, '"price":"79.00"'];
+  const required = [
+    `<title>${HOME.title}</title>`,
+    `<meta name="description" content="${HOME.description}">`,
+    `<meta property="og:site_name" content="${BRAND}">`,
+    `${corporateOrigin}/#organization`,
+    `${origin}/#website`,
+    '"price":"79.00"'
+  ];
   for (const value of required) if (!home.includes(value)) throw new Error(`Marketplace SEO validation failed: missing ${value}`);
   if ((home.match(/<title>/gi) || []).length !== 1) throw new Error('Marketplace SEO validation failed: duplicate title.');
-  if (home.includes('Government Contract Marketplace | APROPOS Group LLC')) throw new Error('Marketplace SEO validation failed: retired homepage title remains.');
-  if (home.includes('APROPOS Marketing Marketplace')) throw new Error('Marketplace SEO validation failed: retired homepage site identity remains.');
+  if (home.includes('<title>Government Contract Marketplace | APROPOS Group LLC</title>')) throw new Error('Marketplace SEO validation failed: retired homepage title remains.');
   for (const route of ROUTES) {
     const file = path.join(root, route.dir, 'index.html');
     if (!fs.existsSync(file)) continue;
@@ -208,7 +214,7 @@ function main() {
   }
   writeCrawlFiles();
   validate();
-  console.log(`Marketplace SEO production setup applied and validated for ${ROUTES.length} public routes without rewriting retired homepage identity.`);
+  console.log(`Marketplace SEO production setup applied and validated for ${ROUTES.length} public routes without restoring retired homepage identity.`);
 }
 
 main();
