@@ -47,6 +47,8 @@ forbidText('https://cdc.aproposgroupllc.com', 'retired Contract Development Cent
 forbidText('Contract Development Center', 'retired Contract Development Center label');
 forbidText('The Government Contract Marketplace', 'retired homepage headline');
 forbidText('Where government contracts', 'retired homepage supporting message');
+forbidText("Whether you're a startup", 'retired startup hero message');
+forbidText('<small>GOVERNMENT CONTRACT MARKETPLACE</small>', 'retired header identity');
 
 // Approved current hero identity.
 requireText('<section class="hero" id="top">', 'approved hero section');
@@ -99,4 +101,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('[marketplace-suite-validation] PASS — APROPOS Business Intelligence Marketplace positioning, responsive presentation, routing, and SEO integrity verified');
+console.log('[marketplace-suite-validation] PASS — APROPOS Business Intelligence Marketplace positioning, retired-copy guardrails, responsive presentation, routing, and SEO integrity verified');
