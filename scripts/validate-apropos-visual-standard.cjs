@@ -41,7 +41,8 @@ if (markerStart < 0 || markerEnd < markerStart) {
 }
 
 if (!html.includes('<section class="hero"')) failures.push('approved Marketplace hero is missing');
-if (!html.includes('The Government Contract Marketplace')) failures.push('approved Marketplace homepage identity is missing');
+if (!html.includes('APROPOS BUSINESS INTELLIGENCE MARKETPLACE')) failures.push('approved Marketplace homepage identity is missing');
+if (!html.includes('Business Development Management Systems • AI-Powered Communications • Business Intelligence System Development')) failures.push('approved Marketplace hero supporting message is missing');
 
 if (failures.length) {
   console.error('[apropos-visual-standard] Validation failed:');
@@ -49,4 +50,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('[apropos-visual-standard] PASS — colors, typography, controls, responsive presentation, hero identity, and customer-journey entry point are preserved');
+console.log('[apropos-visual-standard] PASS — colors, typography, controls, responsive presentation, current hero identity, and customer-journey entry point are preserved');
