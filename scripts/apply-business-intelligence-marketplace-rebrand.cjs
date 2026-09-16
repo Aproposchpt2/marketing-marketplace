@@ -25,7 +25,8 @@ html = html
   .replaceAll('APROPOS MARKETING MARKETPLACE', BRAND_UPPER)
   .replaceAll('APROPOS Government Contract Marketplace', BRAND)
   .replaceAll('Government Contract Marketplace &amp; Business Opportunities | APROPOS', `${BRAND} | APROPOS Group LLC`)
-  .replaceAll('Government Contract Marketplace | APROPOS Group LLC', `${BRAND} | APROPOS Group LLC`);
+  .replaceAll('Government Contract Marketplace | APROPOS Group LLC', `${BRAND} | APROPOS Group LLC`)
+  .replaceAll('<small>GOVERNMENT CONTRACT MARKETPLACE</small>', '<small>APROPOS GROUP LLC</small>');
 
 // Homepage hero — current market position.
 replaceRequired(/<div class="hero-eyebrow">[\s\S]*?<\/div>/, '<div class="hero-eyebrow">APROPOS GROUP LLC</div>', 'hero eyebrow');
@@ -33,6 +34,9 @@ replaceRequired(/<h1 class="hero-title">[\s\S]*?<\/h1>/, `<h1 class="hero-title"
 replaceRequired(/<p class="marketplace-positioning-correction">[\s\S]*?<\/p>/, '<p class="marketplace-positioning-correction">Apropos Group LLC develops practical business intelligence systems that improve business development, communications, opportunity access, and operational workflow.</p>', 'hero positioning statement');
 replaceRequired(/<div class="hero-subtitle">[\s\S]*?<\/div>/, `<div class="hero-subtitle">${TAGLINE}</div>`, 'hero subtitle');
 replaceRequired(/<p class="hero-copy">[\s\S]*?<\/p>/, '<p class="hero-copy">Our current flagship platforms are the Business Development Management System (BDMS), including the Advisor Contract Search Portal, and AI4 Contact Center. We also develop custom business intelligence systems around real operational needs.</p>', 'hero copy');
+
+// Remove the second legacy hero paragraph that remained in the original source.
+html = html.replace(/\s*<p class="hero-copy">Whether you're a startup with no contract history, a prime contractor short on vetted subs, or a business ready to compete for real — the Marketplace was built for the moment you're in right now\.<\/p>/g, '');
 
 // Make the first product section reflect what APROPOS is actively marketing now.
 // Preserve Government Contract Portal so the later rebrand does not erase the
@@ -119,6 +123,8 @@ const required = [
 ];
 for (const token of required) if (!html.includes(token)) throw new Error(`[business-intelligence-rebrand] validation missing: ${token}`);
 if (html.includes('The Government Contract Marketplace')) throw new Error('[business-intelligence-rebrand] retired homepage headline remains');
+if (html.includes("Whether you're a startup")) throw new Error('[business-intelligence-rebrand] retired startup hero message remains');
+if (html.includes('<small>GOVERNMENT CONTRACT MARKETPLACE</small>')) throw new Error('[business-intelligence-rebrand] retired header identity remains');
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('[business-intelligence-rebrand] PASS — homepage repositioned as APROPOS Business Intelligence Marketplace while preserving Government Contract Portal');
+console.log('[business-intelligence-rebrand] PASS — current Marketplace identity applied; retired header and hero copy removed; Government Contract Portal preserved');
