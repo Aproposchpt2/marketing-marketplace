@@ -28,7 +28,7 @@ html = html
   .replaceAll('Government Contract Marketplace | APROPOS Group LLC', `${BRAND} | APROPOS Group LLC`);
 
 // Homepage hero — current market position.
-replaceRequired(/<div class="hero-eyebrow">[\s\S]*?<\/div>/, '<div class="hero-eyebrow">APROPOS GROUP LLC &middot; BUSINESS INTELLIGENCE SYSTEM DEVELOPMENT</div>', 'hero eyebrow');
+replaceRequired(/<div class="hero-eyebrow">[\s\S]*?<\/div>/, '<div class="hero-eyebrow">APROPOS GROUP LLC</div>', 'hero eyebrow');
 replaceRequired(/<h1 class="hero-title">[\s\S]*?<\/h1>/, `<h1 class="hero-title">${BRAND_UPPER}</h1>`, 'hero headline');
 replaceRequired(/<p class="marketplace-positioning-correction">[\s\S]*?<\/p>/, '<p class="marketplace-positioning-correction">Apropos Group LLC develops practical business intelligence systems that improve business development, communications, opportunity access, and operational workflow.</p>', 'hero positioning statement');
 replaceRequired(/<div class="hero-subtitle">[\s\S]*?<\/div>/, `<div class="hero-subtitle">${TAGLINE}</div>`, 'hero subtitle');
