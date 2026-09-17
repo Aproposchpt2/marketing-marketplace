@@ -6,6 +6,8 @@
 [functions]
   node_bundler = "esbuild"
 
+# E2E deployment marker: 2026-09-17
+
 [[headers]]
   for = "/claim-opportunity.html"
   [headers.values]
