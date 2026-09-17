@@ -6,10 +6,10 @@ const root = process.cwd();
 const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
 // The claim/workspace/package API backend is separate from RFCP (the RFCP-V2
 // marketing/trial-signup destination above): federal-opportunity.mjs proxies
-// to OPS (federal-ops-command-center), which owns the outreach data and hosts
-// ngcc-federal-claim/workspace/package. federalcontractorportal.aproposgroupllc.com
-// never had those functions deployed, so every claim 404ed until this was fixed.
-const FEDERAL_CLAIM_BACKEND = 'https://ops.aproposgroupllc.com';
+// to FCP (Federal Contract Pipeline), which owns the outreach data and hosts
+// ngcc-federal-claim/workspace/package. RFCP remains the separate marketing
+// and contractor-portal destination; it does not own complimentary claims.
+const FEDERAL_CLAIM_BACKEND = 'https://fcp.aproposgroupllc.com';
 const NATCORP = 'https://natcorp.aproposgroupllc.com';
 const NEBC = 'https://nebc.aproposgroupllc.com';
 const GCP = 'https://acb.aproposgroupllc.com';
@@ -66,7 +66,7 @@ for (const file of runtimeFiles) {
 }
 
 const federal = fs.readFileSync(path.join(root, 'netlify/functions/federal-opportunity.mjs'), 'utf8');
-if (!federal.includes(FEDERAL_CLAIM_BACKEND)) failures.push('federal-opportunity does not use the OPS claim/workspace/package backend');
+if (!federal.includes(FEDERAL_CLAIM_BACKEND)) failures.push('federal-opportunity does not use the FCP claim/workspace/package backend');
 if (federal.includes(RFCP)) failures.push('federal-opportunity still points at the RFCP-V2 marketing site, which has no ngcc-federal-* functions');
 
 // State/local claim fulfillment remains server-side. Public Marketplace pages
