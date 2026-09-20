@@ -125,7 +125,7 @@ for (const article of content) {
     EDITORIAL_TEAM,
     '"isAccessibleForFree":true',
     'BreadcrumbList',
-    'By APROPOS Marketing Marketplace Editorial Team',
+    'By APROPOS Business Intelligence Marketplace Editorial Team',
     'type="application/rss+xml"'
   ];
   for (const token of required) if (!page.includes(token)) failures.push(`${article.slug}: missing ${token}`);
@@ -145,7 +145,7 @@ for (const article of content) {
 }
 
 const publicRoutes = [
-  'government-contract-intelligence','federal-contract-opportunities','state-local-contract-opportunities','contractor-opportunity-matching','contract-fit-analysis','business-contract-readiness','contractor-participation','procurement-partnerships',
+  'government-contract-intelligence','federal-contract-opportunities','state-local-contract-opportunities','contractor-opportunity-matching','nat-corp-contract-matching','contract-fit-analysis','business-contract-readiness','contractor-participation','procurement-partnerships',
   'registered-federal-contractors-portal','nat-corp-contract-exchange','national-enterprise-business-center','ai4-businesses','ai4-website-design','ai4-website-design-es','apropos-group-llc'
 ];
 for (const route of publicRoutes) {
@@ -156,7 +156,7 @@ for (const route of publicRoutes) {
 }
 
 const generator = fs.readFileSync('scripts/generate-marketplace-articles.cjs','utf8');
-for (const token of ['BlogPosting','datePublished','dateModified','BreadcrumbList','citation','isAccessibleForFree','data-article-cta','data-related-article','APROPOS Marketing Marketplace Editorial Team','feed.xml']) {
+for (const token of ['BlogPosting','datePublished','dateModified','BreadcrumbList','citation','isAccessibleForFree','data-article-cta','data-related-article','APROPOS Business Intelligence Marketplace Editorial Team','feed.xml']) {
   if (!generator.includes(token)) failures.push(`generator contract missing: ${token}`);
 }
 
