@@ -111,7 +111,7 @@ const pageSchema = {
       description: seoDescription
     },
     { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'APROPOS Marketing Marketplace', item: `${origin}/` },
+      { '@type': 'ListItem', position: 1, name: 'APROPOS Business Intelligence Marketplace', item: `${origin}/` },
       { '@type': 'ListItem', position: 2, name: 'Government Contract Portal', item: canonical }
     ] }
   ]
@@ -130,7 +130,7 @@ const page = `<!doctype html>
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="APROPOS Marketing Marketplace">
+<meta property="og:site_name" content="APROPOS Business Intelligence Marketplace">
 <meta property="og:title" content="${seoTitle}">
 <meta property="og:description" content="${seoDescription}">
 <meta property="og:url" content="${canonical}">
@@ -146,7 +146,7 @@ const page = `<!doctype html>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
 <nav class="site-nav" aria-label="Primary">
-  <a class="brand" href="/"><span class="mark">AMM</span><span class="brand-name">APROPOS Marketing Marketplace<small>APROPOS GROUP LLC</small></span></a>
+  <a class="brand" href="/"><span class="mark">AMM</span><span class="brand-name">APROPOS Business Intelligence Marketplace<small>APROPOS GROUP LLC</small></span></a>
   <div class="nav-links"><a href="/#ecosystem">Production Sites</a><a href="/government-contract-intelligence/">Procurement</a><a href="/procurement-partnerships/">Institutional</a><a href="/apropos-group-llc/">Corporate</a></div>
 </nav>
 <main id="main">
@@ -271,7 +271,7 @@ const page = `<!doctype html>
 </section>
 </main>
 <footer class="site-footer">
-  <div class="wrap"><div class="footer-grid"><div><span class="mark">AMM</span><h3>APROPOS Marketing Marketplace</h3><p>Public marketing, service discovery, and routing for the APROPOS Group LLC ecosystem.</p></div><div class="footer-links"><a href="/government-contract-portal/">Government Contract Portal</a><a href="/registered-federal-contractors-portal/">Federal Contractors Portal</a><a href="/nat-corp-contract-exchange/">NAT-CORP</a><a href="/national-enterprise-business-center/">NEBC</a><a href="/procurement-partnerships/">Institutional</a><a href="/apropos-group-llc/">APROPOS Group LLC</a></div></div><p class="legal">© 2026 APROPOS Group LLC. APROPOS is an independent private company and is not affiliated with or endorsed by any government agency. Verify authoritative government opportunity requirements with the issuing organization.</p></div>
+  <div class="wrap"><div class="footer-grid"><div><span class="mark">AMM</span><h3>APROPOS Business Intelligence Marketplace</h3><p>Public marketing, service discovery, and routing for the APROPOS Group LLC ecosystem.</p></div><div class="footer-links"><a href="/government-contract-portal/">Government Contract Portal</a><a href="/registered-federal-contractors-portal/">Federal Contractors Portal</a><a href="/nat-corp-contract-exchange/">NAT-CORP</a><a href="/national-enterprise-business-center/">NEBC</a><a href="/procurement-partnerships/">Institutional</a><a href="/apropos-group-llc/">APROPOS Group LLC</a></div></div><p class="legal">© 2026 APROPOS Group LLC. APROPOS is an independent private company and is not affiliated with or endorsed by any government agency. Verify authoritative government opportunity requirements with the issuing organization.</p></div>
 </footer>
 </body>
 </html>`;
