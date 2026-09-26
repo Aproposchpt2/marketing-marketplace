@@ -26,6 +26,7 @@ const publicRoutes = [
   '/nat-corp-contract-exchange/',
   '/national-enterprise-business-center/',
   '/ai4-businesses/',
+  '/ai4-contact-center/',
   '/ai4-website-design/',
   '/ai4-website-design-es/',
   '/apropos-group-llc/',
@@ -70,7 +71,6 @@ for (const route of uniqueRoutes) {
   }
 }
 
-// Remove accidental duplicate sitemap locations while preserving the first URL block.
 const seen = new Set();
 sitemap = sitemap.replace(/\s*<url>\s*<loc>([^<]+)<\/loc>[\s\S]*?<\/url>/g, (block,loc) => {
   const key = loc.trim();
