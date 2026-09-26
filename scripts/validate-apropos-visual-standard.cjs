@@ -42,7 +42,9 @@ if (markerStart < 0 || markerEnd < markerStart) {
 
 if (!html.includes('<section class="hero"')) failures.push('approved Marketplace hero is missing');
 if (!html.includes('APROPOS BUSINESS INTELLIGENCE MARKETPLACE')) failures.push('approved Marketplace homepage identity is missing');
-if (!html.includes('Business Development Management Systems • AI-Powered Communications • Business Intelligence System Development')) failures.push('approved Marketplace hero supporting message is missing');
+if (!html.includes('Business Development Management Systems • Intelligent Customer Engagement • Business Intelligence System Development')) failures.push('approved Marketplace hero supporting message is missing');
+if (!html.includes('Intelligent Customer Engagement Operation Center')) failures.push('approved AI4 subscription product identity is missing');
+if (html.includes('Business Development Management Systems • AI-Powered Communications • Business Intelligence System Development')) failures.push('retired AI-Powered Communications hero supporting message remains');
 
 if (failures.length) {
   console.error('[apropos-visual-standard] Validation failed:');
