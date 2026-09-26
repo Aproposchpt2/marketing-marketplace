@@ -38,6 +38,7 @@ for (const url of destinations) requireText(url, `production destination ${url}`
 requireText('Business Development Management System', 'BDMS identity');
 requireText('Advisor Contract Search Portal', 'Advisor Contract Search Portal identity');
 requireText('AI4 Contact Center', 'AI4 Contact Center identity');
+requireText('Intelligent Customer Engagement Operation Center', 'AI4 subscribed product identity');
 requireText('Business Intelligence System Development', 'system-development identity');
 
 // Existing ecosystem routes can remain available, but retired homepage positioning must not.
@@ -49,11 +50,12 @@ forbidText('The Government Contract Marketplace', 'retired homepage headline');
 forbidText('Where government contracts', 'retired homepage supporting message');
 forbidText("Whether you're a startup", 'retired startup hero message');
 forbidText('<small>GOVERNMENT CONTRACT MARKETPLACE</small>', 'retired header identity');
+forbidText('Business Development Management Systems • AI-Powered Communications • Business Intelligence System Development', 'retired AI-Powered Communications hero supporting message');
 
 // Approved current hero identity.
 requireText('<section class="hero" id="top">', 'approved hero section');
 requireText('APROPOS BUSINESS INTELLIGENCE MARKETPLACE', 'approved hero headline');
-requireText('Business Development Management Systems • AI-Powered Communications • Business Intelligence System Development', 'approved hero supporting message');
+requireText('Business Development Management Systems • Intelligent Customer Engagement • Business Intelligence System Development', 'approved hero supporting message');
 
 // SEO/social integrity gate.
 requireText('<meta name="viewport" content="width=device-width,initial-scale=1.0"', 'viewport metadata');
