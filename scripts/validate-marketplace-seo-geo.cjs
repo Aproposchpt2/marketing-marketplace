@@ -25,6 +25,7 @@ const publicRoutes = [
   '/nat-corp-contract-exchange/',
   '/national-enterprise-business-center/',
   '/ai4-businesses/',
+  '/ai4-contact-center/',
   '/ai4-website-design/',
   '/ai4-website-design-es/',
   '/apropos-group-llc/',
@@ -82,13 +83,24 @@ const brandPages = [
   'registered-federal-contractors-portal/index.html',
   'articles/index.html',
   'government-contract-portal/index.html',
-  'apropos-business-opportunity-agency/index.html'
+  'apropos-business-opportunity-agency/index.html',
+  'ai4-contact-center/index.html'
 ];
 for (const relative of brandPages) {
   const file=path.join(ROOT,relative);
   if (!fs.existsSync(file)) { failures.push('brand validation file missing: ' + relative); continue; }
   const html=fs.readFileSync(file,'utf8');
   if (!html.includes('APROPOS Business Intelligence Marketplace')) failures.push(relative + ': current Marketplace identity missing');
+}
+
+const ai4 = fs.readFileSync(path.join(ROOT,'ai4-contact-center','index.html'),'utf8');
+for (const token of [
+  'Intelligent Customer Engagement Operation Center',
+  'THE INTELLIGENCE LAYER. NOT THE REPLACEMENT LAYER.',
+  '8,760',
+  'START WITH THE DEPARTMENT. SOLVE THE PRESSURE POINT. PROVE THE VALUE. EXPAND.'
+]) {
+  if (!ai4.includes(token)) failures.push('AI4 Contact Center page missing approved positioning: ' + token);
 }
 
 const aboa = fs.readFileSync(path.join(ROOT,'apropos-business-opportunity-agency','index.html'),'utf8');
@@ -104,10 +116,11 @@ for (const token of [
 const home = fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
 if (!home.includes('APROPOS BUSINESS INTELLIGENCE MARKETPLACE')) failures.push('homepage current Marketplace identity missing');
 if (!home.includes('https://aproposgroupllc.com/#organization')) failures.push('homepage corporate entity relationship missing');
+if (!home.includes('href="/ai4-contact-center/"')) failures.push('homepage AI4 card does not route through standalone AI4 Contact Center page');
 
 if (failures.length) {
   console.error('[marketplace-seo-geo-validation] FAIL');
   failures.forEach(f=>console.error(' - ' + f));
   process.exit(1);
 }
-console.log('[marketplace-seo-geo-validation] PASS — canonical coverage, final sitemap ownership, entity consistency, current branding and private-route exclusion verified.');
+console.log('[marketplace-seo-geo-validation] PASS — canonical coverage, final sitemap ownership, AI4 product-page positioning, entity consistency, current branding and private-route exclusion verified.');
