@@ -19,7 +19,7 @@ const NEW_CARD = `      <article class="amm-card amm-card-featured" data-propert
         <p><strong>Intelligent Customer Engagement Operation Center.</strong> The Intelligence Layer — Not the Replacement Layer. Keep your number, phones, current provider, and established workflows while adding intelligent customer engagement, routing, queue management, customer intake, lead qualification, workflow automation, analytics, and 24/7/365 coverage.</p>
         <p>Built for high-volume businesses and departments that need enterprise-style customer operations without an enterprise-wide rip-and-replace project.</p>
         <div class="amm-card-meta">KEEP YOUR NUMBER. ADD THE INTELLIGENCE.</div>
-        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://ai4contactcenter.aproposgroupllc.com/">Explore the Operation Center</a></div>
+        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="/ai4-contact-center/">Learn More</a><a class="amm-btn amm-btn-outline" href="https://ai4contactcenter.aproposgroupllc.com/">Visit AI4 Contact Center</a></div>
       </article>`;
 
 if (!html.includes(OLD_CARD)) {
@@ -28,8 +28,6 @@ if (!html.includes(OLD_CARD)) {
 
 html = html.replace(OLD_CARD, NEW_CARD);
 
-// Retire legacy public descriptive language for this product when it appears
-// elsewhere in the generated homepage output.
 html = html
   .replaceAll('AI-Powered Communications', 'Intelligent Customer Engagement')
   .replaceAll('AI-powered communications', 'intelligent customer engagement');
@@ -40,7 +38,7 @@ const required = [
   'The Intelligence Layer — Not the Replacement Layer.',
   'KEEP YOUR NUMBER. ADD THE INTELLIGENCE.',
   '24/7/365 coverage',
-  'Explore the Operation Center',
+  'href="/ai4-contact-center/"',
   'https://ai4contactcenter.aproposgroupllc.com/'
 ];
 
@@ -53,4 +51,4 @@ if (html.includes('Intelligent voice management for businesses with high inbound
 }
 
 fs.writeFileSync(file, html, 'utf8');
-console.log('[ai4-intelligence-messaging] PASS — AI4 Marketplace messaging aligned to Intelligent Customer Engagement Operation Center positioning');
+console.log('[ai4-intelligence-messaging] PASS — AI4 Marketplace messaging aligned and routed through standalone product page');
