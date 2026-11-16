@@ -232,6 +232,33 @@ const suite = `
     <aside class="amm-trust-panel"><strong>Private company. Business-first guidance.</strong><p>APROPOS is an independent private company, not a government agency. Government opportunity information should always be verified against the official solicitation and authoritative source before a business makes a bid or investment decision.</p></aside>
   </div>
 </section>
+<section class="amm-band amm-band-dark" id="stellar-product-line">
+  <div class="amm-shell">
+    <div class="amm-kicker">Stellar Intelligent Software Developers</div>
+    <h2 class="amm-title">Six intelligent business systems. <em>One clear product line.</em></h2>
+    <p class="amm-lead">Stellar Intelligent Software Developers, a DBA of Apropos Group LLC, builds Autonomous AI Conversational Voice Agent systems in English and Spanish. Learn more at <a href="https://stellaruc.com">stellaruc.com</a>.</p>
+    <div class="amm-grid">
+      <article class="amm-card">
+        <div class="amm-card-tag">Stellar Product Line</div><h3>Customer Care Center</h3><p>24/7 customer care that answers every call, in English and Spanish.</p><div class="amm-card-meta">English &amp; Spanish</div><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://ccc.stellaruc.com">Explore Customer Care Center</a></div>
+      </article>
+      <article class="amm-card">
+        <div class="amm-card-tag">Stellar Product Line</div><h3>Property Management Assistant</h3><p>24/7 resident care, leasing and maintenance intake.</p><div class="amm-card-meta">English &amp; Spanish</div><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://pma.stellaruc.com">Explore Property Management Assistant</a></div>
+      </article>
+      <article class="amm-card">
+        <div class="amm-card-tag">Stellar Product Line</div><h3>Sales Specialist</h3><p>Qualifies callers and books appointments, around the clock.</p><div class="amm-card-meta">English &amp; Spanish</div><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://sales.stellaruc.com">Explore Sales Specialist</a></div>
+      </article>
+      <article class="amm-card">
+        <div class="amm-card-tag">Stellar Product Line</div><h3>Support Specialist</h3><p>Structured customer support and assistance, day and night.</p><div class="amm-card-meta">English &amp; Spanish</div><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://specialist.stellaruc.com">Explore Support Specialist</a></div>
+      </article>
+      <article class="amm-card">
+        <div class="amm-card-tag">Stellar Product Line</div><h3>Business Infrastructure as a Service</h3><p>The business technology infrastructure that keeps operations running.</p><div class="amm-card-meta">English &amp; Spanish</div><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://biaas.stellaruc.com">Explore Business Infrastructure as a Service</a></div>
+      </article>
+      <article class="amm-card">
+        <div class="amm-card-tag">Stellar Product Line</div><h3>Business Marketing as a Service</h3><p>Intelligent marketing outreach and business promotion.</p><div class="amm-card-meta">English &amp; Spanish</div><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://stellaruc.com/products/intelligent-business-marketing-system">Explore Business Marketing as a Service</a></div>
+      </article>
+    </div>
+  </div>
+</section>
 </div>
 `;
 
