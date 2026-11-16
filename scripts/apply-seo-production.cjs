@@ -121,6 +121,26 @@ function homepageSchema() {
           name: route.title.replace(/ \| APROPOS.*$/, ''),
           url: `${origin}/${route.dir}/`
         }))
+},
+      {
+        '@type': 'Organization',
+        '@id': 'https://stellaruc.com/#organization',
+        name: 'Stellar Intelligent Software Developers',
+        url: 'https://stellaruc.com/',
+        parentOrganization: { '@type': 'Organization', name: 'Apropos Group LLC', url: 'https://aproposgroupllc.com/' }
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Stellar Intelligent Software Developers — Product Line',
+        numberOfItems: 6,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Customer Care Center', url: 'https://ccc.stellaruc.com' },
+          { '@type': 'ListItem', position: 2, name: 'Property Management Assistant', url: 'https://pma.stellaruc.com' },
+          { '@type': 'ListItem', position: 3, name: 'Sales Specialist', url: 'https://sales.stellaruc.com' },
+          { '@type': 'ListItem', position: 4, name: 'Support Specialist', url: 'https://specialist.stellaruc.com' },
+          { '@type': 'ListItem', position: 5, name: 'Business Infrastructure as a Service', url: 'https://biaas.stellaruc.com' },
+          { '@type': 'ListItem', position: 6, name: 'Business Marketing as a Service', url: 'https://stellaruc.com/products/intelligent-business-marketing-system' }
+        ]
       },
       {
         '@type': 'Service',
