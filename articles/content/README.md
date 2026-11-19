@@ -29,4 +29,4 @@ Each section uses:
 }
 ```
 
-Marketplace articles own broad educational intent. Specialized operational depth belongs to RFCP, BODA, or APROPOS Group LLC as appropriate.
+Marketplace articles own broad educational intent. Specialized operational depth belongs to RFCP, SBDA, or APROPOS Group LLC as appropriate.
