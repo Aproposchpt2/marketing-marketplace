@@ -10,10 +10,12 @@ const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
 // ngcc-federal-claim/workspace/package. RFCP remains the separate marketing
 // and contractor-portal destination; it does not own complimentary claims.
 const FEDERAL_CLAIM_BACKEND = 'https://fcp.aproposgroupllc.com';
-const NATCORP = 'https://natcorp.aproposgroupllc.com';
-const NEBC = 'https://nebc.aproposgroupllc.com';
-const GCP = 'https://acb.aproposgroupllc.com';
 const MARKETPLACE = 'https://marketplace.aproposgroupllc.com';
+// NAT-CORP and NEBC have been retired. Any remaining links are routed to the
+// Marketplace state & local guide and to the Business Opportunity Development Agency.
+const NATCORP = `${MARKETPLACE}/state-local-contract-opportunities/`;
+const NEBC = 'https://boda.stellaruc.com/';
+const GCP = 'https://bdms.aproposgroupllc.com';
 const AI4WEBSITE = 'https://ai4websitedesign.com';
 const AI4WEBSITE_ES = 'https://espanola.ai4websitedesign.com';
 
@@ -22,6 +24,11 @@ function normalize(value) {
     .replaceAll('https://ngcc.aproposgroupllc.com', RFCP)
     .replaceAll('https://capgenmkt.aproposgroupllc.com', RFCP)
     .replaceAll('https://businesscontracts.aproposgroupllc.com', NATCORP)
+    .replace(/https:\/\/(?:natcorp|calstategen|nevadastategen)\.aproposgroupllc\.com\/?/g, NATCORP)
+    .replace(/https:\/\/(?:nebc|cdc)\.aproposgroupllc\.com\/?/g, NEBC)
+    .replaceAll('https://acb.aproposgroupllc.com', GCP)
+    .replaceAll('https://ai4contactcenter.aproposgroupllc.com', 'https://stellaruc.com')
+    .replaceAll('https://aproposopportunity.org', 'https://boda.stellaruc.com')
     .replaceAll('https://gcpdc.aproposgroupllc.com', `${MARKETPLACE}/government-proposal-development`)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/(?:ngcc|capgen)[^"'\s<]*/gi, RFCP)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/natcorp[^"'\s<]*/gi, NATCORP)
@@ -58,6 +65,14 @@ const forbidden = [
   'businesscontracts.aproposgroupllc.com',
   'gcpdc.aproposgroupllc.com',
   'ai4-product-purchasing.ai4businesses.org',
+  'natcorp.aproposgroupllc.com',
+  'nebc.aproposgroupllc.com',
+  'calstategen.aproposgroupllc.com',
+  'nevadastategen.aproposgroupllc.com',
+  'cdc.aproposgroupllc.com',
+  'acb.aproposgroupllc.com',
+  'ai4contactcenter.aproposgroupllc.com',
+  'aproposopportunity.org',
 ];
 const failures = [];
 for (const file of runtimeFiles) {

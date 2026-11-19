@@ -37,3 +37,23 @@
   [headers.values]
     Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
     X-Robots-Tag = "noindex,nofollow,noarchive"
+
+# NAT-CORP and NEBC have been retired. Send their former Marketplace pages to
+# the closest live pathway.
+[[redirects]]
+  from = "/nat-corp-contract-exchange/*"
+  to = "/state-local-contract-opportunities/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nat-corp-contract-matching/*"
+  to = "/state-local-contract-opportunities/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/national-enterprise-business-center/*"
+  to = "/apropos-business-opportunity-agency/"
+  status = 301
+  force = true

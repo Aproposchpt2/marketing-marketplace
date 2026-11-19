@@ -60,7 +60,7 @@ const primarySection = `
         <h3>AI4 Contact Center</h3>
         <p>Intelligent voice management for businesses with high inbound call volume. Keep the existing business number while adding automated answering, routing, information capture, organization, and response workflow.</p>
         <div class="amm-card-meta">Stellar Voice Management</div>
-        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://ai4contactcenter.aproposgroupllc.com/">Visit AI4 Contact Center</a></div>
+        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://stellaruc.com/">Visit AI4 Contact Center</a></div>
       </article>
       <article class="amm-card amm-card-featured">
         <div class="amm-card-tag">Custom Systems</div>
@@ -75,7 +75,7 @@ const primarySection = `
         <p>A contract-opportunity intelligence platform developed for Business Development Agencies and the Advisors who serve their business communities.</p>
         <p>Help Advisors identify opportunities aligned with a client’s business capabilities and bring those opportunities directly into the advisory relationship — without spending valuable time searching fragmented procurement sources.</p>
         <div class="amm-card-meta">30-DAY AGENCY EVALUATION</div>
-        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://acb.aproposgroupllc.com/">Explore Government Contract Portal</a><a class="amm-btn amm-btn-outline" href="/government-contract-portal/">Learn More</a></div>
+        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://bdms.aproposgroupllc.com/">Explore Government Contract Portal</a><a class="amm-btn amm-btn-outline" href="/government-contract-portal/">Learn More</a></div>
       </article>
     </div>
   </div>
@@ -118,7 +118,7 @@ const required = [
   '<h3>Government Contract Portal</h3>',
   '30-DAY AGENCY EVALUATION',
   'https://bdms.aproposgroupllc.com/',
-  'https://ai4contactcenter.aproposgroupllc.com/',
+  'https://stellaruc.com/',
   socialUrl
 ];
 for (const token of required) if (!html.includes(token)) throw new Error(`[business-intelligence-rebrand] validation missing: ${token}`);

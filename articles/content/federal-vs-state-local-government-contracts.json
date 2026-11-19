@@ -43,10 +43,10 @@
   ],
   "pathway": {
     "heading": "Choose the APROPOS market pathway that matches your target",
-    "description": "Registered federal contractors can use the Registered Federal Contractors Portal for personalized federal opportunities and released state opportunities matched to their contractor profile. Licensed businesses pursuing state, local, municipal, education, and related public-sector opportunities can continue through the NAT-CORP Marketplace guide.",
+    "description": "Registered federal contractors can use the Registered Federal Contractors Portal for personalized federal opportunities and released state opportunities matched to their contractor profile. Businesses pursuing state, local, municipal, education, and related public-sector opportunities can continue through the Marketplace state and local opportunities guide.",
     "label": "Explore state and local opportunities",
-    "url": "https://marketplace.aproposgroupllc.com/nat-corp-contract-exchange/",
-    "destination": "natcorp"
+    "url": "https://marketplace.aproposgroupllc.com/state-local-contract-opportunities/",
+    "destination": "state-local"
   },
   "related": ["how-to-find-government-contracts", "what-is-sled-contracting", "preparing-your-business-for-government-contracting"]
 }

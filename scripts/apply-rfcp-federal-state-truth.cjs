@@ -7,7 +7,7 @@ const root = process.cwd();
 const homepageFile = path.join(root, 'index.html');
 const rfcpFile = path.join(root, 'registered-federal-contractors-portal', 'index.html');
 const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
-const NATCORP = 'https://natcorp.aproposgroupllc.com';
+const BODA = 'https://boda.stellaruc.com';
 
 function patchFile(file, replacements) {
   if (!fs.existsSync(file)) throw new Error(`[rfcp-truth] required file missing: ${path.relative(root, file)}`);
@@ -23,8 +23,8 @@ const homepage = patchFile(homepageFile, [
     'Personalized federal opportunities plus released state opportunities for registered federal contractors, organized around the contractor profile for guided review.'
   ],
   [
-    'APROPOS separates federal and state/local procurement into dedicated production pathways, while NEBC supports the business-readiness and development work that helps companies prepare for growth.',
-    'APROPOS provides contractor-specific procurement pathways: the Registered Federal Contractors Portal centers personalized federal opportunity discovery and can also surface released state opportunities matched to the contractor profile, while NAT-CORP serves licensed businesses pursuing state and local public-sector opportunities. Federal and state opportunities remain distinct procurement markets with their own official sources and submission rules.'
+    'APROPOS routes federal procurement to a dedicated production platform, while the Business Opportunity Development Agency supports the opportunity access, preparedness, and development work that helps companies prepare for growth.',
+    'APROPOS provides contractor-specific procurement pathways: the Registered Federal Contractors Portal centers personalized federal opportunity discovery and can also surface released state opportunities matched to the contractor profile, while the Business Opportunity Development Agency supports complimentary contract search, contract preparedness, and technical assistance. Federal and state opportunities remain distinct procurement markets with their own official sources and submission rules.'
   ],
   [
     'For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.',
@@ -39,10 +39,10 @@ const homepage = patchFile(homepageFile, [
   ['Government contract intelligence and opportunity access.', 'Personalized federal opportunities, released state opportunities, and guided opportunity review for registered federal contractors.'],
   ['https://ngcc.aproposgroupllc.com/', `${RFCP}/`],
   ['https://ngcc.aproposgroupllc.com', RFCP],
-  ['https://nevadastategen.aproposgroupllc.com', NATCORP],
+  ['https://nevadastategen.aproposgroupllc.com', '/state-local-contract-opportunities/'],
   ['https://calstategen.aproposgroupllc.com', '/contract-fit-analysis/'],
   ['NGCC &mdash; Federal Contract Intelligence', 'Registered Federal Contractors Portal &mdash; Federal + State Opportunity Intelligence'],
-  ['>Nevada Procurement</a>', '>NAT-CORP Contract Exchange</a>'],
+  ['>Nevada Procurement</a>', '>State & Local Opportunities</a>'],
   ['>California Procurement</a>', '>Analyze Fit</a>']
 ]);
 
@@ -91,7 +91,7 @@ const procurementSection = homepage.match(/<section\b[^>]*\bid=["']procurement["
 
 if (!procurementSection) failures.push('homepage is missing the current #procurement section');
 
-for (const token of ['NGCC', 'nevadastategen.aproposgroupllc.com', 'calstategen.aproposgroupllc.com']) {
+for (const token of ['NGCC', 'nevadastategen.aproposgroupllc.com', 'calstategen.aproposgroupllc.com', 'natcorp.aproposgroupllc.com', 'nebc.aproposgroupllc.com']) {
   if (homepage.includes(token)) failures.push(`homepage still contains retired public product token: ${token}`);
 }
 
@@ -99,9 +99,9 @@ for (const marker of [
   'Registered Federal Contractors Portal',
   'personalized federal opportunities',
   'released state opportunities',
-  'NAT-CORP Contract Exchange',
+  'Business Opportunity Development Agency',
   RFCP,
-  NATCORP,
+  BODA,
   'Federal and state opportunities remain distinct procurement markets'
 ]) {
   if (!procurementSection.includes(marker)) failures.push(`homepage #procurement section missing current product-truth marker: ${marker}`);
@@ -109,6 +109,7 @@ for (const marker of [
 
 for (const stale of [
   'APROPOS separates federal and state/local procurement into dedicated production pathways',
+  'APROPOS routes federal procurement to a dedicated production platform, while',
   'For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.',
   'Federal procurement intelligence for registered federal contractors.'
 ]) {

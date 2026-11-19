@@ -19,8 +19,7 @@ const required = [
   'box-shadow:none!important',
   'href="/claim-opportunity.html"',
   'https://federalcontractorportal.aproposgroupllc.com/',
-  'https://natcorp.aproposgroupllc.com/',
-  'https://nebc.aproposgroupllc.com/',
+  'https://boda.stellaruc.com/',
   'https://ai4businesses.org/',
   'https://ai4websitedesign.com/',
   'https://espanola.ai4websitedesign.com/'

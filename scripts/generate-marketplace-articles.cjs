@@ -161,8 +161,8 @@ function patchNavigation() {
   fs.writeFileSync(homepageFile, homepage, 'utf8');
 
   const publicRoutes = [
-    'government-contract-intelligence','federal-contract-opportunities','state-local-contract-opportunities','contractor-opportunity-matching','nat-corp-contract-matching','contract-fit-analysis','government-proposal-development','business-contract-readiness','contractor-participation','procurement-partnerships',
-    'registered-federal-contractors-portal','nat-corp-contract-exchange','national-enterprise-business-center','ai4-businesses','ai4-website-design','ai4-website-design-es','apropos-group-llc'
+    'government-contract-intelligence','federal-contract-opportunities','state-local-contract-opportunities','contractor-opportunity-matching','contract-fit-analysis','government-proposal-development','business-contract-readiness','contractor-participation','procurement-partnerships',
+    'registered-federal-contractors-portal','ai4-businesses','ai4-website-design','ai4-website-design-es','apropos-group-llc'
   ];
   for (const route of publicRoutes) {
     const file = path.join(ROOT,route,'index.html');

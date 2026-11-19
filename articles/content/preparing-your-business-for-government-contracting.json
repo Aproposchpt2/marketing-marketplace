@@ -58,10 +58,10 @@
   ],
   "pathway": {
     "heading": "Need broader business-readiness support?",
-    "description": "NEBC is the APROPOS destination for business assessment, planning, funding readiness, and business-development support. Review the National Enterprise Business Center pathway in the Marketplace before continuing to the production service.",
-    "label": "Explore NEBC",
-    "url": "https://marketplace.aproposgroupllc.com/national-enterprise-business-center/",
-    "destination": "nebc"
+    "description": "The Business Opportunity Development Agency is the APROPOS destination for complimentary contract search, Vendor Cards, contract preparedness, and technical assistance. Review the BODA pathway in the Marketplace before continuing to the production service.",
+    "label": "Explore BODA",
+    "url": "https://marketplace.aproposgroupllc.com/apropos-business-opportunity-agency/",
+    "destination": "boda"
   },
   "related": ["what-is-a-capability-statement", "understanding-naics-codes", "how-to-decide-whether-to-bid"]
 }

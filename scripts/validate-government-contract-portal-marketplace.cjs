@@ -8,8 +8,8 @@ const page = fs.existsSync('government-contract-portal/index.html') ? fs.readFil
 const sitemap = fs.existsSync('sitemap.xml') ? fs.readFileSync('sitemap.xml', 'utf8') : '';
 const css = fs.existsSync('landing-pages.css') ? fs.readFileSync('landing-pages.css', 'utf8') : '';
 
-const LIVE = 'https://acb.aproposgroupllc.com/';
-const EVALUATION = 'https://acb.aproposgroupllc.com/agency-login.html';
+const LIVE = 'https://bdms.aproposgroupllc.com/';
+const EVALUATION = 'https://bdms.aproposgroupllc.com/agency-login.html';
 const CANONICAL = 'https://marketplace.aproposgroupllc.com/government-contract-portal/';
 
 function requireText(source, value, label) {
