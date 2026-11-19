@@ -38,22 +38,176 @@
     Cache-Control = "no-store, no-cache, must-revalidate, max-age=0"
     X-Robots-Tag = "noindex,nofollow,noarchive"
 
-# NAT-CORP and NEBC have been retired. Send their former Marketplace pages to
-# the closest live pathway.
-[[redirects]]
-  from = "/nat-corp-contract-exchange/*"
-  to = "/state-local-contract-opportunities/"
-  status = 301
-  force = true
+# The Marketplace is retired (2026-11-19). Its public pages now live on
+# stellaruc.com and sbda.stellaruc.com. The private claim/workspace pages
+# (claim-opportunity, claim-federal-opportunity, opportunity-workspace,
+# federal-opportunity-workspace, opportunity-thank-you) and /api/* are
+# intentionally NOT redirected so links in emails already sent keep working.
 
 [[redirects]]
-  from = "/nat-corp-contract-matching/*"
-  to = "/state-local-contract-opportunities/"
+  from = "/apropos-business-opportunity-agency/*"
+  to = "https://sbda.stellaruc.com/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/national-enterprise-business-center/*"
-  to = "/apropos-business-opportunity-agency/"
+  to = "https://sbda.stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nat-corp-contract-exchange/*"
+  to = "https://sbda.stellaruc.com/contract-search-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nat-corp-contract-matching/*"
+  to = "https://sbda.stellaruc.com/contract-search-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/federal-contract-opportunities/*"
+  to = "https://sbda.stellaruc.com/contract-search-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/state-local-contract-opportunities/*"
+  to = "https://sbda.stellaruc.com/contract-search-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/government-contract-intelligence/*"
+  to = "https://sbda.stellaruc.com/contract-search-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/business-contract-readiness/*"
+  to = "https://sbda.stellaruc.com/contract-preparedness"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/*"
+  to = "https://sbda.stellaruc.com/contract-preparedness"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contract-fit-analysis/*"
+  to = "https://sbda.stellaruc.com/contract-technical-assistance"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/government-proposal-development/*"
+  to = "https://sbda.stellaruc.com/contract-technical-assistance"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contractor-opportunity-matching/*"
+  to = "https://sbda.stellaruc.com/opportunity-outreach-program"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contractor-participation/*"
+  to = "https://sbda.stellaruc.com/opportunity-outreach-program"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/procurement-partnerships/*"
+  to = "https://sbda.stellaruc.com/opportunity-outreach-program"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/business-development-services/*"
+  to = "https://sbda.stellaruc.com/business-development-roadmap"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/free-contract-offer.html"
+  to = "https://sbda.stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/free-contract-offer"
+  to = "https://sbda.stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai4-businesses/*"
+  to = "https://ai4businesses.org/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai4-website-design-es/*"
+  to = "https://espanola.ai4websitedesign.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai4-website-design/*"
+  to = "https://ai4websitedesign.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai4-contact-center/*"
+  to = "https://ccc.stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/apropos-group-llc/*"
+  to = "https://aproposgroupllc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/government-contract-portal/*"
+  to = "https://bdms.aproposgroupllc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/registered-federal-contractors-portal/*"
+  to = "https://federalcontractorportal.aproposgroupllc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews.html"
+  to = "https://stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews"
+  to = "https://stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "https://stellaruc.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "https://stellaruc.com/"
   status = 301
   force = true
