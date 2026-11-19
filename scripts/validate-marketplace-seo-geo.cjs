@@ -107,7 +107,7 @@ const aboa = fs.readFileSync(path.join(ROOT,'apropos-business-opportunity-agency
 if (/\bnonprofit\b/i.test(aboa)) failures.push('ABOA page still contains unsupported nonprofit characterization');
 for (const token of [
   'https://aproposgroupllc.com/#organization',
-  'https://aproposopportunity.org/#service',
+  'https://boda.stellaruc.com/#service',
   'APROPOS Business Opportunity Agency | Business Opportunity Service'
 ]) {
   if (!aboa.includes(token)) failures.push('ABOA entity correction missing: ' + token);
