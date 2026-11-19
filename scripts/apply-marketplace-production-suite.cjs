@@ -114,10 +114,10 @@ const suite = `
       </article>
       <article class="amm-card amm-card-featured">
         <div class="amm-card-tag">Contract Opportunity Services</div>
-        <h3>Business Opportunity Development Agency</h3>
+        <h3>Stellar Business Development Agency</h3>
         <p>Complimentary contract search, Vendor Cards, contract preparedness, and technical assistance that help businesses discover and pursue relevant opportunities.</p>
         <div class="amm-card-meta">Complimentary opportunity access</div>
-        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://boda.stellaruc.com/">Visit BODA</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Business Readiness Guide</a></div>
+        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://sbda.stellaruc.com/">Visit SBDA</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Business Readiness Guide</a></div>
       </article>
       <article class="amm-card">
         <div class="amm-card-tag">Business Automation</div>
@@ -148,10 +148,10 @@ const suite = `
   <div class="amm-shell">
     <div class="amm-kicker">Procurement Intelligence</div>
     <h2 class="amm-title">Start with the market your business is <em>actually pursuing.</em></h2>
-    <p class="amm-lead">APROPOS routes federal procurement to a dedicated production platform, while the Business Opportunity Development Agency supports the opportunity access, preparedness, and development work that helps companies prepare for growth.</p>
+    <p class="amm-lead">APROPOS routes federal procurement to a dedicated production platform, while the Stellar Business Development Agency supports the opportunity access, preparedness, and development work that helps companies prepare for growth.</p>
     <div class="amm-grid">
       <article class="amm-card"><div class="amm-card-tag">Federal</div><h3>Registered Federal Contractors Portal</h3><p>For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://federalcontractorportal.aproposgroupllc.com/">Open Federal Portal</a></div></article>
-      <article class="amm-card"><div class="amm-card-tag">Prepare & Grow</div><h3>Business Opportunity Development Agency</h3><p>For businesses that want complimentary contract search, a public Vendor Card, contract preparedness, and technical assistance before the next opportunity.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://boda.stellaruc.com/">Open BODA</a></div></article>
+      <article class="amm-card"><div class="amm-card-tag">Prepare & Grow</div><h3>Stellar Business Development Agency</h3><p>For businesses that want complimentary contract search, a public Vendor Card, contract preparedness, and technical assistance before the next opportunity.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://sbda.stellaruc.com/">Open SBDA</a></div></article>
     </div>
     <div class="amm-paths" aria-label="APROPOS procurement journey">
       <div class="amm-path"><strong>01 · Prepare</strong><span>Clarify the business, capabilities, readiness, and growth objectives.</span></div>
@@ -167,8 +167,8 @@ const suite = `
     <div>
       <div class="amm-kicker">Business Growth</div>
       <h2 class="amm-title">Business development does not stop at <em>contract discovery.</em></h2>
-      <p class="amm-lead">The Business Opportunity Development Agency extends the ecosystem beyond procurement search. Businesses can search contracts at no cost, publish a Vendor Card, strengthen contract preparedness, and get technical assistance on the path to their next opportunity.</p>
-      <div class="amm-actions" style="margin-top:28px"><a class="amm-btn amm-btn-primary" href="https://boda.stellaruc.com/">Start at BODA</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Explore Business Readiness</a></div>
+      <p class="amm-lead">The Stellar Business Development Agency extends the ecosystem beyond procurement search. Businesses can search contracts at no cost, publish a Vendor Card, strengthen contract preparedness, and get technical assistance on the path to their next opportunity.</p>
+      <div class="amm-actions" style="margin-top:28px"><a class="amm-btn amm-btn-primary" href="https://sbda.stellaruc.com/">Start at SBDA</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Explore Business Readiness</a></div>
     </div>
     <aside class="amm-trust-panel"><strong>Built around the business first.</strong><p>APROPOS platforms are designed to reduce the amount of searching, sorting, and disconnected decision-making a business must do before it reaches the right opportunity or service path.</p></aside>
   </div>
@@ -261,7 +261,7 @@ const footer = `<footer class="amm-footer">
       <div><h3>APROPOS Marketing Marketplace</h3><p>The public discovery and conversion hub for the current APROPOS Group LLC ecosystem.</p></div>
       <div class="amm-footer-links">
         <a href="https://federalcontractorportal.aproposgroupllc.com/">Federal Contractors Portal</a>
-        <a href="https://boda.stellaruc.com/">Business Opportunity Development Agency</a>
+        <a href="https://sbda.stellaruc.com/">Stellar Business Development Agency</a>
         <a href="https://ai4businesses.org/">AI4 Businesses</a>
         <a href="https://ai4websitedesign.com/">AI4 Website Design</a>
         <a href="https://espanola.ai4websitedesign.com/">Español</a>

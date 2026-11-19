@@ -12,9 +12,9 @@ const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
 const FEDERAL_CLAIM_BACKEND = 'https://fcp.aproposgroupllc.com';
 const MARKETPLACE = 'https://marketplace.aproposgroupllc.com';
 // NAT-CORP and NEBC have been retired. Any remaining links are routed to the
-// Marketplace state & local guide and to the Business Opportunity Development Agency.
+// Marketplace state & local guide and to the Stellar Business Development Agency.
 const NATCORP = `${MARKETPLACE}/state-local-contract-opportunities/`;
-const NEBC = 'https://boda.stellaruc.com/';
+const NEBC = 'https://sbda.stellaruc.com/';
 const GCP = 'https://bdms.aproposgroupllc.com';
 const AI4WEBSITE = 'https://ai4websitedesign.com';
 const AI4WEBSITE_ES = 'https://espanola.ai4websitedesign.com';
@@ -28,7 +28,7 @@ function normalize(value) {
     .replace(/https:\/\/(?:nebc|cdc)\.aproposgroupllc\.com\/?/g, NEBC)
     .replaceAll('https://acb.aproposgroupllc.com', GCP)
     .replaceAll('https://ai4contactcenter.aproposgroupllc.com', 'https://stellaruc.com')
-    .replaceAll('https://aproposopportunity.org', 'https://boda.stellaruc.com')
+    .replaceAll('https://aproposopportunity.org', 'https://sbda.stellaruc.com')
     .replaceAll('https://gcpdc.aproposgroupllc.com', `${MARKETPLACE}/government-proposal-development`)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/(?:ngcc|capgen)[^"'\s<]*/gi, RFCP)
     .replace(/https:\/\/ai4-product-purchasing\.ai4businesses\.org\/natcorp[^"'\s<]*/gi, NATCORP)

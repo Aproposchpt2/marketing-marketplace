@@ -7,7 +7,7 @@ const root = process.cwd();
 const homepageFile = path.join(root, 'index.html');
 const rfcpFile = path.join(root, 'registered-federal-contractors-portal', 'index.html');
 const RFCP = 'https://federalcontractorportal.aproposgroupllc.com';
-const BODA = 'https://boda.stellaruc.com';
+const SBDA = 'https://sbda.stellaruc.com';
 
 function patchFile(file, replacements) {
   if (!fs.existsSync(file)) throw new Error(`[rfcp-truth] required file missing: ${path.relative(root, file)}`);
@@ -23,8 +23,8 @@ const homepage = patchFile(homepageFile, [
     'Personalized federal opportunities plus released state opportunities for registered federal contractors, organized around the contractor profile for guided review.'
   ],
   [
-    'APROPOS routes federal procurement to a dedicated production platform, while the Business Opportunity Development Agency supports the opportunity access, preparedness, and development work that helps companies prepare for growth.',
-    'APROPOS provides contractor-specific procurement pathways: the Registered Federal Contractors Portal centers personalized federal opportunity discovery and can also surface released state opportunities matched to the contractor profile, while the Business Opportunity Development Agency supports complimentary contract search, contract preparedness, and technical assistance. Federal and state opportunities remain distinct procurement markets with their own official sources and submission rules.'
+    'APROPOS routes federal procurement to a dedicated production platform, while the Stellar Business Development Agency supports the opportunity access, preparedness, and development work that helps companies prepare for growth.',
+    'APROPOS provides contractor-specific procurement pathways: the Registered Federal Contractors Portal centers personalized federal opportunity discovery and can also surface released state opportunities matched to the contractor profile, while the Stellar Business Development Agency supports complimentary contract search, contract preparedness, and technical assistance. Federal and state opportunities remain distinct procurement markets with their own official sources and submission rules.'
   ],
   [
     'For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.',
@@ -99,9 +99,9 @@ for (const marker of [
   'Registered Federal Contractors Portal',
   'personalized federal opportunities',
   'released state opportunities',
-  'Business Opportunity Development Agency',
+  'Stellar Business Development Agency',
   RFCP,
-  BODA,
+  SBDA,
   'Federal and state opportunities remain distinct procurement markets'
 ]) {
   if (!procurementSection.includes(marker)) failures.push(`homepage #procurement section missing current product-truth marker: ${marker}`);

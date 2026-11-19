@@ -271,7 +271,7 @@ const page = `<!doctype html>
 </section>
 </main>
 <footer class="site-footer">
-  <div class="wrap"><div class="footer-grid"><div><span class="mark">AMM</span><h3>APROPOS Business Intelligence Marketplace</h3><p>Public marketing, service discovery, and routing for the APROPOS Group LLC ecosystem.</p></div><div class="footer-links"><a href="/government-contract-portal/">Government Contract Portal</a><a href="/registered-federal-contractors-portal/">Federal Contractors Portal</a><a href="/apropos-business-opportunity-agency/">BODA</a><a href="/procurement-partnerships/">Institutional</a><a href="/apropos-group-llc/">APROPOS Group LLC</a></div></div><p class="legal">© 2026 APROPOS Group LLC. APROPOS is an independent private company and is not affiliated with or endorsed by any government agency. Verify authoritative government opportunity requirements with the issuing organization.</p></div>
+  <div class="wrap"><div class="footer-grid"><div><span class="mark">AMM</span><h3>APROPOS Business Intelligence Marketplace</h3><p>Public marketing, service discovery, and routing for the APROPOS Group LLC ecosystem.</p></div><div class="footer-links"><a href="/government-contract-portal/">Government Contract Portal</a><a href="/registered-federal-contractors-portal/">Federal Contractors Portal</a><a href="/apropos-business-opportunity-agency/">SBDA</a><a href="/procurement-partnerships/">Institutional</a><a href="/apropos-group-llc/">APROPOS Group LLC</a></div></div><p class="legal">© 2026 APROPOS Group LLC. APROPOS is an independent private company and is not affiliated with or endorsed by any government agency. Verify authoritative government opportunity requirements with the issuing organization.</p></div>
 </footer>
 </body>
 </html>`;
