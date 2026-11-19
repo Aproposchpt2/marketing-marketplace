@@ -49,10 +49,10 @@
   ],
   "pathway": {
     "heading": "Strengthen the business behind the contracting profile",
-    "description": "If the company needs broader readiness, planning, funding, or business-development support before pursuing opportunities, review the National Enterprise Business Center pathway in the Marketplace.",
+    "description": "If the company needs broader readiness or business-development support before pursuing opportunities, review the Business Opportunity Development Agency pathway in the Marketplace.",
     "label": "Explore Business Readiness",
-    "url": "https://marketplace.aproposgroupllc.com/national-enterprise-business-center/",
-    "destination": "nebc"
+    "url": "https://marketplace.aproposgroupllc.com/apropos-business-opportunity-agency/",
+    "destination": "boda"
   },
   "related": ["understanding-naics-codes", "preparing-your-business-for-government-contracting", "how-to-decide-whether-to-bid"]
 }

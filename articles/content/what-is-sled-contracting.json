@@ -42,10 +42,10 @@
   ],
   "pathway": {
     "heading": "Continue from SLED education to state and local opportunity discovery",
-    "description": "Review the Marketplace guide to NAT-CORP, APROPOS's business-first pathway for state, local, municipal, education, institutional, and related public-sector contract discovery.",
-    "label": "Explore NAT-CORP",
-    "url": "https://marketplace.aproposgroupllc.com/nat-corp-contract-exchange/",
-    "destination": "natcorp"
+    "description": "Review the Marketplace guide to state and local contract opportunities, covering state, local, municipal, education, institutional, and related public-sector contract discovery.",
+    "label": "Explore State & Local Opportunities",
+    "url": "https://marketplace.aproposgroupllc.com/state-local-contract-opportunities/",
+    "destination": "state-local"
   },
   "related": ["federal-vs-state-local-government-contracts", "how-to-find-government-contracts", "how-to-decide-whether-to-bid"]
 }

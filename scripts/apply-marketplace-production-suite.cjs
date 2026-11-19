@@ -103,7 +103,7 @@ const suite = `
   <div class="amm-shell">
     <div class="amm-kicker">APROPOS Production Ecosystem</div>
     <h2 class="amm-title">One company. Multiple production platforms. <em>One clear next step.</em></h2>
-    <p class="amm-lead">APROPOS Marketing Marketplace is the public discovery and conversion hub for the current APROPOS Group LLC ecosystem. Explore the production platform that matches your business need — federal contracting, state and local procurement, business development, workflow automation, or website creation.</p>
+    <p class="amm-lead">APROPOS Marketing Marketplace is the public discovery and conversion hub for the current APROPOS Group LLC ecosystem. Explore the production platform that matches your business need — federal contracting, contract opportunity services, workflow automation, or website creation.</p>
     <div class="amm-grid">
       <article class="amm-card amm-card-featured">
         <div class="amm-card-tag">Federal Procurement</div>
@@ -113,18 +113,11 @@ const suite = `
         <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://federalcontractorportal.aproposgroupllc.com/">Visit Federal Portal</a><a class="amm-btn amm-btn-outline" href="/federal-contract-opportunities/">Learn About Federal Opportunities</a></div>
       </article>
       <article class="amm-card amm-card-featured">
-        <div class="amm-card-tag">State & Local Procurement</div>
-        <h3>NAT-CORP Contract Exchange</h3>
-        <p>Personalized state and local procurement intelligence for licensed contractors, with current multi-state coverage and continued expansion.</p>
-        <div class="amm-card-meta">14-day free trial · $119/month after trial</div>
-        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://natcorp.aproposgroupllc.com/">Visit NAT-CORP</a><a class="amm-btn amm-btn-outline" href="/state-local-contract-opportunities/">Explore State & Local Opportunities</a></div>
-      </article>
-      <article class="amm-card amm-card-featured">
-        <div class="amm-card-tag">Business Development</div>
-        <h3>National Enterprise Business Center</h3>
-        <p>An online full-service business center supporting assessment, readiness, planning, growth, funding guidance, and procurement preparation.</p>
-        <div class="amm-card-meta">14-day free trial · $39/month after trial</div>
-        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://nebc.aproposgroupllc.com/">Visit NEBC</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Business Readiness Guide</a></div>
+        <div class="amm-card-tag">Contract Opportunity Services</div>
+        <h3>Business Opportunity Development Agency</h3>
+        <p>Complimentary contract search, Vendor Cards, contract preparedness, and technical assistance that help businesses discover and pursue relevant opportunities.</p>
+        <div class="amm-card-meta">Complimentary opportunity access</div>
+        <div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://boda.stellaruc.com/">Visit BODA</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Business Readiness Guide</a></div>
       </article>
       <article class="amm-card">
         <div class="amm-card-tag">Business Automation</div>
@@ -155,15 +148,14 @@ const suite = `
   <div class="amm-shell">
     <div class="amm-kicker">Procurement Intelligence</div>
     <h2 class="amm-title">Start with the market your business is <em>actually pursuing.</em></h2>
-    <p class="amm-lead">APROPOS separates federal and state/local procurement into dedicated production pathways, while NEBC supports the business-readiness and development work that helps companies prepare for growth.</p>
+    <p class="amm-lead">APROPOS routes federal procurement to a dedicated production platform, while the Business Opportunity Development Agency supports the opportunity access, preparedness, and development work that helps companies prepare for growth.</p>
     <div class="amm-grid">
       <article class="amm-card"><div class="amm-card-tag">Federal</div><h3>Registered Federal Contractors Portal</h3><p>For registered federal contractors seeking personalized opportunity intelligence and a clearer path through federal solicitations.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://federalcontractorportal.aproposgroupllc.com/">Open Federal Portal</a></div></article>
-      <article class="amm-card"><div class="amm-card-tag">State & Local</div><h3>NAT-CORP Contract Exchange</h3><p>For licensed businesses pursuing state, local, institutional, and public-sector opportunities through a dedicated contract exchange.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://natcorp.aproposgroupllc.com/">Open NAT-CORP</a></div></article>
-      <article class="amm-card"><div class="amm-card-tag">Prepare & Grow</div><h3>National Enterprise Business Center</h3><p>For businesses that need assessment, development guidance, readiness support, funding pathways, or structured preparation before the next opportunity.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://nebc.aproposgroupllc.com/">Open NEBC</a></div></article>
+      <article class="amm-card"><div class="amm-card-tag">Prepare & Grow</div><h3>Business Opportunity Development Agency</h3><p>For businesses that want complimentary contract search, a public Vendor Card, contract preparedness, and technical assistance before the next opportunity.</p><div class="amm-actions"><a class="amm-btn amm-btn-primary" href="https://boda.stellaruc.com/">Open BODA</a></div></article>
     </div>
     <div class="amm-paths" aria-label="APROPOS procurement journey">
       <div class="amm-path"><strong>01 · Prepare</strong><span>Clarify the business, capabilities, readiness, and growth objectives.</span></div>
-      <div class="amm-path"><strong>02 · Discover</strong><span>Use the correct federal or state/local production platform to identify relevant opportunity.</span></div>
+      <div class="amm-path"><strong>02 · Discover</strong><span>Use the right production platform to identify relevant opportunity.</span></div>
       <div class="amm-path"><strong>03 · Understand</strong><span>Review requirements, fit, risks, questions, and the official solicitation before committing resources.</span></div>
       <div class="amm-path"><strong>04 · Decide</strong><span>The business remains in control of whether and how to pursue each opportunity.</span></div>
     </div>
@@ -175,8 +167,8 @@ const suite = `
     <div>
       <div class="amm-kicker">Business Growth</div>
       <h2 class="amm-title">Business development does not stop at <em>contract discovery.</em></h2>
-      <p class="amm-lead">NEBC extends the ecosystem beyond procurement search. Businesses can begin with an assessment, receive a personalized report, continue into Morgan’s Office, and move toward the department or service pathway appropriate to the business situation.</p>
-      <div class="amm-actions" style="margin-top:28px"><a class="amm-btn amm-btn-primary" href="https://nebc.aproposgroupllc.com/">Start at NEBC</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Explore Business Readiness</a></div>
+      <p class="amm-lead">The Business Opportunity Development Agency extends the ecosystem beyond procurement search. Businesses can search contracts at no cost, publish a Vendor Card, strengthen contract preparedness, and get technical assistance on the path to their next opportunity.</p>
+      <div class="amm-actions" style="margin-top:28px"><a class="amm-btn amm-btn-primary" href="https://boda.stellaruc.com/">Start at BODA</a><a class="amm-btn amm-btn-outline" href="/business-contract-readiness/">Explore Business Readiness</a></div>
     </div>
     <aside class="amm-trust-panel"><strong>Built around the business first.</strong><p>APROPOS platforms are designed to reduce the amount of searching, sorting, and disconnected decision-making a business must do before it reaches the right opportunity or service path.</p></aside>
   </div>
@@ -220,8 +212,6 @@ const suite = `
     <p class="amm-lead">Current subscription programs begin with a 14-day free trial. Pricing and availability remain subject to the current terms published by the applicable production property.</p>
     <div class="amm-price-grid">
       <article class="amm-price"><h3>Registered Federal Contractors Portal</h3><strong>14-day free trial · then $99/month</strong><p>Federal procurement intelligence for registered federal contractors.</p><a class="amm-btn amm-btn-primary" href="https://federalcontractorportal.aproposgroupllc.com/">Visit Federal Portal</a></article>
-      <article class="amm-price"><h3>NAT-CORP Contract Exchange</h3><strong>14-day free trial · then $119/month</strong><p>State and local procurement intelligence for licensed contractors.</p><a class="amm-btn amm-btn-primary" href="https://natcorp.aproposgroupllc.com/">Visit NAT-CORP</a></article>
-      <article class="amm-price"><h3>National Enterprise Business Center</h3><strong>14-day free trial · then $39/month</strong><p>Business development, readiness, growth, and guided support.</p><a class="amm-btn amm-btn-primary" href="https://nebc.aproposgroupllc.com/">Visit NEBC</a></article>
     </div>
   </div>
 </section>
@@ -271,8 +261,7 @@ const footer = `<footer class="amm-footer">
       <div><h3>APROPOS Marketing Marketplace</h3><p>The public discovery and conversion hub for the current APROPOS Group LLC ecosystem.</p></div>
       <div class="amm-footer-links">
         <a href="https://federalcontractorportal.aproposgroupllc.com/">Federal Contractors Portal</a>
-        <a href="https://natcorp.aproposgroupllc.com/">NAT-CORP</a>
-        <a href="https://nebc.aproposgroupllc.com/">NEBC</a>
+        <a href="https://boda.stellaruc.com/">Business Opportunity Development Agency</a>
         <a href="https://ai4businesses.org/">AI4 Businesses</a>
         <a href="https://ai4websitedesign.com/">AI4 Website Design</a>
         <a href="https://espanola.ai4websitedesign.com/">Español</a>

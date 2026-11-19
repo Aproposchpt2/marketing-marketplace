@@ -31,7 +31,7 @@ requireText('id="marketplace-resources"', 'resource library section');
 // Current business-intelligence properties and corporate authority.
 const destinations = [
   'https://bdms.aproposgroupllc.com/',
-  'https://ai4contactcenter.aproposgroupllc.com/',
+  'https://stellaruc.com/',
   'https://aproposgroupllc.com/'
 ];
 for (const url of destinations) requireText(url, `production destination ${url}`);

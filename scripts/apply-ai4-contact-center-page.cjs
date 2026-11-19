@@ -7,7 +7,7 @@ const root = process.cwd();
 const dir = path.join(root, 'ai4-contact-center');
 const file = path.join(dir, 'index.html');
 const canonical = 'https://marketplace.aproposgroupllc.com/ai4-contact-center/';
-const live = 'https://ai4contactcenter.aproposgroupllc.com/';
+const live = 'https://stellaruc.com/';
 
 fs.mkdirSync(dir, { recursive: true });
 
